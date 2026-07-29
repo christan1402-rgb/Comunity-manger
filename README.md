@@ -1,4 +1,14 @@
-# Informe diario de opciones — AAPL · QQQ · SPY
+# Comunity-manger
+
+Dos sistemas automatizados que viven en este repositorio:
+
+- **[Guiones semanales de reels](guiones-semanales/)** — cinco reels por semana escritos
+  desde el informe de noticias y entregados listos para grabar en Drive y Calendar.
+- **Informe diario de opciones** — lo que documenta este archivo, de aquí para abajo.
+
+---
+
+## Informe diario de opciones — AAPL · QQQ · SPY
 
 Sistema de análisis previo a la apertura del mercado estadounidense para operar opciones
 call y put en Interactive Brokers sobre tres instrumentos: **AAPL**, **QQQ** y **SPY**.
