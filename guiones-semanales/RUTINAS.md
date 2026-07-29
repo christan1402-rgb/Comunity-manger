@@ -10,16 +10,32 @@ Cinco tareas programadas, una por video. Todas los domingos, hora de Chile.
 | `guion 4` | 11:30 | `30 15 * * 0` | `30 14 * * 0` | 4 | jueves |
 | `guion 5` | 12:00 | `0 16 * * 0` | `0 15 * * 0` | 5 | viernes |
 
-Cada rutina abre una sesión nueva y termina con una notificación al teléfono.
+Las cinco están atadas a una conversación existente y despiertan esa misma
+conversación, una tras otra. Los resultados llegan ahí, no por notificación.
+
+## Por qué van atadas a una conversación y no a sesiones nuevas
+
+Una rutina que abre una sesión nueva en cada disparo arranca **sin herramientas
+de conector**: sin Google Drive y sin Google Calendar. Con eso no hay entrega
+posible, que es justamente todo el trabajo. Una rutina atada a una conversación
+que ya tiene esos conectores los conserva.
+
+El precio es que no hay notificación al teléfono por cada corrida —esa opción
+solo existe para las rutinas de sesión nueva— y que los cinco resultados
+aparecen en la misma conversación. A cambio funciona.
+
+Si algún día se necesita sesión nueva por corrida, hay que crear las rutinas
+desde la interfaz de rutinas de claude.ai, que sí puede adjuntarles conectores.
 
 ## Cómo se encadenan sin compartir archivos
 
-Cada rutina arranca en un contenedor limpio, sin nada de lo que dejó la
-anterior. El encadenado no depende de eso: es determinista.
+Aunque hoy comparten conversación, el encadenado no se apoya en eso: es
+determinista, y sigue siendo correcto si el contenedor se recicla entre
+disparos y se pierde todo lo local.
 
 - Las cinco leen **el mismo informe**: el archivo directo más reciente de la
   carpeta de Informes. Nosotros nunca modificamos el informe, así que las cinco
-  llegan al mismo.
+  llegan al mismo. El repositorio se vuelve a clonar si no está.
 - `guion N` toma **la historia número N**, en el orden original del informe.
   Ninguna necesita saber qué hizo otra.
 - La semana de grabación sale de la fecha de ejecución: si corre domingo, es el
@@ -31,16 +47,24 @@ falla, `guion 3` sigue siendo correcto.
 ## El cambio de hora de Chile
 
 El cron se guarda en UTC y Chile cambia de hora dos veces al año. Cuando pasa,
-las cinco rutinas se corren una hora y hay que ajustarlas.
+las cinco rutinas se corren una hora y hay que ajustarlas. Fechas sacadas de la
+base de datos de zonas horarias, no de memoria:
 
-- **Primer domingo de septiembre** — empieza el horario de verano, UTC−4 → UTC−3.
-  Los cinco cron bajan una hora (`0 14` → `0 13`).
-- **Primer domingo de abril** — termina, UTC−3 → UTC−4.
-  Los cinco cron suben una hora (`0 13` → `0 14`).
+| Cuándo | Qué pasa | Los cinco cron |
+|---|---|---|
+| **2026-09-06, 01:00 local** | UTC−4 → UTC−3 | bajan una hora (`0 14` → `0 13`) |
+| **2027-04-03, 23:00 local** | UTC−3 → UTC−4 | suben una hora (`0 13` → `0 14`) |
 
-Hay una rutina de una sola vez para cada cambio que lo hace sola y avisa. Es el
-mismo mecanismo que usa el informe diario de opciones para el cambio de hora de
-Nueva York.
+Los dos caen en la madrugada del domingo, así que el domingo afectado ya corre
+con la hora nueva: el ajuste tiene que estar hecho **el sábado anterior**, no
+después. Hay una rutina de una sola vez para cada cambio, programada el sábado,
+que corrige los cinco cron y avisa. La de abril además crea la de septiembre
+siguiente, para que el ciclo no se corte. Es el mismo mecanismo que usa el
+informe diario de opciones para el cambio de hora de Nueva York.
+
+Si un domingo los guiones llegan una hora corridos, eso es lo que falló: revisa
+con `list_triggers` que el cron esté en la columna correcta de la tabla de
+arriba.
 
 ## Verificar o cambiar las rutinas
 
