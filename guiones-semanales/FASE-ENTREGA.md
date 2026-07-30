@@ -316,8 +316,48 @@ de imagen, cualquier cosa bajo 640×360 y lo que no logra bajar del presupuesto.
 Cuando falla no deja el `.b64` escrito, justamente para que nadie lo suba.
 
 Medido con fotos reales: una de 1920×1080 queda en 1280×720 calidad 80, unos
-64 KB, 86 000 caracteres de base64. Cinco imágenes son unos 430 000 caracteres
-repartidos en cinco llamadas.
+64 KB, 86 000 caracteres de base64.
+
+### El límite de verdad: el base64 pasa dos veces
+
+Esto se midió en una corrida real y cambia cómo hay que planificar el trabajo.
+El base64 no viaja del disco a Drive: pasa por el contexto **dos veces** — una
+al leer el archivo y otra al mandarlo como parámetro de `create_file`. Una
+imagen de 45 KB son 60 000 caracteres, o sea unos 120 000 caracteres de
+contexto. Cinco imágenes son más de medio millón.
+
+Consecuencias prácticas:
+
+- **Un video con sus cinco imágenes es el trabajo de una corrida.** No intentes
+  los cinco videos con sus veinticinco imágenes de una sola pasada: no cabe.
+  Las cinco tareas existen justamente para repartir eso.
+- Si bajas el presupuesto para que quepan más, las imágenes se van a 400-500 px
+  de ancho. Eso **no sirve** para B-roll vertical. Antes de entregar una imagen
+  de menos de 600 px, no la entregues: busca otra fuente o genérala.
+- Orden recomendado dentro de cada corrida: primero el Doc y el evento, que son
+  baratos y son el entregable que se lee; las imágenes después.
+
+### Rechaza las imágenes con cifras quemadas
+
+Las imágenes de proveedor suelen traer texto de marketing incrustado: «20x
+improved accuracy», «Fully autonomous». Hay dos razones para descartarlas, y la
+segunda es la importante:
+
+1. Es texto en inglés dentro de un reel en español.
+2. Es una **cifra que no verificaste y que no está en el guion**. Ponerla en
+   pantalla al lado de la cara de Cristián es exactamente el riesgo que el paso
+   0 existe para evitar: queda como si él la estuviera afirmando.
+
+En una fuente real solo tres de nueve candidatas estaban limpias. Cuenta con
+eso: revisa cada imagen mirándola, no solo por su nombre de archivo.
+
+### El `fileSize` de un Doc recién creado miente
+
+`create_file` sobre un Google Doc devuelve `fileSize: "1"`. **No significa que
+el Doc esté vacío.** Es un artefacto de la respuesta antes de que Drive indexe
+el archivo. Verifica siempre con `read_file_content`, nunca con el tamaño — si
+te guías por el tamaño vas a creer que falló y vas a crear un duplicado que
+después no se puede borrar.
 
 - Presupuesto por defecto: **70 000 bytes**. Es un margen prudente, no un límite
   medido del conector. Si una subida falla por tamaño, repite con
