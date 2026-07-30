@@ -177,6 +177,44 @@ prohibido, para que no se confunda con la correcta.
 
 Las tareas dos a cinco no pueden elegir otro informe.
 
+### Cómo viene el informe
+
+Comprobado sobre los informes reales de la carpeta. El archivo se llama por
+fecha (`2026-07-26`, `2026-07-21.md`) y llega como Google Doc **o** como
+markdown. `read_file_content` lee los dos; en el markdown devuelve los
+caracteres escapados (`\#\#`, `\*\*`), así que al buscar los títulos cuenta con
+esa forma además de la limpia.
+
+Estructura, siempre la misma:
+
+```
+# Radar semanal de automatización empresarial
+## <titular de la historia 1>
+**Titular:** …
+**Historia:** …
+**Cómo gana o ahorra dinero:** …
+**Estado:** ANUNCIADO | IMPLEMENTADO | MEDIDO
+**Fuente y material visual:** [enlace] · [enlace]
+## <titular de la historia 2>
+…
+```
+
+De ahí sale todo lo que necesitas:
+
+- **Las cinco historias** son los cinco `##`, en ese orden. `guion N` toma el
+  N-ésimo.
+- **`sourceUrls`** son los enlaces de «Fuente y material visual» de tu historia,
+  y nada más. No mezcles los de otras historias.
+- **«Cómo gana o ahorra dinero»** suele traer justo lo que la empresa NO publicó
+  («CCEP no publicó ahorro ni retorno financiero»). Eso es material privado para
+  responder comentarios. **No entra al guion.**
+- **«Estado»** te dice cuánto peso tiene el dato. `ANUNCIADO` es una promesa, no
+  un resultado: no lo cuentes como si ya hubiera pasado.
+
+Ojo con las fuentes: muchas son publicaciones de LinkedIn, que pide sesión y no
+suelta las imágenes. Cuenta con caer en el orden de reintento de más abajo y con
+generar alguna imagen.
+
 ---
 
 ## Paso 2 · Preparar el Google Doc
