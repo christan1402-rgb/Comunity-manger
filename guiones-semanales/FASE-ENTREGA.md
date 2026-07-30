@@ -62,7 +62,6 @@ Herramientas nativas. **Nunca** automatización visual del navegador.
 | Leer un Doc o un informe | `read_file_content` |
 | Metadatos (tamaño, tipo, fecha, padres) | `get_file_metadata` |
 | Crear un Google Doc nativo | `create_file` con `contentMimeType: text/plain` y **sin** `disableConversionToGoogleType` |
-| Subir una imagen | `create_file` con `base64Content` + `contentMimeType: image/jpeg` + `disableConversionToGoogleType: true` |
 | Archivar el informe en Procesados | `copy_file` con `parentId = {{PROCESADOS_ID}}` |
 
 ### Google Drive — lo que el conector NO puede hacer
@@ -74,6 +73,9 @@ operación de escritura sobre archivos existentes:**
 - ✗ No puede borrar ni mandar a la papelera.
 - ✗ No puede renombrar.
 - ✗ No puede editar el contenido de un Doc ya creado.
+- ✗ **No puede subir imágenes en la práctica.** `create_file` acepta
+  `base64Content`, pero el parámetro de una imagen usable no cabe en una sola
+  respuesta. Medido dos veces. Ver el paso 4.
 
 Consecuencias, ya resueltas más abajo:
 
@@ -110,7 +112,9 @@ Dentro de esa base:
 - `video-N-assets/` — descargas y candidatas
 - `video-N-assets/final-images/` — las cinco elegidas, ya comprimidas
 
-Esta carpeta es **temporal**. La entrega final siempre es Drive.
+Esta carpeta es **temporal** para las descargas. El Doc y el evento se entregan
+en Drive y Calendar; las cinco imágenes se entregan a Cristián como archivos y
+las arrastra él (paso 4).
 El archivo de estado **nunca** se sube a Drive ni se commitea al repositorio.
 
 ### El estado no es un requisito, es un registro
@@ -318,24 +322,40 @@ Cuando falla no deja el `.b64` escrito, justamente para que nadie lo suba.
 Medido con fotos reales: una de 1920×1080 queda en 1280×720 calidad 80, unos
 64 KB, 86 000 caracteres de base64.
 
-### El límite de verdad: el base64 pasa dos veces
+### El paso 4 no se puede hacer: las imágenes NO se suben desde acá
 
-Esto se midió en una corrida real y cambia cómo hay que planificar el trabajo.
-El base64 no viaja del disco a Drive: pasa por el contexto **dos veces** — una
-al leer el archivo y otra al mandarlo como parámetro de `create_file`. Una
-imagen de 45 KB son 60 000 caracteres, o sea unos 120 000 caracteres de
-contexto. Cinco imágenes son más de medio millón.
+Esto se midió ejecutando, dos veces, y es la conclusión definitiva. **No
+intentes subir imágenes con `create_file`.** No es que sea caro: no es posible.
 
-Consecuencias prácticas:
+El tope no es el contexto total, es el **límite de salida de una sola
+respuesta**. El parámetro `base64Content` de una imagen que cumpla 600 px de
+ancho son unos 40 000 caracteres, y emitir eso agota la respuesta antes de
+cerrar la llamada. Medido con las cinco imágenes reales de un video: 28-43 KB
+cada una, 38 000-57 000 caracteres de base64 cada una. **Ninguna entra.** No es
+que no quepan cinco: no cabe una.
 
-- **Un video con sus cinco imágenes es el trabajo de una corrida.** No intentes
-  los cinco videos con sus veinticinco imágenes de una sola pasada: no cabe.
-  Las cinco tareas existen justamente para repartir eso.
-- Si bajas el presupuesto para que quepan más, las imágenes se van a 400-500 px
-  de ancho. Eso **no sirve** para B-roll vertical. Antes de entregar una imagen
-  de menos de 600 px, no la entregues: busca otra fuente o genérala.
-- Orden recomendado dentro de cada corrida: primero el Doc y el evento, que son
-  baratos y son el entregable que se lee; las imágenes después.
+Y no se puede rodear:
+
+- Bajar el presupuesto a 18 000 bytes deja las imágenes en 460 px, y el script
+  rechaza varias con código 1. Con 600 px de ancho el piso es ~28 KB, y 28 KB ya
+  no caben en una llamada.
+- Partir el base64 en mitades sí permite **leerlo**, pero `create_file` recibe el
+  contenido en un solo parámetro: no hay forma de mandarlo por partes.
+- Reintentar es peor que no hacer nada: un base64 truncado sube un JPEG corrupto,
+  y el conector no puede borrarlo.
+
+**Lo que sí funciona:** dejar las cinco imágenes preparadas en el disco y
+entregarlas a Cristián como archivos, con `SendUserFile`. Él las arrastra a la
+carpeta `video N` en un gesto. Es un paso manual por video, y es el único camino
+que produce imágenes usables.
+
+Ventaja de hacerlo así: **al no pasar por base64, el presupuesto de bytes deja
+de existir.** No comprimas para caber. Baja el original, reescala a 1920 px como
+máximo y guarda con calidad 90. Las imágenes quedan mucho mejor que las que
+tenían que caber en 45 KB.
+
+El `--max-bytes` del script sigue sirviendo solo si algún día aparece una
+herramienta de Drive que suba por URL o por partes.
 
 ### Rechaza las imágenes con cifras quemadas
 
@@ -390,30 +410,28 @@ cuáles son auténticas y cuáles generadas.
 
 ---
 
-## Paso 4 · Subir las imágenes a Drive
+## Paso 4 · Entregar las imágenes
 
-1. Para cada una de las cinco: lee el `.b64` correspondiente y llama a
-   `create_file` con:
-   - `parentId = {{VIDEO_N_ID}}`
-   - `title` = el nombre del archivo
-   - `base64Content` = el contenido del `.b64`
-   - `contentMimeType = 'image/jpeg'` (o `image/png`)
-   - `disableConversionToGoogleType: true`
-2. Solo las cinco elegidas. Hijas directas de `video N`.
-3. No crees subcarpetas de imágenes en Drive.
-4. No insertes las imágenes en el Google Doc.
-5. Vuelve a listar la carpeta y confirma que las cinco de esta semana están,
-   numeradas del `01` al `05`.
-6. Verifica que ninguna esté rota: `read_file_content` sobre cada imagen
-   devuelve una descripción de lo que se ve. Sirve para dos cosas a la vez —
-   confirmar que el archivo se subió entero y confirmar que la imagen muestra
-   lo que creías. Si la descripción no corresponde, cámbiala.
-7. Guarda los cinco `imageIds` en el estado.
+El conector **no puede** subirlas: ver «El paso 4 no se puede hacer» más arriba.
+El procedimiento real es este.
 
-Marca `videoN.status = OK` solo cuando estén verificados: un Google Doc nativo,
-cinco imágenes, enlaces e IDs válidos, y el contenido releído desde Drive.
+1. Deja las cinco en `/tmp/entrega/video-N/` con sus nombres definitivos
+   (`01-...-AAAA-MM-DD.jpg` … `05-...-AAAA-MM-DD.jpg`).
+2. Sin comprimir para caber: original, máximo 1920 px de ancho, calidad 90.
+3. Arma un montaje de contacto con las cinco y **míralo** antes de entregar. Es
+   una sola lectura y te ahorra mandar una imagen equivocada.
+4. Entrégalas con `SendUserFile`, las cinco juntas, con un pie que diga a qué
+   carpeta `video N` van.
+5. En la respuesta final di, por cada imagen, de dónde salió y si es auténtica o
+   generada.
 
----
+Cristián las arrastra a la carpeta. Ese paso es manual y no hay forma de
+evitarlo desde acá.
+
+Lo que sí queda verificado en Drive es el Google Doc, que se crea sin problema
+porque su contenido es texto y pesa poco. `videoN.status = OK` significa
+entonces: Doc nativo creado y releído, evento de Calendar verificado, y las cinco
+imágenes entregadas a Cristián.
 
 ## Paso 5 · Agregar el video a Google Calendar
 
@@ -498,7 +516,9 @@ Solo `guion 5`, y solo después de verificar todo:
 
 1. Existen las carpetas `video 1` a `video 5`.
 2. Cada una tiene un Google Doc nativo válido de esta semana.
-3. Cada una tiene las cinco imágenes de apoyo de esta semana.
+3. Cada una tiene sus cinco imágenes de esta semana, o están entregadas
+   a Cristián y él avisó que las arrastró. Si no las arrastró todavía, dilo y
+   no lo trates como falla del proceso.
 4. Los cinco Docs fueron releídos desde Drive.
 5. Las cinco historias son diferentes.
 6. Existen los cinco eventos de Calendar.
