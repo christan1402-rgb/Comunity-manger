@@ -160,11 +160,17 @@ lo que pasó. Si falta, no se bloquea nada: se vuelve a deducir.
 No crees carpetas con fecha, ni carpetas semanales, ni ningún otro contenedor.
 Trabaja directamente en la carpeta `video N`.
 
-### Dónde están de verdad las carpetas `video N` — comprobado
+### Las carpetas `video N` van en la RAÍZ de entrega
 
-Ojo con esto, porque confundió a Cristián y me costó una ronda entera
-entenderlo. La raíz de entrega **no contiene** las carpetas de video. La
-estructura real es:
+Regla dada por Cristián: las cinco carpetas `video N` tienen que estar
+**directamente dentro de la raíz de entrega**, la que él abre. Si no existen, se
+crean ahí con `create_file` y `mimeType` `application/vnd.google-apps.folder`.
+Dentro de cada una van su Doc y sus cinco imágenes, y nada más.
+
+Existe una estructura VIEJA que **no se usa**: unas carpetas `video 1..5`
+enterradas dentro de la carpeta `PROCESADOS` de la raíz. Cristián no las ve, y
+por eso creía que no se generaba nada. Quedaron ahí porque el conector no puede
+moverlas ni borrarlas. La estructura vieja era:
 
 ```
 Raíz de entrega  {{RAIZ_ENTREGA_ID}}
@@ -363,40 +369,59 @@ Cuando falla no deja el `.b64` escrito, justamente para que nadie lo suba.
 Medido con fotos reales: una de 1920×1080 queda en 1280×720 calidad 80, unos
 64 KB, 86 000 caracteres de base64.
 
-### El paso 4 no se puede hacer: las imágenes NO se suben desde acá
+### Las imágenes NO se suben por el conector — la razón verdadera
 
-Esto se midió ejecutando, dos veces, y es la conclusión definitiva. **No
-intentes subir imágenes con `create_file`.** No es que sea caro: no es posible.
+Este documento culpó dos veces a la causa equivocada. Decía que el
+`base64Content` no cabía en una respuesta. **Falso:** se emitieron 34 412
+caracteres y llegaron byte-exactos, con `fileSize` idéntico al original. El
+límite de salida no es el problema.
 
-El tope no es el contexto total, es el **límite de salida de una sola
-respuesta**. El parámetro `base64Content` de una imagen que cumpla 600 px de
-ancho son unos 40 000 caracteres, y emitir eso agota la respuesta antes de
-cerrar la llamada. Medido con las cinco imágenes reales de un video: 28-43 KB
-cada una, 38 000-57 000 caracteres de base64 cada una. **Ninguna entra.** No es
-que no quepan cinco: no cabe una.
+El problema real es la **fidelidad al copiar**. Reproducir decenas de miles de
+caracteres de base64 exactamente falla, y falla de un modo que no se puede
+detectar:
 
-Y no se puede rodear:
+- Tasa medida: **un error cada ~25 000 caracteres**. Un JPEG de 700 px son
+  31 000-33 000 caracteres, o sea ~1,3 errores esperados por imagen: alrededor
+  de **25% de probabilidad de que una imagen suba limpia.**
+- Los errores observados son del tipo peor: un carácter cambiado (`a` → `Y`) o
+  un token repetido duplicado (`OkOboO` → `OkOboOboO`). **La longitud no cambia.**
+- Drive **no devuelve `md5Checksum`** en `get_file_metadata`. Lo único
+  comparable es `fileSize`, y con un error de un carácter el `fileSize` coincide.
+  O sea: **una imagen corrupta se reporta como buena.**
 
-- Bajar el presupuesto a 18 000 bytes deja las imágenes en 460 px, y el script
-  rechaza varias con código 1. Con 600 px de ancho el piso es ~28 KB, y 28 KB ya
-  no caben en una llamada.
-- Partir el base64 en mitades sí permite **leerlo**, pero `create_file` recibe el
-  contenido en un solo parámetro: no hay forma de mandarlo por partes.
-- Reintentar es peor que no hacer nada: un base64 truncado sube un JPEG corrupto,
-  y el conector no puede borrarlo.
+### Por qué el md5 antes de subir tampoco alcanza
 
-**Lo que sí funciona:** dejar las cinco imágenes preparadas en el disco y
-entregarlas a Cristián como archivos, con `SendUserFile`. Él las arrastra a la
-carpeta `video N` en un gesto. Es un paso manual por video, y es el único camino
-que produce imágenes usables.
+Se intentó este protocolo: leer el `.b64`, escribirlo a un archivo local,
+comparar md5, y solo entonces subir. **No sirve, y conviene entender por qué
+para no reinventarlo:** el md5 valida la escritura local, pero la llamada a
+`create_file` es una **emisión nueva e independiente** de esos mismos 33 000
+caracteres. Nada garantiza que la segunda salga igual que la primera, y ya no
+hay forma de comprobarlo después.
 
-Ventaja de hacerlo así: **al no pasar por base64, el presupuesto de bytes deja
-de existir.** No comprimas para caber. Baja el original, reescala a 1920 px como
-máximo y guarda con calidad 90. Las imágenes quedan mucho mejor que las que
-tenían que caber en 45 KB.
+Súmale que un archivo corrupto **no se puede borrar** y además **quema su
+nombre**: nadie puede volver a usar `01-…jpg` hasta que Cristián lo borre a
+mano. Con cinco imágenes, lo esperable es terminar con cuatro archivos rotos,
+indetectables y permanentes.
 
-El `--max-bytes` del script sigue sirviendo solo si algún día aparece una
-herramienta de Drive que suba por URL o por partes.
+### Entonces: las imágenes se entregan como archivos
+
+`SendUserFile` con las cinco, y Cristián las arrastra a la carpeta `video N`.
+Un gesto por video.
+
+Ventaja que compensa el gesto: **sin base64 no hay presupuesto de bytes.** No
+comprimas. Baja el original, reescala a 1920 px máximo, calidad 90. Quedan a
+1280-1920 px en vez de los ~700 px que permitiría el conector.
+
+En el mensaje de entrega pon el enlace de la carpeta `video N` de destino, para
+que arrastrar sea inmediato.
+
+### Si alguien insiste en subirlas por el conector
+
+Que sea decisión explícita de Cristián, dicha por él, sabiendo que lo probable
+es dejar la carpeta con archivos rotos que nadie puede borrar. En ese caso:
+una imagen por corrida, tamaño mínimo, y avisando que la verificación
+post-subida no existe.
+
 
 ### Rechaza las imágenes con cifras quemadas
 
@@ -453,7 +478,7 @@ cuáles son auténticas y cuáles generadas.
 
 ## Paso 4 · Entregar las imágenes
 
-El conector **no puede** subirlas: ver «El paso 4 no se puede hacer» más arriba.
+El conector **no puede** subirlas de forma confiable: ver «Las imágenes NO se suben por el conector» más arriba.
 El procedimiento real es este.
 
 1. Deja las cinco en `/tmp/entrega/video-N/` con sus nombres definitivos
