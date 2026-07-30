@@ -25,28 +25,34 @@ Esta fase solamente entrega lo que ya está escrito.
 | `storyKey` | Identificador de la historia, para evitar repeticiones |
 | `recordingWeekStart` | Lunes de la semana de grabación (AAAA-MM-DD) |
 
-### `documentContent` — qué va dentro del Doc
+### `documentContent` — SOLO el guion para leer
 
-El Doc es lo que abre Cristián para grabar y lo que abre el editor para montar.
-Lleva, en este orden:
+Pedido explícito de Cristián, y no es negociable: el Doc lleva **únicamente el
+guion corrido, tal como se lee en voz alta.** Nada más.
 
-1. El guion en sus 6 bloques, con los segundos de cada uno.
-2. El reparto: palabras y porcentaje de noticia vs negocio, total y duración.
-3. La versión para grabar (`guionGrabable`), completa y en un solo párrafo.
-4. Las notas de actuación, línea por línea.
+**NO va en el Doc:**
 
-**No lleva** verificación de datos, fuentes, riesgos, auditorías ni notas
-técnicas. Eso queda en el chat, no en el Doc.
+- ✗ Los 6 bloques ni sus nombres (GANCHO, HISTORIA, REMATE…).
+- ✗ Los segundos ni el conteo de palabras de cada bloque.
+- ✗ El reparto de noticia vs negocio.
+- ✗ Las notas de actuación.
+- ✗ Verificación, fuentes, riesgos, auditorías, notas técnicas.
+
+O sea: `documentContent` es exactamente `guionGrabable`. Un solo párrafo, sin
+títulos, sin encabezados, sin la palabra clave arriba. El Doc se abre y se lee.
+
+El análisis no se pierde: los bloques, el reparto y las notas de actuación van
+en la respuesta del chat, que es donde Cristián los revisa si los quiere. Al
+Doc no entran, porque el Doc es el atril.
 
 ### `documentTitle` — convención
 
-`Video N — PALABRA CLAVE — tema corto (semana AAAA-MM-DD)`
+`Video N — PALABRA CLAVE — guion para grabar`
 
-Ejemplo: `Video 1 — FUGA — perro robot de Coca-Cola (semana 2026-08-03)`
+Ejemplo: `Video 1 — PLANILLA — guion para grabar`
 
-La semana va en el título porque el conector de Drive no puede borrar ni
-renombrar archivos: si no lleva fecha, el paquete nuevo se confunde con el de
-la semana pasada dentro de la misma carpeta.
+La palabra clave va en el título para distinguir un video de otro de un vistazo,
+sin abrir nada.
 
 ---
 
@@ -148,15 +154,50 @@ lo que pasó. Si falta, no se bloquea nada: se vuelve a deducir.
 | Video 3 | `{{VIDEO_3_ID}}` |
 | Video 4 | `{{VIDEO_4_ID}}` |
 | Video 5 | `{{VIDEO_5_ID}}` |
-| Informes procesados | `{{PROCESADOS_ID}}` |
+| Informes procesados (dentro de Informes) | `{{PROCESADOS_ID}}` |
+| Contenedor de las carpetas `video N`, confusamente llamado PROCESADOS | `{{PROCESADOS_ENTREGA_ID}}` |
 
 No crees carpetas con fecha, ni carpetas semanales, ni ningún otro contenedor.
 Trabaja directamente en la carpeta `video N`.
 
-`{{PROCESADOS_ID}}` es la única carpeta autorizada para archivar el informe.
-Existe otra carpeta llamada `PROCESADOS` dentro de la raíz de entrega:
-**no la uses.** Su ID también está en el prompt de la rutina, marcado como
-prohibido, para que no se confunda con la correcta.
+### Dónde están de verdad las carpetas `video N` — comprobado
+
+Ojo con esto, porque confundió a Cristián y me costó una ronda entera
+entenderlo. La raíz de entrega **no contiene** las carpetas de video. La
+estructura real es:
+
+```
+Raíz de entrega  {{RAIZ_ENTREGA_ID}}
+└── PROCESADOS   {{PROCESADOS_ENTREGA_ID}}
+    ├── video 1
+    ├── video 2
+    ├── video 3
+    ├── video 4
+    └── video 5
+```
+
+Las cinco `video N` son hijas de esa carpeta llamada `PROCESADOS`, la que está
+dentro de la raíz de entrega. Si Cristián abre el enlace de la raíz, solo ve
+`PROCESADOS` y cree que no se hizo nada.
+
+Dos consecuencias:
+
+1. **En la respuesta final, nunca le mandes el enlace de la raíz de entrega.**
+   Manda el enlace directo de la carpeta `video N`, que es donde están las cosas.
+2. El nombre `PROCESADOS` de esa carpeta es un accidente histórico: **no es** la
+   carpeta de informes procesados. Para archivar el informe se usa
+   `{{PROCESADOS_ID}}`, que es otra y está dentro de Informes. No las confundas.
+
+El conector no puede mover carpetas, así que esta estructura no se puede
+aplanar desde acá. Si molesta, Cristián arrastra las cinco a la raíz a mano y
+los IDs siguen siendo los mismos.
+
+`{{PROCESADOS_ID}}` es la única carpeta autorizada para archivar el informe, y
+está dentro de Informes.
+La otra carpeta llamada `PROCESADOS`, `{{PROCESADOS_ENTREGA_ID}}`, está dentro de
+la raíz de entrega y **nunca** se usa para archivar informes — pero sí es la que
+contiene las cinco carpetas `video N` (ver abajo). Mismo nombre, funciones
+distintas: es la trampa más fácil de pisar de todo este proceso.
 
 ---
 
@@ -550,8 +591,8 @@ El original no se mueve porque no se puede, no porque se haya olvidado.
 
 Solo enlaces comprobados:
 
-- raíz de entrega
-- carpeta `video N`
+- carpeta `video N` — este es el enlace que sirve. **No mandes el de la raíz de
+  entrega:** ahí Cristián solo ve `PROCESADOS` y parece que no se hizo nada.
 - Google Doc
 - las cinco imágenes
 - el evento de Calendar
