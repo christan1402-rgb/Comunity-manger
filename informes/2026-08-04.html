@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Informe AAPL QQQ SPY</title>
+<style>
+:root{
+  --surface:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --base:#c3c2b7; --border:rgba(11,11,11,.10);
+  --blue:#2a78d6; --blue-l:#86b6ef; --blue-ll:#cde2fb; --orange:#eb6834;
+  --crit:#d03b3b; --warn:#fab219; --good:#0ca30c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4;margin:0}
+html,body{background:var(--surface);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","DejaVu Sans",sans-serif;
+  -webkit-font-smoothing:antialiased;font-size:10.5pt;line-height:1.45}
+.page{width:210mm;height:296.6mm;padding:13mm 15mm 11mm;position:relative;overflow:hidden;
+  page-break-after:always;display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto}
+h1{font-size:23pt;line-height:1.1;letter-spacing:-.02em;font-weight:700}
+h2{font-size:13pt;font-weight:700;letter-spacing:-.01em;margin-bottom:2.5mm}
+h3{font-size:10pt;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);margin-bottom:2mm}
+p{color:var(--ink2)}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;
+  border-bottom:2px solid var(--ink);padding-bottom:3mm;margin-bottom:6mm}
+.hd .t{font-size:12pt;font-weight:700;letter-spacing:-.01em}
+.hd .d{font-size:9pt;color:var(--muted);text-align:right;line-height:1.35}
+.sub{font-size:8.5pt;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+
+/* verdict block */
+.verdict{border:2px solid var(--crit);border-radius:4mm;padding:7mm;margin-bottom:6mm;background:#fdf5f5}
+.vtop{display:flex;align-items:center;gap:4mm;margin-bottom:3.5mm}
+.dot{width:11mm;height:11mm;border-radius:50%;background:var(--crit);flex:none}
+.vlabel{font-size:9pt;font-weight:700;letter-spacing:.12em;color:var(--crit);text-transform:uppercase}
+.vmain{font-size:19pt;font-weight:700;line-height:1.15;letter-spacing:-.02em}
+.vsub{font-size:10.5pt;color:var(--ink2);margin-top:3mm;line-height:1.5}
+
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:6mm}
+.stat{border:1px solid var(--border);border-radius:3mm;padding:4.5mm;background:var(--plane)}
+.stat .n{font-size:20pt;font-weight:700;letter-spacing:-.03em;line-height:1}
+.stat .l{font-size:8.5pt;color:var(--muted);margin-top:2mm;line-height:1.35}
+.red{color:var(--crit)} .blu{color:var(--blue)} .grn{color:var(--good)}
+
+.note{font-size:9pt;color:var(--muted);line-height:1.5;margin-top:2mm}
+.foot{margin-top:auto;padding-top:4mm;padding-right:16mm;border-top:1px solid var(--grid);
+  font-size:7.5pt;color:var(--muted);line-height:1.5}
+.pg{position:absolute;bottom:7mm;right:15mm;font-size:8pt;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* cards */
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm}
+.card{border:1px solid var(--border);border-radius:3mm;overflow:hidden;background:var(--plane);display:flex;flex-direction:column}
+.card .top{padding:3.5mm 4mm;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:baseline}
+.card .tk{font-size:13pt;font-weight:700;letter-spacing:-.01em}
+.card .px{font-size:9pt;color:var(--muted);font-variant-numeric:tabular-nums}
+.card .body{padding:4mm;flex:1}
+.tag{display:inline-block;font-size:8pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:1.5mm 3mm;border-radius:2mm;background:var(--crit);color:#fff;margin-bottom:3mm}
+.card p{font-size:9pt;line-height:1.5}
+
+/* do / dont */
+.dl{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.box{border:1px solid var(--border);border-radius:3mm;padding:5mm;background:var(--plane)}
+.box.bad{border-color:#f0c9c9;background:#fdf6f6}
+.box.ok{border-color:#c9e6c9;background:#f5faf5}
+.box h3{margin-bottom:3mm}
+ul{list-style:none}
+li{font-size:9pt;color:var(--ink2);line-height:1.42;padding-left:5.5mm;position:relative;margin-bottom:2.4mm}
+li::before{position:absolute;left:0;top:0;font-weight:700}
+.box.bad li::before{content:"\00d7";color:var(--crit);font-size:12pt;line-height:1.1}
+.box.ok li::before{content:"\2713";color:var(--good);font-size:10pt}
+li b{color:var(--ink)}
+svg{display:block}
+.cap{font-size:8.5pt;color:var(--muted);margin-top:2.5mm;line-height:1.45}
+.chart{border:1px solid var(--border);border-radius:3mm;padding:5mm;background:var(--plane);margin-bottom:5mm}
+table{width:100%;border-collapse:collapse;font-size:9.5pt}
+th{text-align:left;font-size:8pt;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+  font-weight:700;padding:0 0 2mm;border-bottom:1px solid var(--base)}
+td{padding:2.5mm 0;border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums;color:var(--ink2)}
+td.k{color:var(--ink);font-weight:600;font-variant-numeric:normal}
+th.r,td.r{text-align:right}
+</style></head><body>
+
+<!-- ══════════════ PÁGINA 1 ══════════════ -->
+<section class="page">
+  <div class="hd">
+    <div><div class="sub">Informe diario de opciones</div>
+      <div class="t">AAPL &nbsp;·&nbsp; QQQ &nbsp;·&nbsp; SPY</div></div>
+    <div class="d">Martes 4 de agosto de 2026<br>Datos a las 8:17 AM · Nueva York</div>
+  </div>
+
+  <div class="verdict">
+    <div class="vtop"><div class="dot"></div>
+      <div><div class="vlabel">Termómetro del día</div>
+        <div class="vmain">Máximos históricos<br>sobre cimientos flojos</div></div></div>
+    <div class="vsub">El Dow cerró ayer en <b>récord absoluto</b> porque el petróleo se hundió un 5%
+      cuando Trump canceló el ataque a Irán. Pero <b>Teherán niega que haya negociaciones</b>. Se compra
+      un mercado en máximos, con el miedo en 15,7, apoyado en una tregua que una de las dos partes
+      dice que no existe. Hoy no se opera.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n red">−10,8%</div>
+      <div class="l">Cae Apple desde su máximo histórico del 28 de julio, <b>mientras el Dow marcaba récord</b>.</div></div>
+    <div class="stat"><div class="n">15,67</div>
+      <div class="l">VIX, en la parte baja de lo normal. Las coberturas están baratas justo cuando nadie las quiere.</div></div>
+    <div class="stat"><div class="n">1 <span style="font-size:13pt;color:var(--muted)">de</span> 3</div>
+      <div class="l">Instrumentos con contrato ejecutable hoy. Solo el SPY pasa el filtro de liquidez entero.</div></div>
+  </div>
+
+  <h2>Lo que queda de semana</h2>
+  <div class="chart" style="margin-bottom:4mm">
+    <svg viewBox="0 0 720 138" width="100%" height="138">
+      <rect x="30" y="74" width="132" height="16" fill="#e1e0d9"/>
+      <rect x="162" y="74" width="132" height="16" fill="#f7dcc4"/>
+      <rect x="294" y="74" width="264" height="16" fill="#cde2fb"/>
+      <rect x="558" y="74" width="132" height="16" fill="#f4d0d0"/>
+      <line x1="30" y1="90" x2="690" y2="90" stroke="#c3c2b7" stroke-width="2"/>
+
+      <g text-anchor="middle">
+        <g font-size="11" font-weight="700" fill="#0b0b0b">
+          <text x="96"  y="32" fill="#898781">LUN 3</text><text x="228" y="32" fill="#b06010">MAR 4 · HOY</text>
+          <text x="360" y="32">MIÉ 5</text><text x="492" y="32">JUE 6</text>
+          <text x="624" y="32" fill="#d03b3b">VIE 7</text>
+        </g>
+        <g font-size="9" fill="#52514e">
+          <text x="96"  y="50" fill="#898781">récord del Dow</text>
+          <text x="228" y="50" fill="#b06010" font-weight="700">JOLTS · AMD al cierre</text>
+          <text x="360" y="50">sin datos</text>
+          <text x="492" y="50">Productividad + paro</text>
+          <text x="624" y="50" fill="#d03b3b" font-weight="700">Empleo de julio · 8:30</text>
+        </g>
+      </g>
+
+      <circle cx="96"  cy="82" r="5" fill="#c3c2b7" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="228" cy="82" r="8" fill="#eda100" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="360" cy="82" r="5" fill="#c3c2b7" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="492" cy="82" r="6" fill="#fab219" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="624" cy="82" r="9" fill="#d03b3b" stroke="#fcfcfb" stroke-width="2"/>
+
+      <text x="228" y="114" text-anchor="middle" font-size="10.5" fill="#b06010" font-weight="700">3,7% del QQQ se revalúa esta noche</text>
+      <text x="624" y="114" text-anchor="middle" font-size="10.5" fill="#d03b3b" font-weight="700">aquí se decide</text>
+    </svg>
+    <div class="cap"><b>Dos eventos, no uno.</b> AMD reporta esta tarde y pesa un <b>3,72% del QQQ</b>
+      —el mercado le exige unos 11.300 millones con márgenes intactos—; el viernes llega el empleo,
+      con la asimetría invertida: tras el giro de la Fed, <b>un dato fuerte castiga a la bolsa</b>.</div>
+  </div>
+
+  <h2>La mañana, en tres líneas</h2>
+  <table>
+    <tr><th>Instrumento</th><th class="r">Cierre lunes</th><th class="r">Premarket 8:16</th><th class="r">Cambio</th><th class="r">Lectura</th></tr>
+    <tr><td class="k">AAPL</td><td class="r">303,42</td><td class="r">302,71</td><td class="r" style="color:var(--crit)">−0,23%</td><td class="r" style="color:var(--muted)">ruido</td></tr>
+    <tr><td class="k">QQQ</td><td class="r">700,07</td><td class="r">707,60</td><td class="r" style="color:var(--good)">+1,08%</td><td class="r" style="color:var(--ink);font-weight:600">significativo</td></tr>
+    <tr><td class="k">SPY</td><td class="r">757,67</td><td class="r">760,31</td><td class="r" style="color:var(--good)">+0,35%</td><td class="r" style="color:var(--ink)">empieza a importar</td></tr>
+  </table>
+  <div class="note"><b>El hueco del QQQ es prestado.</b> Triplica al del SPY porque Palantir presentó
+    anoche y se disparó un 15% fuera de hora. Eso mueve al fondo esta mañana, pero no dice nada sobre
+    la sesión: es una noticia de una empresa, no del índice.</div>
+
+  <div class="foot">Análisis de mecánica de mercado y calendario. No es recomendación personalizada de
+    inversión. Las opciones compradas pueden perder el 100% de la prima.</div>
+  <div class="pg">1 / 4</div>
+</section>
+
+<!-- ══════════════ PÁGINA 2 ══════════════ -->
+<section class="page">
+  <div class="hd"><div><div class="sub">Lo más importante del informe</div>
+      <div class="t">Apple ya no es el mercado</div></div>
+    <div class="d">Tres sesiones<br>de divergencia</div></div>
+
+  <p style="font-size:11pt;margin-bottom:4mm;line-height:1.5">Ayer todos los gigantes subieron con
+    fuerza y el Dow firmó máximo histórico. <b>Apple cayó un 1,78% el mismo día.</b> No es una
+    casualidad de una sesión: es la tercera seguida, y cambia cómo hay que leer a los tres
+    instrumentos.</p>
+
+  <div class="chart">
+    <h3>Cómo se movieron los gigantes el lunes</h3>
+    <svg viewBox="0 0 720 200" width="100%" height="200">
+      <g stroke="#e1e0d9" stroke-width="1">
+        <line x1="30" y1="22" x2="690" y2="22"/><line x1="30" y1="58" x2="690" y2="58"/>
+        <line x1="30" y1="94" x2="690" y2="94"/>
+      </g>
+      <line x1="30" y1="130" x2="690" y2="130" stroke="#c3c2b7" stroke-width="2"/>
+      <g font-size="9" fill="#898781" text-anchor="end">
+        <text x="26" y="26">+6%</text><text x="26" y="62">+4%</text>
+        <text x="26" y="98">+2%</text><text x="26" y="134">0</text><text x="26" y="170">−2%</text>
+      </g>
+
+      <rect x="91"  y="22"  width="78" height="108" rx="3" fill="#0ca30c"/>
+      <rect x="211" y="42"  width="78" height="88"  rx="3" fill="#0ca30c"/>
+      <rect x="331" y="42"  width="78" height="88"  rx="3" fill="#0ca30c"/>
+      <rect x="451" y="47"  width="78" height="83"  rx="3" fill="#0ca30c"/>
+      <rect x="571" y="130" width="78" height="32"  rx="3" fill="#d03b3b"/>
+
+      <g font-size="11.5" font-weight="700" text-anchor="middle" fill="#0ca30c">
+        <text x="130" y="14">+6,0%</text><text x="250" y="34">+4,9%</text>
+        <text x="370" y="34">+4,9%</text><text x="490" y="39">+4,6%</text>
+      </g>
+      <text x="610" y="178" text-anchor="middle" font-size="11.5" font-weight="700" fill="#d03b3b">−1,78%</text>
+
+      <g font-size="11" font-weight="700" fill="#0b0b0b" text-anchor="middle">
+        <text x="130" y="194">META</text><text x="250" y="194">MSFT</text>
+        <text x="370" y="194">GOOGL</text><text x="490" y="194">AMZN</text>
+        <text x="610" y="194" fill="#d03b3b">AAPL</text>
+      </g>
+    </svg>
+    <div class="cap"><b>Amazon superó los 3 billones de dólares de valor por primera vez.</b> Apple fue
+      el peor valor del Dow el mismo día en que el índice marcaba récord. Cuando el mayor componente
+      cae y el índice sube, <b>la aritmética del peso deja de servir para predecir nada</b>.</div>
+  </div>
+
+  <div class="dl">
+    <div class="chart" style="margin:0">
+      <h3>Apple, desde su máximo</h3>
+      <svg viewBox="0 0 340 155" width="100%" height="150">
+        <line x1="30" y1="120" x2="310" y2="120" stroke="#c3c2b7" stroke-width="2"/>
+        <line x1="140" y1="37" x2="190" y2="37" stroke="#c3c2b7" stroke-width="1" stroke-dasharray="3 3"/>
+
+        <rect x="60"  y="37" width="80" height="83" rx="3" fill="#86b6ef"/>
+        <rect x="190" y="98" width="80" height="22" rx="3" fill="#d03b3b"/>
+
+        <text x="100" y="29" text-anchor="middle" font-size="12" font-weight="700" fill="#0b0b0b">340,08</text>
+        <text x="230" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="#d03b3b">303,42</text>
+        <text x="165" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#d03b3b">−10,8%</text>
+
+        <g font-size="9" fill="#898781" text-anchor="middle">
+          <text x="100" y="138">máximo histórico</text><text x="100" y="150">28 de julio</text>
+          <text x="230" y="138">cierre de ayer</text><text x="230" y="150">3 de agosto</text>
+        </g>
+      </svg>
+      <div class="cap"><b>Mínimo de seis meses.</b> Su máximo de 52 semanas está en 344,57: la acción
+        cotiza casi un 12% por debajo. Y la causa no ha cambiado — la propia empresa avisó de que la
+        escasez de chips <b>empeora</b> este trimestre.</div>
+    </div>
+
+    <div class="chart" style="margin:0">
+      <h3>Lo que sostiene el récord</h3>
+      <table style="font-size:8.5pt;margin-top:1mm">
+        <tr><td class="k" style="width:56%">Petróleo WTI, el lunes</td>
+          <td class="r" style="color:var(--good);font-weight:700">80,34 — cae 5%</td></tr>
+        <tr><td class="k">Bono a 10 años</td>
+          <td class="r" style="color:var(--good);font-weight:700">4,666% — afloja</td></tr>
+        <tr><td class="k">Empresas que baten resultados</td>
+          <td class="r" style="color:var(--good);font-weight:700">86% del S&amp;P 500</td></tr>
+        <tr style="border:0"><td class="k">Negociaciones con Irán</td>
+          <td class="r" style="color:var(--crit);font-weight:700">Teherán las niega</td></tr>
+      </table>
+      <div class="cap" style="margin-top:3mm"><b>Tres patas sólidas y una que no lo es.</b> Trump
+        canceló el ataque diciendo que habría conversaciones; Irán respondió que no hay ninguna
+        prevista. <b>Esa pata se puede caer en una noche</b>, y con ella el petróleo.</div>
+    </div>
+  </div>
+
+  <div class="box" style="margin-top:5mm;background:#f4f7fc;border-color:#cde2fb">
+    <h3 style="color:var(--blue)">Qué cambia esto para los tres</h3>
+    <p style="font-size:10pt;line-height:1.5">Que <b>Apple ya no sirve como termómetro del mercado</b>,
+      ni el mercado como termómetro de Apple. Tienen catalizadores distintos y van en direcciones
+      distintas. Comprar QQQ o SPY «porque Apple está barata» no tiene sentido, y comprar Apple
+      «porque el mercado sube» tampoco. <b>Son tres decisiones separadas</b> — y hoy las tres son la
+      misma: esperar.</p>
+  </div>
+
+  <div class="foot">Cierres del lunes 3 de agosto: Dow 53.178,41 (+1,32%, máximo histórico) ·
+    S&amp;P 500 7.600,50 (+1,48%) · Nasdaq Compuesto 25.913,9 (+2,1%) · AAPL 303,42 · QQQ 700,07 ·
+    SPY 757,67.</div>
+  <div class="pg">2 / 4</div>
+</section>
+
+<!-- ══════════════ PÁGINA 3 ══════════════ -->
+<section class="page">
+  <div class="hd"><div><div class="sub">Veredicto por instrumento</div>
+      <div class="t">Los tres, uno por uno</div></div>
+    <div class="d">Sesgo del día</div></div>
+
+  <div class="cards" style="margin-bottom:5mm">
+    <div class="card"><div class="top"><span class="tk">SPY</span><span class="px">757,67</span></div>
+      <div class="body"><span class="tag">No operar</span>
+        <p>Único con contrato ejecutable: <b>diferencial 1,31%</b> y 20.434 de interés abierto. La
+          volatilidad, al 11,7%, es la más barata de la serie.</p>
+        <p style="margin-top:3mm;color:var(--muted)">Pero comprar en máximo histórico, con el VIX en
+          15,7, es pagar por un optimismo que ya está en el precio.</p></div></div>
+
+    <div class="card"><div class="top"><span class="tk">QQQ</span><span class="px">700,07</span></div>
+      <div class="body"><span class="tag">No operar</span>
+        <p>Hueco significativo, pero <b>ningún contrato pasa el filtro</b>: el rally movió el dinero
+          a strikes sin interés abierto (523 contratos).</p>
+        <p style="margin-top:3mm;color:var(--muted)">Y esta tarde reporta AMD, que pesa un 3,72% del
+          fondo. Dos razones distintas para el mismo no.</p></div></div>
+
+    <div class="card"><div class="top"><span class="tk">AAPL</span><span class="px">303,42</span></div>
+      <div class="body"><span class="tag">No operar</span>
+        <p>Abre en <b>ruido</b> (−0,23%): bajo umbral, el sesgo es neutral por definición. Y el
+          diferencial sigue fuera de rango.</p>
+        <p style="margin-top:3mm;color:var(--muted)">Añade ahora un pleito con OpenAI por secretos
+          comerciales. Ruido nuevo sobre una tesis ya rota.</p></div></div>
+  </div>
+
+  <div class="dl">
+    <div class="chart" style="margin:0">
+      <h3>El filtro de liquidez, condición a condición</h3>
+      <svg viewBox="0 0 340 150" width="100%" height="145">
+        <g font-size="8" fill="#898781" text-anchor="middle">
+          <text x="120" y="18">diferencial</text><text x="200" y="18">interés abierto</text>
+          <text x="285" y="18">volumen</text>
+        </g>
+        <line x1="8" y1="26" x2="332" y2="26" stroke="#e1e0d9" stroke-width="1"/>
+
+        <text x="8" y="52" font-size="10" font-weight="700" fill="#0b0b0b">SPY</text>
+        <circle cx="120" cy="48" r="10" fill="#0ca30c"/><text x="120" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">&#10003;</text>
+        <circle cx="200" cy="48" r="10" fill="#0ca30c"/><text x="200" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">&#10003;</text>
+        <circle cx="285" cy="48" r="10" fill="#0ca30c"/><text x="285" y="52" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">&#10003;</text>
+        <g font-size="8" fill="#52514e" text-anchor="middle">
+          <text x="120" y="70">1,31%</text><text x="200" y="70">20.434</text><text x="285" y="70">5.320</text>
+        </g>
+
+        <text x="8" y="98" font-size="10" font-weight="700" fill="#0b0b0b">QQQ</text>
+        <circle cx="120" cy="94" r="10" fill="#0ca30c"/><text x="120" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">&#10003;</text>
+        <circle cx="200" cy="94" r="10" fill="#d03b3b"/><text x="200" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">&#10007;</text>
+        <circle cx="285" cy="94" r="10" fill="#d03b3b"/><text x="285" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">&#10007;</text>
+        <g font-size="8" fill="#52514e" text-anchor="middle">
+          <text x="120" y="116">1,51%</text><text x="200" y="116" fill="#d03b3b" font-weight="700">523</text>
+          <text x="285" y="116" fill="#d03b3b" font-weight="700">141</text>
+        </g>
+
+        <text x="8" y="144" font-size="10" font-weight="700" fill="#0b0b0b">AAPL</text>
+        <circle cx="120" cy="140" r="10" fill="#d03b3b"/><text x="120" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">&#10007;</text>
+        <circle cx="200" cy="140" r="10" fill="#0ca30c"/><text x="200" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">&#10003;</text>
+        <circle cx="285" cy="140" r="10" fill="#0ca30c"/><text x="285" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">&#10003;</text>
+      </svg>
+      <div class="cap" style="margin-top:1mm"><b>Hacen falta las tres, y solo el SPY las tiene.</b>
+        Apple falla por diferencial (3,61%); el QQQ, porque el rally dejó los strikes del dinero
+        vacíos. Vencimiento del 21 de agosto en los tres casos.</div>
+    </div>
+
+    <div class="chart" style="margin:0">
+      <h3>Lo que cuesta el nerviosismo</h3>
+      <svg viewBox="0 0 340 150" width="100%" height="145">
+        <line x1="20" y1="118" x2="320" y2="118" stroke="#c3c2b7" stroke-width="2"/>
+        <rect x="30" y="79" width="50" height="39" rx="3" fill="#0ca30c"/>
+        <text x="55" y="71" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0ca30c">11,7%</text>
+        <text x="55" y="134" text-anchor="middle" font-size="9.5" fill="#52514e">SPY</text>
+
+        <rect x="100" y="66" width="50" height="52" rx="3" fill="#c3c2b7"/>
+        <text x="125" y="58" text-anchor="middle" font-size="11.5" font-weight="700" fill="#52514e">15,7</text>
+        <text x="125" y="134" text-anchor="middle" font-size="9.5" fill="#52514e">VIX</text>
+
+        <rect x="170" y="47" width="50" height="71" rx="3" fill="#86b6ef"/>
+        <text x="195" y="39" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2a78d6">21,2%</text>
+        <text x="195" y="134" text-anchor="middle" font-size="9.5" fill="#52514e">QQQ</text>
+
+        <rect x="240" y="26" width="50" height="92" rx="3" fill="#d03b3b"/>
+        <text x="265" y="18" text-anchor="middle" font-size="11.5" font-weight="700" fill="#d03b3b">27,7%</text>
+        <text x="265" y="134" text-anchor="middle" font-size="9.5" fill="#52514e">AAPL</text>
+      </svg>
+      <div class="cap"><b>La volatilidad del SPY sigue por debajo del VIX.</b> Apple mantiene la más
+        cara de las tres <i>después</i> de caer: pagas el susto pasado. Volatilidad implícita del
+        vencimiento del 21 de agosto; el VIX mide 30 días.</div>
+    </div>
+  </div>
+
+  <div class="box" style="margin-top:5mm;background:#f9f9f7">
+    <h3>El contrato que hoy sí se podría comprar — y por qué no se compra</h3>
+    <table style="font-size:9pt;margin-top:1mm">
+      <tr><th>Contrato</th><th class="r">Punto medio</th><th class="r">Diferencial</th><th class="r">Delta</th><th class="r">Interés abierto</th></tr>
+      <tr style="border:0"><td class="k">SPY 760 <i>call</i>, vence 21 de agosto</td>
+        <td class="r">7,65 (765 USD)</td><td class="r" style="color:var(--good);font-weight:700">1,31%</td>
+        <td class="r">0,50</td><td class="r">20.434</td></tr>
+    </table>
+    <p style="font-size:9.5pt;line-height:1.5;margin-top:3mm">Pasa las cuatro condiciones y el delta
+      está clavado en 0,50. <b>El problema no es el contrato, es el momento</b>: se compraría en
+      máximo histórico, con el miedo en mínimos y con dos eventos por delante —AMD esta tarde y el
+      empleo el viernes— cuya cola gorda apunta en contra. <b>Cuando el escenario bueno ya está en
+      precio, el alivio de que se confirme es delgado y el golpe de que falle es entero.</b></p>
+  </div>
+
+  <div class="foot">Diferenciales, delta, theta y volatilidad implícita calculados sobre la cadena de
+    Cboe con corte a las 8:08–8:14 AM (datos retrasados). VIX de investing.com, en tiempo real.</div>
+  <div class="pg">3 / 4</div>
+</section>
+
+<!-- ══════════════ PÁGINA 4 ══════════════ -->
+<section class="page">
+  <div class="hd"><div><div class="sub">Plan de acción</div>
+      <div class="t">Qué hacer y qué no</div></div>
+    <div class="d">Interactive Brokers</div></div>
+
+  <div class="dl" style="margin-bottom:5mm">
+    <div class="box bad">
+      <h3 style="color:var(--crit)">Hoy no se hace</h3>
+      <ul>
+        <li><b>No perseguir el hueco del QQQ.</b> Un +1,08% prestado de Palantir, y encima sin contrato que pase el filtro de liquidez.</li>
+        <li><b>Nada de Apple.</b> Ruido bajo umbral, diferencial fuera de rango y una tesis que la propia empresa rompió hace tres sesiones.</li>
+        <li><b>No comprar el SPY en máximo histórico</b> con el VIX en 15,7 y dos eventos por delante. El contrato es bueno; el momento no.</li>
+        <li><b>No vender volatilidad</b> con el VIX ahí abajo: cobras poco por asumir justo el riesgo que nadie está valorando.</li>
+      </ul>
+    </div>
+    <div class="box ok">
+      <h3 style="color:var(--good)">Lo que sí toca hacer</h3>
+      <ul>
+        <li><b>Mirar el petróleo antes que la bolsa.</b> Si Irán vuelve a escalar, el WTI recupera los 85 y el récord de ayer se deshace por donde vino.</li>
+        <li><b>Dejar pasar AMD.</b> Reporta esta tarde; mañana habrá precio real y una lectura del sector de chips que hoy no existe.</li>
+        <li><b>Anotar el nivel del empleo:</b> más de 100.000 puestos el viernes castiga a la bolsa, menos de 85.000 la ayuda.</li>
+        <li><b>Máximo dos ideas abiertas</b> y prima total por idea entre el 1 y el 2% de la cuenta.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Cuánto dinero cabría</h2>
+  <table style="margin-bottom:3mm">
+    <tr><th>Contrato de referencia</th><th class="r">Cuesta uno</th><th class="r">Capital mínimo para no pasar del 2%</th></tr>
+    <tr><td class="k">SPY 760 <i>call</i>, vence 21 de agosto</td><td class="r">~765 USD</td><td class="r">~38.000 USD</td></tr>
+    <tr><td class="k">SPY 760 <i>put</i>, vence 21 de agosto</td><td class="r">~820 USD</td><td class="r">~41.000 USD</td></tr>
+  </table>
+  <div class="note" style="margin-bottom:4mm"><b>Si la operación no cabe en tu cuenta, no cabe.</b>
+    Precios del punto medio de esta mañana, no ejecutables. En opciones compradas el riesgo real es
+    la prima entera, no el <i>stop</i>. Del QQQ y de Apple no se dan referencias porque hoy <b>no
+    pasan el filtro</b>: darlas sería invitar a saltárselo.</div>
+
+  <div class="box" style="background:#f9f9f7;padding:4mm;margin-bottom:4mm">
+    <h3>Lo que no se pudo confirmar</h3>
+    <p style="font-size:8.5pt;line-height:1.45"><b>NO VERIFICADO — el cierre del Nasdaq 100.</b> No se
+      encontró el dato de cierre del NDX del lunes en fuente fiable. Sí están verificados el Dow, el
+      S&amp;P 500 y el Nasdaq Compuesto.<br>
+      <b>NO VERIFICADO — la previsión del empleo del viernes.</b> Las cifras de ~85.000 puestos y 4,3%
+      de paro vienen de prensa, no de fuente primaria. La fecha y hora sí: <i>bls.gov</i>, viernes 7
+      de agosto a las 8:30.<br>
+      <b>NO VERIFICADO — el peso de Palantir en el QQQ.</b> Se cita su salto del 15% fuera de hora,
+      no su contribución exacta al fondo.<br>
+      <b>Retrasos:</b> Cboe y futuros de investing.com. Pesos de los fondos, corte del 24 y 27 de julio.</p>
+  </div>
+
+  <div class="foot" style="margin-top:auto">
+    <b>Fuentes:</b> bls.gov y federalreserve.gov (primarias) · stockanalysis.com · finviz.com ·
+    investing.com · cdn.cboe.com · optionslam.com.<br>
+    <b>No constituye recomendación personalizada de inversión.</b> Las opciones compradas pueden
+    perder el 100% de la prima.
+  </div>
+  <div class="pg">4 / 4</div>
+</section>
+
+</body></html>

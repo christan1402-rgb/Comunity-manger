@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Informe AAPL QQQ SPY</title>
+<style>
+:root{
+  --surface:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --base:#c3c2b7; --border:rgba(11,11,11,.10);
+  --blue:#2a78d6; --blue-l:#86b6ef; --blue-ll:#cde2fb; --orange:#eb6834;
+  --crit:#d03b3b; --warn:#fab219; --good:#0ca30c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4;margin:0}
+html,body{background:var(--surface);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","DejaVu Sans",sans-serif;
+  -webkit-font-smoothing:antialiased;font-size:10.5pt;line-height:1.45}
+.page{width:210mm;height:296.6mm;padding:13mm 15mm 11mm;position:relative;overflow:hidden;
+  page-break-after:always;display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto}
+h1{font-size:23pt;line-height:1.1;letter-spacing:-.02em;font-weight:700}
+h2{font-size:13pt;font-weight:700;letter-spacing:-.01em;margin-bottom:2.5mm}
+h3{font-size:10pt;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);margin-bottom:2mm}
+p{color:var(--ink2)}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;
+  border-bottom:2px solid var(--ink);padding-bottom:3mm;margin-bottom:6mm}
+.hd .t{font-size:12pt;font-weight:700;letter-spacing:-.01em}
+.hd .d{font-size:9pt;color:var(--muted);text-align:right;line-height:1.35}
+.sub{font-size:8.5pt;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+
+/* verdict block */
+.verdict{border:2px solid var(--crit);border-radius:4mm;padding:7mm;margin-bottom:6mm;background:#fdf6f6}
+.vtop{display:flex;align-items:center;gap:4mm;margin-bottom:3.5mm}
+.dot{width:11mm;height:11mm;border-radius:50%;background:var(--crit);flex:none}
+.vlabel{font-size:9pt;font-weight:700;letter-spacing:.12em;color:#a52a2a;text-transform:uppercase}
+.vmain{font-size:19pt;font-weight:700;line-height:1.15;letter-spacing:-.02em}
+.vsub{font-size:10.5pt;color:var(--ink2);margin-top:3mm;line-height:1.5}
+
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:6mm}
+.stat{border:1px solid var(--border);border-radius:3mm;padding:4.5mm;background:var(--plane)}
+.stat .n{font-size:20pt;font-weight:700;letter-spacing:-.03em;line-height:1}
+.stat .l{font-size:8.5pt;color:var(--muted);margin-top:2mm;line-height:1.35}
+.red{color:var(--crit)} .blu{color:var(--blue)} .grn{color:var(--good)} .amb{color:#b06010}
+
+.note{font-size:9pt;color:var(--muted);line-height:1.5;margin-top:2mm}
+.foot{margin-top:auto;padding-top:4mm;padding-right:16mm;border-top:1px solid var(--grid);
+  font-size:7.5pt;color:var(--muted);line-height:1.5}
+.pg{position:absolute;bottom:7mm;right:15mm;font-size:8pt;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* cards */
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm}
+.card{border:1px solid var(--border);border-radius:3mm;overflow:hidden;background:var(--plane);display:flex;flex-direction:column}
+.card .top{padding:3.5mm 4mm;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:baseline}
+.card .tk{font-size:13pt;font-weight:700;letter-spacing:-.01em}
+.card .px{font-size:9pt;color:var(--muted);font-variant-numeric:tabular-nums}
+.card .body{padding:4mm;flex:1}
+.tag{display:inline-block;font-size:8pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:1.5mm 3mm;border-radius:2mm;background:var(--crit);color:#fff;margin-bottom:3mm}
+.tag.wait{background:var(--warn);color:#4a3200}
+.card p{font-size:9pt;line-height:1.5}
+
+/* do / dont */
+.dl{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.box{border:1px solid var(--border);border-radius:3mm;padding:5mm;background:var(--plane)}
+.box.bad{border-color:#f0c9c9;background:#fdf6f6}
+.box.ok{border-color:#c9e6c9;background:#f5faf5}
+.box h3{margin-bottom:3mm}
+ul{list-style:none}
+li{font-size:9pt;color:var(--ink2);line-height:1.42;padding-left:5.5mm;position:relative;margin-bottom:2.4mm}
+li::before{position:absolute;left:0;top:0;font-weight:700}
+.box.bad li::before{content:"\00d7";color:var(--crit);font-size:12pt;line-height:1.1}
+.box.ok li::before{content:"\2713";color:var(--good);font-size:10pt}
+li b{color:var(--ink)}
+svg{display:block}
+.cap{font-size:8.5pt;color:var(--muted);margin-top:2.5mm;line-height:1.45}
+.chart{border:1px solid var(--border);border-radius:3mm;padding:5mm;background:var(--plane);margin-bottom:5mm}
+table{width:100%;border-collapse:collapse;font-size:9.5pt}
+th{text-align:left;font-size:8pt;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+  font-weight:700;padding:0 0 2mm;border-bottom:1px solid var(--base)}
+td{padding:2.5mm 0;border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums;color:var(--ink2)}
+td.k{color:var(--ink);font-weight:600;font-variant-numeric:normal}
+th.r,td.r{text-align:right}
+</style></head><body>
+
+
+<!-- ══════════════ PÁGINA 1 ══════════════ -->
+<section class="page">
+  <div class="hd">
+    <div><div class="sub">Informe diario de opciones</div>
+      <div class="t">AAPL &nbsp;·&nbsp; QQQ &nbsp;·&nbsp; SPY</div></div>
+    <div class="d">Miércoles 19 de agosto de 2026<br><b style="color:#b4491d">Con el mercado ya abierto · 9:35</b></div>
+  </div>
+
+  <div class="verdict">
+    <div class="vtop"><div class="dot"></div>
+      <div><div class="vlabel">Termómetro del día</div>
+        <div class="vmain">El bono se dio la vuelta<br>y el Nasdaq rebota. Ya está</div></div></div>
+    <div class="vsub">Ayer escribí que había que vigilar los 4,747% del bono a diez años: <b>si rompía,
+      esto no había terminado; si se giraba, el Nasdaq rebotaría igual de rápido</b>. Se ha girado —el
+      diez años cede <b>casi seis puntos básicos</b> tras rozar su máximo— y los tres suben. Pero el
+      rebote llega con las dos posiciones ya destrozadas y con las actas de la Fed mañana.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n red">−72%</div>
+      <div class="l">La <i>call</i> del SPY desde la entrada, con precio real de mercado. <b>Vence
+        pasado mañana.</b></div></div>
+    <div class="stat"><div class="n blu">4,649%</div>
+      <div class="l">Bono a diez años, <b>−5,7 pb</b>. Ayer llegó a 4,731% y hoy se aleja del techo del
+        año.</div></div>
+    <div class="stat"><div class="n red">0 de 32</div>
+      <div class="l">Contratos de Apple que pasan. <b>Octavo día</b> — y hoy medido con el mercado
+        abierto, no en premarket.</div></div>
+  </div>
+
+  <h2>La semana, de un vistazo</h2>
+  <div class="chart" style="margin-bottom:4mm">
+    <svg viewBox="0 0 720 168" width="100%" height="168">
+      <rect x="60" y="82" width="290" height="16" fill="#e8e7e0"/>
+      <rect x="350" y="82" width="143" height="16" fill="#cde2fb"/>
+      <rect x="493" y="82" width="167" height="16" fill="#f7dcc4"/>
+      <line x1="30" y1="98" x2="690" y2="98" stroke="#c3c2b7" stroke-width="2"/>
+
+      <circle cx="60"  cy="90" r="6" fill="#c3c2b7" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="205" cy="90" r="6" fill="#c3c2b7" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="350" cy="90" r="10" fill="#0ca30c" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="493" cy="90" r="8" fill="#d03b3b" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="637" cy="90" r="8" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+
+      <g font-size="12" font-weight="700" fill="#0b0b0b" text-anchor="middle">
+        <text x="60" y="40" fill="#898781">LUNES</text><text x="205" y="40" fill="#898781">MARTES</text>
+        <text x="350" y="40" fill="#0ca30c">HOY, MIÉRCOLES</text><text x="493" y="40" fill="#d03b3b">MAÑANA</text>
+        <text x="637" y="40" fill="#2a78d6">VIERNES</text>
+      </g>
+      <g font-size="10.5" fill="#52514e" text-anchor="middle">
+        <text x="60" y="60" fill="#898781">SPY −0,47%</text>
+        <text x="205" y="60" fill="#898781">Nasdaq −1,68%</text>
+        <text x="350" y="60" font-weight="700" fill="#0ca30c">El bono cede · rebote</text>
+        <text x="493" y="60" font-weight="700" fill="#d03b3b">Actas del FOMC · 14:00</text>
+        <text x="637" y="60" font-weight="700" fill="#2a78d6">Vencimiento mensual</text>
+      </g>
+      <g font-size="9.5" fill="#898781" text-anchor="middle">
+        <text x="60" y="128">El bono ya subía</text><text x="60" y="143">cinco puntos básicos</text>
+        <text x="205" y="128">El bono toca 4,731%</text><text x="205" y="143">y Apple sube un 1,45%</text>
+        <text x="350" y="128" fill="#52514e">El Tesoro dobla su</text><text x="350" y="143" fill="#52514e">recompra de largo plazo</text>
+        <text x="493" y="128" fill="#52514e">Las de julio, el día</text><text x="493" y="143" fill="#52514e">antes del vencimiento</text>
+        <text x="637" y="128" fill="#52514e">Vencen las dos</text><text x="637" y="143" fill="#52514e">del 21 de agosto</text>
+      </g>
+    </svg>
+    <div class="cap"><b>Por qué se giró el bono:</b> el Tesoro ha doblado el tamaño de su operación de
+      recompra de deuda a largo plazo para dar liquidez al mercado. Es una intervención técnica, no un
+      cambio de la Fed — y mañana a las 14:00 salen las actas, con el vencimiento mensual al día siguiente.</div>
+  </div>
+
+  <p style="font-size:10pt;line-height:1.5"><b>Nota sobre la hora de este informe:</b> la rutina
+    automática de las 8:00 no disparó esta mañana y lo he detectado en la comprobación de las 9:30, así
+    que este informe está hecho <b>con el mercado ya abierto</b>. Tiene una ventaja —las horquillas son
+    reales, no indicativas— y un inconveniente: los precios son de los primeros minutos de sesión, que
+    son los más ruidosos del día.</p>
+
+  <div class="foot">Análisis de mecánica de mercado y calendario. No es recomendación personalizada de
+    inversión. Las opciones compradas pueden perder el 100% de la prima pagada.</div>
+  <div class="pg">1 / 4</div>
+</section>
+
+<!-- ══════════════ PÁGINA 2 ══════════════ -->
+<section class="page">
+  <div class="hd"><div><div class="sub">Lo más importante del informe</div>
+      <div class="t">Ocho días diciendo lo mismo de Apple</div></div>
+    <div class="d">Mejor diferencial de Apple<br>cada mañana desde el 10 de agosto</div></div>
+
+  <p style="font-size:11pt;margin-bottom:4mm;line-height:1.5">Llevo ocho sesiones escribiendo que Apple
+    no pasa el filtro de liquidez, y ocho sesiones diciendo que quizá fuera cosa del premarket. <b>Hoy
+    lo he medido con el mercado abierto y es peor</b>: el mejor diferencial de sus 32 contratos
+    candidatos es <b>5,66%</b>, cuando en premarket venía marcando entre el 2,3 y el 3,3%.</p>
+
+  <div class="chart">
+    <h3>Mejor diferencial disponible en Apple, día a día · el límite es 2%</h3>
+    <svg viewBox="0 0 720 200" width="100%" height="200">
+      <g stroke="#e1e0d9" stroke-width="1">
+        <line x1="95" y1="135" x2="700" y2="135"/><line x1="95" y1="100" x2="700" y2="100"/>
+        <line x1="95" y1="65" x2="700" y2="65"/><line x1="95" y1="30" x2="700" y2="30"/>
+      </g>
+      <g font-size="9" fill="#898781" text-anchor="end">
+        <text x="88" y="139">2%</text><text x="88" y="104">4%</text>
+        <text x="88" y="69">6%</text><text x="88" y="34">8%</text>
+      </g>
+      <line x1="95" y1="170" x2="700" y2="170" stroke="#c3c2b7" stroke-width="2"/>
+      <line x1="95" y1="135" x2="700" y2="135" stroke="#0ca30c" stroke-width="2.5" stroke-dasharray="7 4"/>
+      <line x1="99" y1="42" x2="127" y2="42" stroke="#0ca30c" stroke-width="2.5" stroke-dasharray="7 4"/>
+      <text x="133" y="46" font-size="9.5" font-weight="700" fill="#0ca30c">Límite del filtro: 2%</text>
+
+      <rect x="118" y="117.1" width="52" height="52.9" rx="2" fill="#86b6ef"/>
+      <rect x="192" y="112.1" width="52" height="57.9" rx="2" fill="#86b6ef"/>
+      <rect x="266" y="113.3" width="52" height="56.7" rx="2" fill="#86b6ef"/>
+      <rect x="340" y="116.1" width="52" height="53.9" rx="2" fill="#86b6ef"/>
+      <rect x="414" y="130.3" width="52" height="39.7" rx="2" fill="#86b6ef"/>
+      <rect x="488" y="120.6" width="52" height="49.4" rx="2" fill="#86b6ef"/>
+      <rect x="562" y="119.9" width="52" height="50.1" rx="2" fill="#86b6ef"/>
+      <rect x="636" y="70.9"  width="52" height="99.1" rx="2" fill="#d03b3b"/>
+
+      <g font-size="9.5" font-weight="700" text-anchor="middle" fill="#52514e">
+        <text x="144" y="111">3,02</text><text x="218" y="106">3,31</text><text x="292" y="107">3,24</text>
+        <text x="366" y="110">3,08</text><text x="440" y="124">2,27</text><text x="514" y="115">2,82</text>
+        <text x="588" y="114">2,86</text><text x="662" y="65" fill="#d03b3b">5,66</text>
+      </g>
+      <g font-size="9" font-weight="700" fill="#0b0b0b" text-anchor="middle">
+        <text x="144" y="186">10 ago</text><text x="218" y="186">11 ago</text><text x="292" y="186">12 ago</text>
+        <text x="366" y="186">13 ago</text><text x="440" y="186">14 ago</text><text x="514" y="186">17 ago</text>
+        <text x="588" y="186">18 ago</text><text x="662" y="186" fill="#d03b3b">HOY</text>
+      </g>
+      <text x="662" y="197" font-size="8" fill="#d03b3b" text-anchor="middle">mercado abierto</text>
+    </svg>
+    <div class="cap">Las siete primeras barras son lecturas de premarket, entre las 8:07 y las 8:36. La
+      octava es de hoy, <b>tres minutos después de abrir</b>. Ni una sola vez ha bajado del 2%, y la
+      única medición con mercado abierto es <b>más del doble</b> del límite.</div>
+  </div>
+
+  <h2>Lo que esto cambia</h2>
+  <div class="box" style="background:var(--plane);padding:4.5mm;margin-bottom:3mm">
+    <p style="font-size:9.5pt;line-height:1.5">Venía diciéndote «vuelve a medir a las 10:00, que la
+      horquilla se estrecha». <b>Hoy toca matizarlo:</b> a las 9:32 las horquillas de Apple estaban
+      <i>más abiertas</i> que en premarket, mientras que las del SPY y el QQQ ya eran finísimas —1,01%
+      y 1,28%, con casi treinta mil contratos negociados—. Los primeros minutos no son «mejores»: son
+      otro tipo de mal dato, y afectan de forma muy desigual según el instrumento.</p>
+    <p style="font-size:9.5pt;line-height:1.5;margin-top:2.5mm"><b>Y sobre Apple, la conclusión ya no es
+      provisional.</b> Ocho sesiones seguidas, con cinco tesis distintas por el camino —degradación,
+      coste de memorias, refugio en la caída—, y ni una sola vez ha habido un contrato ejecutable. Para
+      esta cuenta y con este filtro, <b>Apple no es un instrumento operable</b>. Merece la pena decirlo
+      claro en vez de repetirlo cada mañana como si fuera casualidad.</p>
+  </div>
+  <div class="note">El filtro no es un capricho: un diferencial del 5,66% significa que compras y vendes
+    con casi un 6% de pérdida instantánea. Con una ventaja teórica que rara vez pasa del 10%, la
+    horquilla se come la operación entera antes de que el precio se mueva.</div>
+
+  <div class="foot">Diferenciales calculados sobre la cadena de Cboe de cada mañana, tomando el mejor
+    contrato entre los candidatos con delta 0,40–0,60 y prima superior a 0,20 USD. Las siete primeras
+    lecturas son de premarket; la de hoy, de las 13:32 UTC con el mercado abierto.</div>
+  <div class="pg">2 / 4</div>
+</section>
+
+<!-- ══════════════ PÁGINA 3 ══════════════ -->
+<section class="page">
+  <div class="hd"><div><div class="sub">Los tres instrumentos</div>
+      <div class="t">Uno por uno</div></div>
+    <div class="d">Precios de las 9:32–9:35<br>Cierres del martes 18</div></div>
+
+  <div class="cards" style="margin-bottom:5mm">
+    <div class="card">
+      <div class="top"><div class="tk">AAPL</div><div class="px">310,24 &nbsp;<b style="color:#0ca30c">+0,07%</b></div></div>
+      <div class="body">
+        <div class="tag">No operar</div>
+        <p><b>Ayer fue la estrella</b>: subió un <b>1,45%</b> el día que el Nasdaq cayó un 1,68%.
+          Descontado el índice, <b>+2,23 puntos propios</b> — el récord de la serie con diferencia.</p>
+        <p style="margin-top:2.5mm">Hoy devuelve el papel: sube solo un 0,07% mientras el mercado
+          rebota, lo que la deja en <b>−0,44 puntos</b>. El refugio deja de serlo cuando pasa el susto.</p>
+        <p style="margin-top:2.5mm"><b>Y sigue sin poder operarse.</b> Octavo día, cero de 32, y hoy
+          con el peor diferencial de toda la serie: <b>5,66%</b>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="top"><div class="tk">QQQ</div><div class="px">720,78 &nbsp;<b style="color:#0ca30c">+0,46%</b></div></div>
+      <div class="body">
+        <div class="tag">No operar</div>
+        <p><b>Rebota, pero poco.</b> Ayer cerró un <b>1,69%</b> abajo y hoy recupera menos de la mitad
+          de un tercio de eso.</p>
+        <p style="margin-top:2.5mm"><b>Su implícita es la que más sube</b>: de 18,50 a <b>19,54</b>, un
+          punto entero. El seguro se ha encarecido <i>después</i> de la caída, que es justo cuando peor
+          se compra.</p>
+        <p style="margin-top:2.5mm">Liquidez impecable con el mercado abierto: la <i>call</i> del 718
+          negocia con diferencial del <b>1,28%</b> y trece mil contratos.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="top"><div class="tk">SPY</div><div class="px">770,82 &nbsp;<b style="color:#0ca30c">+0,44%</b></div></div>
+      <div class="body">
+        <div class="tag">No operar</div>
+        <p><b>Empieza a importar</b>: +0,44% está en la banda de 0,30 a 0,50, y recupera lo que perdió
+          ayer (−0,68%) a medias.</p>
+        <p style="margin-top:2.5mm"><b>Vuelve por encima de 770</b>, así que la <i>call</i> abierta
+          recupera algo de valor intrínseco: 0,82 puntos.</p>
+        <p style="margin-top:2.5mm">Su implícita sube a <b>12,79</b>, la más alta desde el 7 de agosto.
+          El VIX hace lo contrario: <b>15,15</b>, un 4,4% por debajo del cierre de ayer.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>El cuadro de mando</h2>
+  <table>
+    <tr><th>Referencia</th><th class="r">Ahora</th><th class="r">Ayer</th><th class="r">Lectura</th></tr>
+    <tr><td class="k">VIX</td><td class="r">15,15</td><td class="r">15,84</td><td class="r">−4,4%. El susto se deshincha</td></tr>
+    <tr><td class="k">Bono a 10 años</td><td class="r">4,649%</td><td class="r">4,706%</td><td class="r">−5,7 pb. Se aleja del techo</td></tr>
+    <tr><td class="k">Bono a 2 años</td><td class="r">4,167%</td><td class="r">4,175%</td><td class="r">Apenas se mueve, otra vez</td></tr>
+    <tr><td class="k">Volatilidad implícita SPY · QQQ · AAPL</td><td class="r" colspan="2">12,79 · 19,54 · 23,98</td>
+      <td class="r">Suben las tres, tarde</td></tr>
+    <tr><td class="k">Cierres del martes</td><td class="r" colspan="2">SPY 767,45 · QQQ 717,51 · AAPL 310,03</td>
+      <td class="r">−0,68% · −1,69% · <b style="color:var(--good)">+1,45%</b></td></tr>
+    <tr><td class="k">S&amp;P 500 · Nasdaq 100 · Dow</td><td class="r" colspan="2">7.691,76 · 29.490,96 · 53.343,40</td>
+      <td class="r">Martes: −0,69% · −1,68% · −0,22%</td></tr>
+  </table>
+
+  <div class="foot">Todos los precios de esta página son <b>de mercado abierto</b>: cadena de Cboe a las
+    13:32 UTC, bonos de investing.com a las 9:29 y 9:35, VIX e índices de Yahoo Finance en vivo. Los
+    cierres del martes, de Yahoo. El rendimiento del bono de ayer, 4,706%, es el cierre de la sesión,
+    no la lectura de las 8:18 que publicó el informe de ayer (4,731%).</div>
+  <div class="pg">3 / 4</div>
+</section>
+
+<!-- ══════════════ PÁGINA 4 ══════════════ -->
+<section class="page">
+  <div class="hd"><div><div class="sub">Plan de acción</div>
+      <div class="t">Qué hacer y qué no</div></div>
+    <div class="d">Interactive Brokers</div></div>
+
+  <h2>Las dos del 21, con precios reales por fin</h2>
+  <table style="margin-bottom:3mm">
+    <tr><th style="width:26%">Contrato</th><th class="r">Entrada</th><th class="r">Ahora</th><th class="r">Intrínseco</th>
+      <th class="r">Delta</th><th class="r">Diferencial</th><th class="r">Desde entrada</th></tr>
+    <tr><td class="k">SPY 770 <i>call</i> · 21 ago</td><td class="r">7,21</td><td class="r">1,99</td><td class="r">0,82</td>
+      <td class="r">0,39</td><td class="r">1,01%</td><td class="r"><b style="color:var(--crit)">−72,4%</b></td></tr>
+    <tr><td class="k">QQQ 718 <i>call</i> · 21 ago</td><td class="r">10,84</td><td class="r">4,69</td><td class="r">2,78</td>
+      <td class="r">0,50</td><td class="r">1,28%</td><td class="r"><b style="color:var(--crit)">−56,7%</b></td></tr>
+  </table>
+  <div class="note" style="margin-bottom:4mm"><b>Ayer estimé −49% y −29% aplicando el delta; la realidad
+    es −72% y −57%.</b> La estimación se quedó corta porque el martes siguió cayendo por debajo de donde
+    la marqué y porque metió otra sesión entera de theta. Es la diferencia entre calcular y mirar la
+    pantalla, y hoy por fin se puede mirar. <b>Les quedan dos sesiones</b> y mañana atraviesan las actas
+    de la Fed a las 14:00.</div>
+
+  <div class="dl" style="margin-bottom:4mm">
+    <div class="box bad">
+      <h3 style="color:var(--crit)">Ahora mismo no se hace</h3>
+      <ul>
+        <li><b>No promediar a la baja.</b> Añadir a una posición perdedora con dos sesiones de vida es la forma más rápida de convertir una pérdida en una pérdida mayor.</li>
+        <li><b>No comprar el rebote.</b> El +0,44% de hoy es la reacción a una intervención técnica del Tesoro, no a un cambio de fondo, y llega con la implícita ya más cara.</li>
+        <li><b>Nada de Apple.</b> Octavo día, y hoy la medición buena confirma que no es cosa del premarket: 5,66%.</li>
+        <li><b>No abrir nada antes de las actas.</b> Mañana a las 14:00 y con vencimiento el viernes: es el peor solapamiento posible.</li>
+      </ul>
+    </div>
+    <div class="box ok">
+      <h3 style="color:var(--good)">Lo que sí toca hacer</h3>
+      <ul>
+        <li><b>Decidir hoy sobre las dos.</b> Con delta 0,39 y 0,50 ya son apuestas casi a cara o cruz; cerrarlas recupera 1,99 y 4,69 por contrato, y las horquillas hoy son buenas.</li>
+        <li><b>Si se mantiene alguna, que sea la del QQQ</b>, que conserva 2,78 de valor intrínseco frente a 0,82 de la del SPY.</li>
+        <li><b>Apuntar mañana a las 14:00.</b> Con el bono viniendo de rozar máximos, las actas mueven más de lo normal.</li>
+        <li><b>Dar por cerrado el asunto de Apple</b> hasta que su diferencial baje del 2% con el mercado abierto. Deja de ser una tesis y pasa a ser una alarma.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box" style="background:#f9f9f7;padding:4mm;margin-bottom:4mm">
+    <h3>Lo que no se pudo confirmar</h3>
+    <p style="font-size:8.5pt;line-height:1.45"><b>VERIFICADO:</b> cadena, precios y horquillas de
+      cdn.cboe.com con el mercado abierto; bonos y VIX de investing.com y Yahoo en vivo; cierres del
+      martes de Yahoo. Las actas del FOMC de mañana a las 14:00 quedaron confirmadas el lunes en
+      federalreserve.gov.<br>
+      <b>NO VERIFICADO:</b> que el giro del bono venga de que el Tesoro haya doblado su operación de
+      recompra de deuda larga es lectura de prensa recogida en la ficha de investing.com, no un
+      comunicado del Tesoro que haya abierto. Si es importante para ti, conviene mirarlo en
+      <i>treasurydirect.gov</i>.<br>
+      <b>Incidencia:</b> la rutina automática de las 8:00 <b>no disparó</b> hoy. Su último disparo fue
+      ayer a las 12:11 UTC y su próxima ejecución figuraba a las 12:06 de hoy, que ya había pasado sin
+      ejecutarse cuando lo comprobé a las 9:30. Queda avisado aparte.</p>
+  </div>
+
+  <div class="foot" style="margin-top:auto">
+    <b>Fuentes:</b> federalreserve.gov (primaria) · cdn.cboe.com · investing.com ·
+    query2.finance.yahoo.com.<br>
+    <b>No es recomendación personalizada.</b> Las opciones compradas pueden perder el 100% de la prima.
+  </div>
+  <div class="pg">4 / 4</div>
+</section>
+
+</body></html>

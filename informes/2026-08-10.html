@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Informe AAPL QQQ SPY</title>
+<style>
+:root{
+  --surface:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --base:#c3c2b7; --border:rgba(11,11,11,.10);
+  --blue:#2a78d6; --blue-l:#86b6ef; --blue-ll:#cde2fb; --orange:#eb6834;
+  --crit:#d03b3b; --warn:#fab219; --good:#0ca30c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4;margin:0}
+html,body{background:var(--surface);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","DejaVu Sans",sans-serif;
+  -webkit-font-smoothing:antialiased;font-size:10.5pt;line-height:1.45}
+.page{width:210mm;height:296.6mm;padding:13mm 15mm 11mm;position:relative;overflow:hidden;
+  page-break-after:always;display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto}
+h1{font-size:23pt;line-height:1.1;letter-spacing:-.02em;font-weight:700}
+h2{font-size:13pt;font-weight:700;letter-spacing:-.01em;margin-bottom:2.5mm}
+h3{font-size:10pt;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);margin-bottom:2mm}
+p{color:var(--ink2)}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;
+  border-bottom:2px solid var(--ink);padding-bottom:3mm;margin-bottom:6mm}
+.hd .t{font-size:12pt;font-weight:700;letter-spacing:-.01em}
+.hd .d{font-size:9pt;color:var(--muted);text-align:right;line-height:1.35}
+.sub{font-size:8.5pt;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+
+/* verdict block */
+.verdict{border:2px solid var(--crit);border-radius:4mm;padding:7mm;margin-bottom:6mm;background:#fdf6f6}
+.vtop{display:flex;align-items:center;gap:4mm;margin-bottom:3.5mm}
+.dot{width:11mm;height:11mm;border-radius:50%;background:var(--crit);flex:none}
+.vlabel{font-size:9pt;font-weight:700;letter-spacing:.12em;color:#a52a2a;text-transform:uppercase}
+.vmain{font-size:19pt;font-weight:700;line-height:1.15;letter-spacing:-.02em}
+.vsub{font-size:10.5pt;color:var(--ink2);margin-top:3mm;line-height:1.5}
+
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:6mm}
+.stat{border:1px solid var(--border);border-radius:3mm;padding:4.5mm;background:var(--plane)}
+.stat .n{font-size:20pt;font-weight:700;letter-spacing:-.03em;line-height:1}
+.stat .l{font-size:8.5pt;color:var(--muted);margin-top:2mm;line-height:1.35}
+.red{color:var(--crit)} .blu{color:var(--blue)} .grn{color:var(--good)}
+
+.note{font-size:9pt;color:var(--muted);line-height:1.5;margin-top:2mm}
+.foot{margin-top:auto;padding-top:4mm;padding-right:16mm;border-top:1px solid var(--grid);
+  font-size:7.5pt;color:var(--muted);line-height:1.5}
+.pg{position:absolute;bottom:7mm;right:15mm;font-size:8pt;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* cards */
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm}
+.card{border:1px solid var(--border);border-radius:3mm;overflow:hidden;background:var(--plane);display:flex;flex-direction:column}
+.card .top{padding:3.5mm 4mm;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:baseline}
+.card .tk{font-size:13pt;font-weight:700;letter-spacing:-.01em}
+.card .px{font-size:9pt;color:var(--muted);font-variant-numeric:tabular-nums}
+.card .body{padding:4mm;flex:1}
+.tag{display:inline-block;font-size:8pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:1.5mm 3mm;border-radius:2mm;background:var(--crit);color:#fff;margin-bottom:3mm}
+.tag.wait{background:var(--warn);color:#4a3200}
+.card p{font-size:9pt;line-height:1.5}
+
+/* do / dont */
+.dl{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.box{border:1px solid var(--border);border-radius:3mm;padding:5mm;background:var(--plane)}
+.box.bad{border-color:#f0c9c9;background:#fdf6f6}
+.box.ok{border-color:#c9e6c9;background:#f5faf5}
+.box h3{margin-bottom:3mm}
+ul{list-style:none}
+li{font-size:9pt;color:var(--ink2);line-height:1.42;padding-left:5.5mm;position:relative;margin-bottom:2.4mm}
+li::before{position:absolute;left:0;top:0;font-weight:700}
+.box.bad li::before{content:"\00d7";color:var(--crit);font-size:12pt;line-height:1.1}
+.box.ok li::before{content:"\2713";color:var(--good);font-size:10pt}
+li b{color:var(--ink)}
+svg{display:block}
+.cap{font-size:8.5pt;color:var(--muted);margin-top:2.5mm;line-height:1.45}
+.chart{border:1px solid var(--border);border-radius:3mm;padding:5mm;background:var(--plane);margin-bottom:5mm}
+table{width:100%;border-collapse:collapse;font-size:9.5pt}
+th{text-align:left;font-size:8pt;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+  font-weight:700;padding:0 0 2mm;border-bottom:1px solid var(--base)}
+td{padding:2.5mm 0;border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums;color:var(--ink2)}
+td.k{color:var(--ink);font-weight:600;font-variant-numeric:normal}
+th.r,td.r{text-align:right}
+</style></head><body>
+
+<!-- ══════════════ PÁGINA 1 ══════════════ -->
+<section class="page">
+  <div class="hd">
+    <div><div class="sub">Informe diario de opciones</div>
+      <div class="t">AAPL &nbsp;·&nbsp; QQQ &nbsp;·&nbsp; SPY</div></div>
+    <div class="d">Lunes 10 de agosto de 2026<br>Datos a las 8:22 AM · Nueva York</div>
+  </div>
+
+  <div class="verdict">
+    <div class="vtop"><div class="dot"></div>
+      <div><div class="vlabel">Termómetro del día</div>
+        <div class="vmain">No se abre nada nuevo.<br>Hoy se administra lo del viernes</div></div></div>
+    <div class="vsub">Medimos por primera vez el precio de la volatilidad contra lo que el mercado
+      ha entregado de verdad, y el resultado es incómodo de lo justo que sale: <b>en el SPY el
+      <i>straddle</i> de nueve sesiones vale exactamente lo que cuesta.</b> Cero ventaja. En el QQQ,
+      un 9% en contra del comprador. Y en Apple no pasa ni un contrato del filtro.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">0,00%</div>
+      <div class="l">Ventaja del comprador de volatilidad en el SPY. El implícito es 1,74% y el
+        movimiento medio real a nueve sesiones es <b>1,75%</b>.</div></div>
+    <div class="stat"><div class="n red">0 de 26</div>
+      <div class="l">Contratos de Apple que pasan el filtro de liquidez. El mejor diferencial es
+        <b>3,02%</b> y el límite es 2%.</div></div>
+    <div class="stat"><div class="n grn">+31%</div>
+      <div class="l">Lo que lleva la <i>call</i> del SPY 770 del 14 de agosto desde el viernes.
+        <b>Vence este viernes.</b></div></div>
+  </div>
+
+  <h2>La semana, de un vistazo</h2>
+  <div class="chart" style="margin-bottom:4mm">
+    <svg viewBox="0 0 720 168" width="100%" height="168">
+      <rect x="60" y="82" width="290" height="16" fill="#e8e7e0"/>
+      <rect x="350" y="82" width="215" height="16" fill="#f7dcc4"/>
+      <rect x="565" y="82" width="95" height="16" fill="#cde2fb"/>
+      <line x1="30" y1="98" x2="690" y2="98" stroke="#c3c2b7" stroke-width="2"/>
+
+      <circle cx="60"  cy="90" r="8" fill="#0ca30c" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="205" cy="90" r="6" fill="#c3c2b7" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="350" cy="90" r="10" fill="#d03b3b" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="493" cy="90" r="8" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+      <circle cx="637" cy="90" r="8" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+
+      <g font-size="12" font-weight="700" fill="#0b0b0b" text-anchor="middle">
+        <text x="60" y="40">HOY, LUNES</text><text x="205" y="40">MARTES</text>
+        <text x="350" y="40" fill="#d03b3b">MIÉRCOLES</text><text x="493" y="40" fill="#eb6834">JUEVES</text>
+        <text x="637" y="40">VIERNES</text>
+      </g>
+      <g font-size="10.5" fill="#52514e" text-anchor="middle">
+        <text x="60" y="60">Agenda vacía</text><text x="205" y="60">Agenda vacía</text>
+        <text x="350" y="60" font-weight="700" fill="#d03b3b">IPC de julio · 8:30</text>
+        <text x="493" y="60" font-weight="700" fill="#b4491d">Precios de fábrica · 8:30</text>
+        <text x="637" y="60" font-weight="700" fill="#2a78d6">Vence la del 14</text>
+      </g>
+      <g font-size="9.5" fill="#898781" text-anchor="middle">
+        <text x="60" y="128">Nada en el calendario</text><text x="60" y="143">de la Fed ni del BLS</text>
+        <text x="205" y="128">Segundo día seco</text><text x="205" y="143">seguido</text>
+        <text x="350" y="128" fill="#52514e">El dato del mes.</text><text x="350" y="143" fill="#52514e">Mediana histórica: 0,15%</text>
+        <text x="493" y="128">Confirma o desmiente</text><text x="493" y="143">lo del miércoles</text>
+        <text x="637" y="128" fill="#52514e">Cierre obligatorio</text><text x="637" y="143" fill="#52514e">antes de las 15:45</text>
+      </g>
+    </svg>
+    <div class="cap">Fechas del IPC y del PPI <b>confirmadas hoy en bls.gov</b>, fuente primaria. No hay
+      reunión de la Fed en agosto: la próxima es el <b>15 y 16 de septiembre</b>, confirmada en
+      federalreserve.gov. Tampoco hay resultados de peso hasta finales de mes.</div>
+  </div>
+
+  <p style="font-size:10pt;line-height:1.5">El viernes el empleo salió mal, la bolsa lo celebró y los
+    tres contratos que pasaron el filtro subieron entre un 24 y un 31%. Hoy la agenda está vacía dos
+    días seguidos y el mercado se queda quieto: <b>el SPY abre plano y el QQQ sube una décima</b>.
+    Apple es la excepción y baja sola, otra vez por el mismo motivo del 31 de julio.</p>
+
+  <div class="foot">Análisis de mecánica de mercado y calendario. No es recomendación personalizada de
+    inversión. Las opciones compradas pueden perder el 100% de la prima pagada.</div>
+  <div class="pg">1 / 4</div>
+</section>
+
+<!-- ══════════════ PÁGINA 2 ══════════════ -->
+<section class="page">
+  <div class="hd"><div><div class="sub">Lo más importante del informe</div>
+      <div class="t">El dato del mes que no mueve el mes</div></div>
+    <div class="d">Siete publicaciones del IPC<br>medidas sobre el SPY</div></div>
+
+  <p style="font-size:11pt;margin-bottom:4mm;line-height:1.5">Todo el mundo llega al miércoles diciendo
+    que el IPC es <i>el dato</i>. Así que fuimos a mirarlo: <b>qué hizo el SPY los siete días de IPC de
+    2026</b>. Seis de los siete se quedaron por debajo del 0,40%. La mediana es <b>0,15%</b>. El dato
+    del mes, en la práctica, casi nunca es un evento.</p>
+
+  <div class="chart">
+    <h3>Movimiento del SPY el día de cada IPC de 2026</h3>
+    <svg viewBox="0 0 720 212" width="100%" height="212">
+      <g stroke="#e1e0d9" stroke-width="1">
+        <line x1="112" y1="36"  x2="700" y2="36"/><line x1="112" y1="104" x2="700" y2="104"/>
+        <line x1="112" y1="138" x2="700" y2="138"/><line x1="112" y1="172" x2="700" y2="172"/>
+      </g>
+      <line x1="112" y1="70" x2="700" y2="70" stroke="#c3c2b7" stroke-width="2"/>
+      <g font-size="9" fill="#898781" text-anchor="end">
+        <text x="104" y="40">+0,5%</text><text x="104" y="74">0</text>
+        <text x="104" y="108">−0,5%</text><text x="104" y="142">−1,0%</text><text x="104" y="176">−1,5%</text>
+      </g>
+
+      <rect x="128" y="70"   width="46" height="13.6" rx="2" fill="#86b6ef"/>
+      <rect x="208" y="65.2" width="46" height="4.8"  rx="2" fill="#0ca30c"/>
+      <rect x="288" y="70"   width="46" height="8.8"  rx="2" fill="#86b6ef"/>
+      <rect x="368" y="70"   width="46" height="4.8"  rx="2" fill="#86b6ef"/>
+      <rect x="448" y="70"   width="46" height="10.2" rx="2" fill="#86b6ef"/>
+      <rect x="528" y="70"   width="46" height="107.4" rx="2" fill="#d03b3b"/>
+      <rect x="608" y="45.5" width="46" height="24.5" rx="2" fill="#0ca30c"/>
+
+      <g font-size="10" font-weight="700" text-anchor="middle" fill="#52514e">
+        <text x="151" y="95">−0,20</text><text x="231" y="59">+0,07</text>
+        <text x="311" y="90">−0,13</text><text x="391" y="86">−0,07</text>
+        <text x="471" y="92">−0,15</text>
+        <text x="551" y="192" fill="#d03b3b">−1,58</text><text x="631" y="39" fill="#0ca30c">+0,36</text>
+      </g>
+      <g font-size="10.5" font-weight="700" fill="#0b0b0b" text-anchor="middle">
+        <text x="151" y="208">13 ene</text><text x="231" y="208">13 feb</text><text x="311" y="208">11 mar</text>
+        <text x="391" y="208">10 abr</text><text x="471" y="208">12 may</text>
+        <text x="551" y="208" fill="#d03b3b">10 jun</text><text x="631" y="208">14 jul</text>
+      </g>
+    </svg>
+    <div class="cap"><b>Un solo IPC de los siete movió el índice de verdad</b>, el del 10 de junio, y se
+      llevó un 1,58%. Los otros seis suman menos que una sesión cualquiera. Eso no significa que el
+      miércoles no pueda ser el segundo: significa que <b>pagar por adelantado por ese 1 de cada 7 tiene
+      un precio</b>, y el precio está en la tabla de abajo.</div>
+  </div>
+
+  <h2>Lo que cuesta contra lo que se ha entregado</h2>
+  <table style="margin-bottom:3mm">
+    <tr><th style="width:40%">Vencimiento del 21 de agosto · 9 sesiones</th><th class="r" style="width:15%">Implícito</th>
+      <th class="r" style="width:19%">Movimiento real</th><th class="r" style="width:13%">Ventaja</th><th class="r" style="width:13%">Acierta</th></tr>
+    <tr><td class="k">SPY · <i>straddle</i> 773</td><td class="r">±1,74%</td><td class="r">1,75%</td>
+      <td class="r"><b>0,00%</b></td><td class="r">37%</td></tr>
+    <tr><td class="k">QQQ · <i>straddle</i> 723</td><td class="r">±2,90%</td><td class="r">2,64%</td>
+      <td class="r"><b style="color:var(--crit)">−9%</b></td><td class="r">36%</td></tr>
+  </table>
+  <div class="note"><b>Cómo se lee.</b> «Movimiento real» es lo que se movieron de verdad las 242
+    ventanas de nueve sesiones del último año; «Ventaja», la diferencia sobre la prima; «Acierta», las
+    veces que el movimiento superó la prima. <b>Dos de cada tres veces se pierde aun con la ventaja
+    media en cero</b>: así funciona comprar volatilidad.</div>
+
+  <div class="box" style="background:var(--plane);padding:4.5mm;margin-top:4mm">
+    <h3>El matiz que casi nos engaña</h3>
+    <p style="font-size:9.5pt;line-height:1.48">La volatilidad implícita a 30 días del SPY está hoy en
+      <b>12,4</b> y la realizada de las últimas veinte sesiones es <b>14,0</b> —en el tramo tranquilo de
+      junio y julio, <b>14,4</b>—. En el QQQ la brecha es mayor: <b>20,2</b> contra <b>25,4</b>. Leído
+      así, la opción parece barata en los dos, y <b>no lo está</b>.</p>
+    <p style="font-size:9.5pt;line-height:1.48;margin-top:2.5mm">Esa comparación es entre volatilidades
+      anualizadas, y aquí no se compra volatilidad: se compra <b>un movimiento concreto a nueve
+      sesiones</b>. La anualizada se infla con los pocos días grandes —el 10 de junio, el 31 de julio—,
+      y esos días no se reparten a plazos. <b>El comprador paga la media todos los días y cobra la cola
+      casi nunca.</b></p>
+  </div>
+
+  <div class="foot">Movimientos del SPY calculados sobre cierres ajustados de Yahoo Finance; las siete
+    fechas de publicación del IPC de 2026 están tomadas del calendario oficial de bls.gov. Implícitos
+    del punto medio de la cadena de Cboe de esta mañana.</div>
+  <div class="pg">2 / 4</div>
+</section>
+
+<!-- ══════════════ PÁGINA 3 ══════════════ -->
+<section class="page">
+  <div class="hd"><div><div class="sub">Los tres instrumentos</div>
+      <div class="t">Uno por uno</div></div>
+    <div class="d">Premarket de las 8:19 a las 8:22<br>Cierres del viernes 7</div></div>
+
+  <div class="cards" style="margin-bottom:5mm">
+    <div class="card">
+      <div class="top"><div class="tk">AAPL</div><div class="px">310,15 &nbsp;<b style="color:#d03b3b">−1,01%</b></div></div>
+      <div class="body">
+        <div class="tag">No operar</div>
+        <p><b>Cae sola.</b> Descontado el arrastre del índice, se queda <b>1,04 puntos</b> por detrás
+          del mercado. El umbral que separa el ruido del movimiento propio es 0,15.</p>
+        <p style="margin-top:2.5mm"><b>Ninguno de los 26 contratos candidatos pasa.</b> Todos fallan por
+          diferencial: entre el 3,0 y el 10,5%, cuando el límite es 2%. Los <i>strikes</i> van de 2,50
+          en 2,50 y eso ensancha la horquilla.</p>
+        <p style="margin-top:2.5mm">El motivo es el de siempre desde el 31 de julio: <b>el coste de
+          las memorias</b>. Hoy el <i>Wall Street Journal</i> cuenta que está probando chips chinos.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="top"><div class="tk">QQQ</div><div class="px">723,93 &nbsp;<b style="color:#0ca30c">+0,12%</b></div></div>
+      <div class="body">
+        <div class="tag">No operar</div>
+        <p><b>Por debajo del umbral de ruido</b>, que en el QQQ está en 0,20%. No hay gesto que
+          interpretar.</p>
+        <p style="margin-top:2.5mm"><b>Liquidez impecable</b>: el 725 <i>call</i> del 21 de agosto tiene
+          diferencial del 1,33%, 10.110 contratos abiertos y 5.215 de volumen. Pasa el filtro con
+          holgura. El problema no es el contrato.</p>
+        <p style="margin-top:2.5mm"><b>El problema es el precio.</b> Pide un 2,90% y ha entregado un
+          2,64% de media. Es el único de los tres donde la ventaja es <b>negativa</b>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="top"><div class="tk">SPY</div><div class="px">773,52 &nbsp;<b style="color:#0ca30c">+0,03%</b></div></div>
+      <div class="body">
+        <div class="tag">No operar</div>
+        <p><b>Plano.</b> Tres centésimas sobre el cierre del viernes, contra un umbral de 0,15%.</p>
+        <p style="margin-top:2.5mm">Es el instrumento mejor tarificado de los tres y aun así <b>no deja
+          nada</b>: el implícito de 1,74% coincide con el movimiento medio real de 1,75%. Cuando el
+          precio es exacto, la comisión decide, y la comisión siempre juega en contra.</p>
+        <p style="margin-top:2.5mm">La volatilidad implícita a 30 días está en <b>12,4</b>, la más baja
+          de los tres y de toda la serie del informe.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>El cuadro de mando</h2>
+  <table>
+    <tr><th>Referencia</th><th class="r">Ahora</th><th class="r">Cierre del viernes</th><th class="r">Lectura</th></tr>
+    <tr><td class="k">VIX</td><td class="r">15,45</td><td class="r">14,90</td><td class="r">Verde. Muy lejos del 22</td></tr>
+    <tr><td class="k">Bono a 10 años</td><td class="r">4,666%</td><td class="r">4,658%</td><td class="r">Sin cambio real</td></tr>
+    <tr><td class="k">Bono a 2 años</td><td class="r">4,224%</td><td class="r">4,204%</td><td class="r">+2 puntos básicos</td></tr>
+    <tr><td class="k">Futuro del S&amp;P 500</td><td class="r">7.783,75</td><td class="r">—</td><td class="r">+0,05%, con 10 min de retraso</td></tr>
+    <tr><td class="k">Futuro del Nasdaq 100</td><td class="r">29.871,50</td><td class="r">—</td><td class="r">+0,12%, con 10 min de retraso</td></tr>
+    <tr><td class="k">S&amp;P 500 · Nasdaq 100 · Dow</td><td class="r" colspan="2">7.757,64 · 29.722,30 · 54.036,93</td>
+      <td class="r">Viernes: +0,62% · +1,19% · +0,28%</td></tr>
+  </table>
+
+  <div class="foot">Diferenciales, delta, theta y volatilidad implícita calculados sobre la cadena de
+    Cboe con corte entre las 8:15 y las 8:22 (datos retrasados). VIX y bonos de investing.com, en tiempo
+    real. Precios de Apple cruzados entre stockanalysis.com y finviz: la cadena de Cboe la marcaba en
+    309,73 a las 8:15, un 1,15% abajo.</div>
+  <div class="pg">3 / 4</div>
+</section>
+
+<!-- ══════════════ PÁGINA 4 ══════════════ -->
+<section class="page">
+  <div class="hd"><div><div class="sub">Plan de acción</div>
+      <div class="t">Qué hacer y qué no</div></div>
+    <div class="d">Interactive Brokers</div></div>
+
+  <h2>Lo que quedó abierto el viernes</h2>
+  <table style="margin-bottom:3mm">
+    <tr><th style="width:38%">Contrato</th><th class="r">Punto medio el viernes</th><th class="r">Ahora</th>
+      <th class="r">Ganancia</th><th class="r">Le quedan</th></tr>
+    <tr><td class="k">SPY 770 <i>call</i> · 14 de agosto</td><td class="r">4,96</td><td class="r">6,50</td>
+      <td class="r"><b style="color:var(--good)">+31,0%</b></td><td class="r">4 sesiones</td></tr>
+    <tr><td class="k">SPY 770 <i>call</i> · 21 de agosto</td><td class="r">7,21</td><td class="r">8,92</td>
+      <td class="r"><b style="color:var(--good)">+23,7%</b></td><td class="r">9 sesiones</td></tr>
+    <tr><td class="k">QQQ 718 <i>call</i> · 21 de agosto</td><td class="r">10,84</td><td class="r">13,75</td>
+      <td class="r"><b style="color:var(--good)">+26,8%</b></td><td class="r">9 sesiones</td></tr>
+  </table>
+  <div class="note" style="margin-bottom:5mm">A las 10:00 del viernes, la hora de entrada que marcaba el
+    informe, el SPY estaba en 770,43 y el QQQ en 717,80 — <b>el mínimo de la mañana en los dos, justo en
+    el <i>strike</i></b>. La entrada real fue algo más barata que estos puntos medios de la víspera, así
+    que el porcentaje de arriba es un suelo, no un techo. <b>Son tres apuestas alcistas al mismo factor,
+    no tres ideas</b>, y el máximo del manual son dos posiciones abiertas.</div>
+
+  <div class="dl" style="margin-bottom:4mm">
+    <div class="box bad">
+      <h3 style="color:var(--crit)">Ahora mismo no se hace</h3>
+      <ul>
+        <li><b>No se abre nada nuevo.</b> En el SPY la ventaja es cero y en el QQQ es negativa. Pagar el precio justo por adelantado no es operar: es hacerle un favor al que está al otro lado.</li>
+        <li><b>Nada de Apple, otra vez.</b> Cero de veintiséis contratos pasan el filtro.</li>
+        <li><b>No llegar al miércoles con las tres.</b> Suben y bajan juntas; en un IPC malo se caen las tres a la vez.</li>
+        <li><b>No dejar viva la del 14 el viernes por la tarde.</b> Liquidan con entrega física y la OCC ejerce sola cualquier <i>call</i> que acabe un céntimo dentro del dinero.</li>
+      </ul>
+    </div>
+    <div class="box ok">
+      <h3 style="color:var(--good)">Lo que sí toca hacer</h3>
+      <ul>
+        <li><b>Cerrar la del 14 de agosto.</b> Es la que más corre: pierde un <b>5% de la prima cada día</b> y le quedan cuatro. Un 31% en día y medio es un buen sitio para bajarse.</li>
+        <li><b>Quedarse con una sola de las del 21</b>, la del SPY, que es la más líquida de las tres.</li>
+        <li><b>Todo con orden límite</b>, también al vender. En una cadena tan tranquila el mercado se lo lleva.</li>
+        <li><b>Volver a medir el miércoles a las 9:00.</b> Un IPC caliente cambia el precio de la volatilidad en un minuto y ahí sí puede aparecer ventaja.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box" style="background:#f9f9f7;padding:4mm;margin-bottom:4mm">
+    <h3>Lo que no se pudo confirmar</h3>
+    <p style="font-size:8.5pt;line-height:1.45"><b>VERIFICADO en fuente primaria hoy:</b> el IPC de julio
+      sale el miércoles 12 a las 8:30 y el PPI el jueves 13 a las 8:30 (bls.gov); no hay reunión del FOMC
+      en agosto y la siguiente es el 15 y 16 de septiembre (federalreserve.gov); el calendario del BEA no
+      publica nada hasta el 26 de agosto.<br>
+      <b>NO VERIFICADO:</b> las ventas minoristas del viernes 14 son del Departamento de Comercio y no se
+      han comprobado hoy — <i>census.gov/retail</i>; las actas del FOMC del 19 de agosto son una
+      inferencia de la regla de las tres semanas, no una fecha publicada; y los resultados de NVIDIA del
+      26 de agosto no están confirmados por la empresa.<br>
+      <b>Aviso sobre el QQQ 718:</b> su interés abierto ha bajado de 1.112 a <b>959</b> desde el viernes,
+      por debajo del mínimo de 1.000. Para vender no importa —el diferencial sigue en 1,38%— pero
+      <b>hoy ya no pasaría el filtro para entrar</b>.</p>
+  </div>
+
+  <div class="foot" style="margin-top:auto">
+    <b>Fuentes:</b> bls.gov y bea.gov (calendarios, primarias) · federalreserve.gov · stockanalysis.com ·
+    finviz.com · investing.com · cdn.cboe.com · query2.finance.yahoo.com (histórico).<br>
+    <b>No es recomendación personalizada.</b> Las opciones compradas pueden perder el 100% de la prima.
+  </div>
+  <div class="pg">4 / 4</div>
+</section>
+
+</body></html>
