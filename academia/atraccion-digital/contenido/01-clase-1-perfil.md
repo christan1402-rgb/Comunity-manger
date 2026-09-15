@@ -6,7 +6,7 @@ Antes de empezar
 
 - Teléfonos cargados, con Instagram actualizado y sesión iniciada.
 - El link de agenda de cada participante, listo para mandar por WhatsApp.
-- Tu propio teléfono con dos perfiles para mostrar: uno malo y el mismo arreglado.
+- Tu teléfono con dos perfiles para mostrar: uno malo y el mismo arreglado.
 - Un yapping de ejemplo para el final: un barbero hablando a cámara cuarenta segundos.
 - Pizarra o papelógrafo para dibujar el embudo. Libretas.
 - Un rincón de la barbería con luz de frente para las fotos de perfil.
@@ -19,9 +19,9 @@ No te presentes con tu nombre. Entra contando.
 >
 > Entro a su perfil como si fuera un cliente. Usuario: nico, guion bajo, dos mil trescientos noventa y uno. Foto de perfil: un auto. Bio: "Dios y familia", con un emoji. Ni ciudad, ni barbería, ni un link. El cliente vio el video, le gustó, entró a mirar, no entendió nada, y reservó en la barbería que le apareció en Google Maps.
 
-Remata: el video no falló. Falló lo que había detrás del video. El video trae gente, el perfil la convierte. Y eso se arregla en una tarde.
+Remata: el video no falló. Falló lo que había detrás del video. El video trae gente. El perfil la convierte. Y eso se arregla en una tarde.
 
-Recién ahí te presentas. Corto. Tu nombre y qué van a lograr en cuatro clases: un perfil que reserva solo, y tres tipos de video que atraen clientes, no barberos.
+Recién ahí te presentas. Corto. Tu nombre y qué van a lograr en cuatro clases: un perfil que reserva solo, y tres tipos de video que traen clientes, no barberos.
 
 Cierra con la regla, dicha fuerte: cada clase tiene un reto, el reto se publica en el perfil de verdad, y el que no lo trae publicado no entra a la siguiente.
 
@@ -41,9 +41,9 @@ Levanta la mano tú primero y pregunta al grupo:
 >
 > ¿A quién le comentan los videos puros barberos y ningún cliente?
 
-Déjalos responder. Que se rían, que se miren entre ellos. Lo importante es que entiendan que no son los únicos, y que esto no es un problema de talento ni de suerte con el algoritmo.
+Déjalos responder. Que se rían, que se miren entre ellos. Lo importante es que entiendan que no son los únicos, y que esto no es talento ni suerte con el algoritmo.
 
-Ahí les bajas la presión: esto es un sistema. Tiene piezas, las piezas se ordenan, y cuando están ordenadas la gente reserva. Hoy ordenamos la primera.
+Ahí les bajas la presión: esto es un sistema. Tiene piezas. Las piezas se ordenan. Cuando están ordenadas, la gente reserva. Hoy ordenamos la primera.
 
 No pases rápido por acá. Este es el momento que abre al grupo.
 
@@ -53,17 +53,17 @@ Diles que saquen la libreta. Espera. No sigas hasta que todos estén escribiendo
 
 Dibuja la cadena en la pizarra, de arriba hacia abajo, y explícala paso a paso.
 
-Te ven. Un video llega a gente que no te conoce. Instagram se lo muestra a desconocidos, y eso es lo único que la plataforma regala. Ese es el ancho del embudo.
+Te ven. Un video llega a gente que no te conoce. Eso es lo único que Instagram regala: mostrarte a desconocidos. Es la parte ancha del embudo.
 
-Te entienden. Al que le gustó el video le da curiosidad y toca tu nombre. Tiene tres segundos en tu perfil para entender quién eres, en qué ciudad estás y qué haces. Si no lo entiende, se va. No se va enojado, se va aburrido.
+Te entienden. Al que le gustó el video le da curiosidad y toca tu nombre. Tiene tres segundos en tu perfil para entender quién eres, en qué ciudad estás y qué haces. Si no lo entiende, se va. No se va enojado. Se va aburrido.
 
-Te reservan. Si entendió, busca cómo reservar. Un toque al link, elige la hora, listo. Si tiene que escribirte un mensaje y esperar respuesta, la mitad no lo hace.
+Te reservan. Si entendió, busca cómo reservar. Un toque al link, elige la hora, listo. Si tiene que escribirte y esperar respuesta, la mitad no lo hace.
 
 La silla. Ahí termina el embudo. Todo lo demás existe para llegar a esto.
 
-Ahora muéstrales dónde se rompe, porque siempre se rompe en los mismos tres lugares. Un video de técnica atrae barberos, no clientes: el embudo entra torcido desde arriba. Un perfil sin ciudad y sin link pierde al cliente en el segundo paso. Y un link general de la barbería, donde el cliente tiene que buscar tu nombre entre diez, lo pierde en el tercero.
+Ahora muéstrales dónde se rompe. Siempre se rompe en los mismos tres lugares. Un video de técnica atrae barberos, no clientes: el embudo entra torcido desde arriba. Un perfil sin ciudad y sin link pierde al cliente en el segundo paso. Un link general de la barbería, donde el cliente tiene que buscar tu nombre entre diez, lo pierde en el tercero.
 
-Y cómo se mide. Con cuenta profesional, cada reel muestra tres números: vistas, visitas al perfil y toques en el link. Que anoten esos tres. Son el embudo en una pantalla, y los vamos a mirar en cada clase.
+Y cómo se mide. Con cuenta profesional, cada reel muestra tres números: vistas, visitas al perfil y toques en el link. Que anoten esos tres. Son el embudo en una pantalla y los vamos a mirar en cada clase.
 
 Cierra: ustedes no vienen a "hacer redes". Vienen a hacer que el que les vio un video termine sentado en su silla.
 
@@ -73,11 +73,11 @@ Cambia de lado. Ahora hablas desde el cliente, no desde el barbero.
 
 El cliente que entra a tu perfil quiere tres cosas. Ver cortes distintos, para encontrar el suyo. Ver tu cara y escuchar tu voz, para confiar en ti antes de sentarse. Y saber dónde estás y cómo reservar, sin buscar.
 
-Lo que espanta al cliente es justo lo que a nosotros nos gusta. La navaja en cámara lenta. El "mejor fade de Temuco". El mismo corte treinta veces, desde el mismo ángulo. Un video enseñando técnica. Eso lo ven barberos, lo comentan barberos, y no reserva ninguno.
+Lo que espanta al cliente es justo lo que a nosotros nos gusta. La navaja en cámara lenta. El "mejor fade de Temuco". El mismo corte treinta veces desde el mismo ángulo. Un video enseñando técnica. Eso lo ven barberos, lo comentan barberos, y no reserva ninguno.
 
 Que anoten la frase: tu perfil es un catálogo, no un portafolio. El portafolio es para que otro barbero diga "qué bueno". El catálogo es para que un cliente diga "quiero ese".
 
-Ejercicio de dos minutos. Cada uno abre su propia grilla y cuenta: de las últimas nueve publicaciones, ¿cuántas harían que un cliente reserve? Que digan el número en voz alta, uno por uno. Van a salir ceros y unos. No lo comentes mucho, el número habla solo.
+Ejercicio de dos minutos. Cada uno abre su propia grilla y cuenta: de las últimas nueve publicaciones, ¿cuántas harían que un cliente reserve? Que digan el número en voz alta, uno por uno. Van a salir ceros y unos. No lo comentes mucho. El número habla solo.
 
 Cierra: de acá en adelante, antes de subir algo, la pregunta es una sola. ¿Esto lo ve un cliente y quiere venir?
 
@@ -87,17 +87,17 @@ Libreta afuera otra vez. Esto es lo que van a hacer con el teléfono en la sigui
 
 Antes de los seis, el punto cero: cuenta profesional. Configuración, tipo de cuenta, profesional, categoría barbería. Sin eso no hay números.
 
-Uno, la foto. Tu rostro en primer plano, mirando a la cámara, con la barbería de fondo. No un logo, no un corte, no una foto de lejos. El cliente reserva con una persona. Y la misma foto en todas partes, para que te reconozca.
+Uno, la foto. Tu rostro en primer plano, mirando a la cámara, con la barbería de fondo. No un logo. No un corte. No una foto de lejos. El cliente reserva con una persona. Y la misma foto en todas partes, para que te reconozca.
 
 Dos, el usuario. Fácil de decir en voz alta y de escribir sin pensar. Sin puntos, sin guiones, sin números. La prueba: si un cliente te lo pregunta en la silla, ¿lo puedes decir de una? "nicobarber" sí. "nico_barber.2391" no. Si el tuyo está tomado, agrega la ciudad: "nicobarber.temuco". Ese punto es la única excepción.
 
 Tres, el nombre. Este campo Instagram lo usa para buscar. Nombre, oficio y ciudad: "Nico · Barbero en Temuco". El que busca "barbero Temuco" te encuentra. El que puso "Nico" con una tijera y una llama no aparece nunca.
 
-Cuatro, la bio. Tres líneas y nada más. Primera línea, qué va a encontrar: "Cortes y barba en Barbería Hernández, Temuco Centro". Segunda, tu autoridad, un dato real: "Seis años en la silla", o "Más de dos mil clientes atendidos", o "Certificado Hernández Academia". Tercera, el llamado a la acción apuntando al link: "Reserva tu hora aquí" y la flecha hacia abajo.
+Cuatro, la bio. Tres líneas y nada más. Primera línea, qué va a encontrar: "Cortes y barba en Barbería Hernández, Temuco Centro". Segunda, un dato real de autoridad: "Seis años en la silla", o "Más de dos mil clientes atendidos", o "Certificado Hernández Academia". Tercera, el llamado a la acción apuntando al link: "Reserva tu hora aquí" y la flecha hacia abajo.
 
-Cinco, el link. Uno solo, el de tu agenda. El que reciben hoy abre directo su agenda, sin buscar el nombre entre diez. Nada de link a la página general, nada de tres links.
+Cinco, el link. Uno solo, el de tu agenda. El que reciben hoy abre directo su agenda, sin buscar el nombre entre diez. Nada de link a la página general. Nada de tres links.
 
-Seis, los destacados. Cuatro, con estos nombres: Cortes, que es el catálogo. Opiniones, lo que dicen los clientes. Reservas, un paso a paso de cómo agendar. Y Yo: la barbería, el equipo, tu día. Cortes y Reservas se arman hoy. Los otros dos en la semana.
+Seis, los destacados. Cuatro, con estos nombres. Cortes, que es el catálogo. Opiniones, lo que dicen los clientes. Reservas, un paso a paso de cómo agendar. Y Yo: la barbería, el equipo, tu día. Cortes y Reservas se arman hoy. Los otros dos en la semana.
 
 Demuéstralo con tu teléfono. Muestra el perfil malo, el de la historia de la portada, y después el mismo arreglado con los seis puntos. Pregunta: "¿A cuál le reservarían?" No hace falta que respondan.
 
@@ -111,7 +111,7 @@ Segundo, la foto. Se la toman ahí mismo, en el rincón con luz de frente que de
 
 Tercero, usuario y nombre. Uno por uno lo dicen en voz alta antes de guardarlo. Si al decirlo hay que deletrear, se cambia.
 
-Cuarto, la bio. Tres líneas. Recorre la sala leyendo solo la primera línea de cada uno: tiene que decir qué hace, en qué barbería y en qué ciudad. Si dice "amante de mi oficio", se corrige ahí.
+Cuarto, la bio. Tres líneas. Recorre la sala leyendo solo la primera línea de cada uno. Tiene que decir qué hace, en qué barbería y en qué ciudad. Si dice "amante de mi oficio", se corrige ahí.
 
 Quinto, el link. Mandas a cada uno su link de agenda y lo pegan. Que lo abran desde su propio perfil y comprueben que sale su agenda y no otra.
 
@@ -145,7 +145,7 @@ A la próxima clase llegan con el reel publicado y una captura de sus tres núme
 
 No les enseñes más que eso. Queremos ver cómo lo hacen sin método, para que en la próxima clase la diferencia se note.
 
-Y la regla, mirándolos a los ojos: el que no trae el video publicado no entra a la próxima clase. No es amenaza, es el trato.
+Y la regla, mirándolos a los ojos: el que no trae el video publicado no entra a la próxima clase. No es amenaza. Es el trato.
 
 Confirma uno por uno qué pregunta va a responder cada uno. Si alguien dice "un tip de barba", pídele la pregunta tal como se la hace el cliente.
 

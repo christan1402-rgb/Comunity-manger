@@ -1,6 +1,6 @@
 # Anexos · Lo que se imprime y se reparte
 
-Material para imprimir. Una copia por alumno de A, B, D y E. Los casos de F se recortan y van en sobres. La rúbrica y el registro de G son tuyos.
+Material para imprimir. Una copia por alumno de A, B, D, E y H. Los casos de F se recortan y van en sobres. La rúbrica y el registro de G son tuyos.
 
 ## Anexo A. Pauta SÍ | NO del perfil
 
@@ -140,21 +140,23 @@ Alumno: {linea} Observador: {linea}
 
 | Criterio | SÍ | NO | Qué vi o escuché |
 |---|:-:|:-:|---|
-| El resultado no aparece al principio ni en un reflejo. | [ ] | [ ] | |
-| El antes se entiende sin explicación. | [ ] | [ ] | |
-| Los cambios de plano ayudan a seguir el proceso. | [ ] | [ ] | |
-| El texto y la música acompañan sin tapar. | [ ] | [ ] | |
-| El resultado responde a la espera y termina con la acción. | [ ] | [ ] | |
+| No habla nadie. Música y hoja, sin yapping. | [ ] | [ ] | |
+| El resultado aparece al ochenta por ciento y dura el veinte. | [ ] | [ ] | |
+| El texto le habla al cliente y está en el antes. | [ ] | [ ] | |
+| Misma toma: teléfono fijo, cliente igual, barbero igual. | [ ] | [ ] | |
+| Dura entre quince y treinta segundos. | [ ] | [ ] | |
+| El cambio se ve. | [ ] | [ ] | |
 
 ### Asesoría
 
 | Criterio | SÍ | NO | Qué vi o escuché |
 |---|:-:|:-:|---|
-| La petición abre el video como gancho. | [ ] | [ ] | |
-| Hace tres preguntas útiles antes de recomendar. | [ ] | [ ] | |
-| La recomendación trae una razón para ese cliente. | [ ] | [ ] | |
-| Sigue el orden y guarda el resultado para el final. | [ ] | [ ] | |
-| Cierra con una acción clara a la reserva. | [ ] | [ ] | |
+| El que habla es el cliente, con sus palabras. | [ ] | [ ] | |
+| Las preguntas del barbero no salen; las respuestas se entienden solas. | [ ] | [ ] | |
+| La recomendación es una frase y trae una razón. | [ ] | [ ] | |
+| El resultado aparece al ochenta por ciento y dura el veinte. | [ ] | [ ] | |
+| Dura entre treinta y cuarenta y cinco segundos, con subtítulos. | [ ] | [ ] | |
+| Cierra con una sola acción: reservar en el link. | [ ] | [ ] | |
 
 Fortaleza concreta: {linea}
 
@@ -164,7 +166,7 @@ La parte que se repite: {linea}
 
 ## Anexo E. La barra 80/20
 
-Dibuja tu video antes de grabarlo. Marca dónde termina el antes, qué planos van en el proceso y en qué segundo aparece el resultado. La línea del 80 % es una guía, no una regla: puede moverse un poco si el relato lo necesita. Lo que no se mueve es que haya una espera y que el final la pague.
+Dibuja tu video antes de grabarlo, y otra vez antes de editarlo. Marca hasta dónde llega el antes y en qué segundo aparece el resultado. La regla: el resultado aparece cuando el video va en el ochenta por ciento y dura solo el veinte por ciento final. Un antes y después dura entre quince y treinta segundos. Una asesoría, entre treinta y cuarenta y cinco.
 
 <svg class="barra" viewBox="0 0 600 78" xmlns="http://www.w3.org/2000/svg">
 <text x="24" y="12" class="t">15 segundos</text>
@@ -253,13 +255,13 @@ Dibuja tu video antes de grabarlo. Marca dónde termina el antes, qué planos va
 <text x="465.6" y="12" class="n mk" text-anchor="middle">resultado · 80 %</text>
 </svg>
 
-Qué puede ir en el primer tramo sin regalar el resultado: el problema en palabras del cliente, un texto corto de contexto, manos, máquina, línea, un detalle. Qué no: el corte terminado, un espejo, la portada con el después.
+Qué puede ir antes del ochenta por ciento: la hoja moviéndose, el cliente destapado de a poco, el texto que le habla al cliente, manos trabajando, o el cliente contando lo que le pasa. Qué no: el corte terminado, un espejo con el después, la portada con el resultado. Si al grabar no quedó así, se arregla en la edición: se alarga el antes y se corta el después.
 
 Una sola acción al cierre: reservar en el link del perfil. Se dice en el video y se repite en el caption.
 
 ## Anexo F. Casos para la prueba final
 
-Recorta cada caso. La petición queda afuera del sobre y el contexto adentro. El que hace de cliente lee solo la petición, y suelta el contexto únicamente cuando el barbero pregunta.
+Recorta cada caso. La petición queda afuera del sobre y el contexto adentro. El que hace de cliente lee solo la petición. Si el barbero hace una pregunta cerrada, contesta con una palabra. Si hace una pregunta abierta que apunta a lo que vive, contesta con lo que dice el sobre y algo más.
 
 <div class="casos">
 <div class="caso"><div class="lbl">Caso 1 · Afuera del sobre</div><div class="pet">Me quiero rapar</div><div class="lbl">Adentro del sobre</div><p>Está cansado de peinarse. Tiene un remolino marcado y un evento en dos semanas. Quiere algo fácil de mantener, pero no sabe si raparse lo favorece.</p></div>
@@ -272,19 +274,19 @@ Recorta cada caso. La petición queda afuera del sobre y el contexto adentro. El
 
 ## Anexo G. Rúbrica de certificación y registro de números
 
-Llena la rúbrica en el momento, alumno por alumno, mientras graban en tríos. Cada criterio de uno a cinco. Se certifica con 18 puntos o más y ningún criterio en uno. Si un criterio queda en uno, el alumno repite solo esa parte y se vuelve a puntuar.
+La prueba final evalúa las preguntas de la asesoría en la silla. Llena la rúbrica en el momento, alumno por alumno, mientras trabajan en tríos y otra vez cuando pasan adelante contigo de cliente. Cada criterio de uno a cinco. Se certifica con 18 puntos o más y ningún criterio en uno. Si un criterio queda en uno, el alumno repite solo esa parte y se vuelve a puntuar.
 
 Alumno: {linea} Fecha: {linea}
 
 <table class="rubrica">
 <thead><tr><th>Criterio</th><th class="c">1</th><th class="c">2</th><th class="c">3</th><th class="c">4</th><th class="c">5</th><th>Evidencia o corrección</th></tr></thead>
 <tbody>
-<tr><td>La petición abre el video como gancho.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
-<tr><td>Las preguntas son útiles y cambian la recomendación.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
-<tr><td>La recomendación trae una razón para ese cliente.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
-<tr><td>Sigue el orden y guarda el resultado para el final.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
-<tr><td>Cuerpo y voz: mirada al lente, pausas, sin muletillas.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
-<tr><td>Cierra con una acción clara a la reserva.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
+<tr><td>Las preguntas son abiertas: no se contestan con sí o no.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
+<tr><td>Apuntan a lo que el cliente vive, no a lo técnico.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
+<tr><td>Las respuestas del cliente sirven solas, sin la pregunta.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
+<tr><td>Repregunta cuando la respuesta queda corta.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
+<tr><td>La recomendación es una frase y trae una razón.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
+<tr><td>Cuerpo y voz: escucha, mirada, pausas, sin muletillas.</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td class="c">[ ]</td><td></td></tr>
 </tbody>
 </table>
 
@@ -296,7 +298,7 @@ Los tres números de cada reto, copiados de las estadísticas del reel. La últi
 
 <table class="reg">
 <thead>
-<tr><th rowspan="2">Alumno</th><th colspan="3" class="c">Semana 1 · Yapping</th><th colspan="3" class="c">Semana 2 · Yappings</th><th colspan="3" class="c">Semana 3 · Antes y después</th><th rowspan="2" class="c">Reservas</th></tr>
+<tr><th rowspan="2">Alumno</th><th colspan="3" class="c">Semana 1 · Yapping</th><th colspan="3" class="c">Semana 2 · Yapping y antes y después</th><th colspan="3" class="c">Semana 3 · Antes y después y asesoría</th><th rowspan="2" class="c">Reservas</th></tr>
 <tr><th class="c">Vistas</th><th class="c">Perfil</th><th class="c">Link</th><th class="c">Vistas</th><th class="c">Perfil</th><th class="c">Link</th><th class="c">Vistas</th><th class="c">Perfil</th><th class="c">Link</th></tr>
 </thead>
 <tbody>
@@ -312,3 +314,38 @@ Los tres números de cada reto, copiados de las estadísticas del reel. La últi
 </table>
 
 Cómo leerlos: de vistas a perfil dice si el video dio curiosidad. De perfil a link dice si el perfil convence. Dos alumnos con las mismas vistas pueden tener embudos completamente distintos.
+
+## Anexo H. Preguntas para la asesoría
+
+La asesoría se decide en la silla, con las preguntas. Una pregunta sirve cuando es abierta, apunta a lo que el cliente vive y su respuesta se entiende sola, porque en la edición la pregunta se corta. Si el cliente contesta corto, repregunta: repite su última palabra en tono de pregunta, o "¿y eso por qué?", o "cuéntame más".
+
+### La fórmula en tres pasos
+
+| Paso | Elige | Ejemplos |
+|---|---|---|
+| Uno | Un momento del día del cliente | Levantarse, peinarse, salir, una foto, una entrevista, una cita, ponerse la gorra |
+| Dos | Lo que siente ahí | Vergüenza, flojera, incomodidad, no saber qué pedir, miedo a que se lo dejen mal |
+| Tres | Una de las dos formas | "Cuéntame qué pasa con tu pelo cuando [momento]" · "¿Qué es lo que más te [lo que siente] de tu pelo cuando [momento]?" |
+
+### Las diez que más funcionan
+
+| Pregunta | Qué saca |
+|---|---|
+| Cuéntame qué pasa con tu pelo cuando te levantas. | El problema diario, en sus palabras. |
+| ¿Cuánto tiempo llevas sin cortarte, y por qué? | La historia del abandono. |
+| ¿Qué es lo que más te molesta de tu pelo ahora mismo? | El dolor principal. |
+| ¿Qué haces cada mañana para que se vea bien? | La rutina que no funciona. |
+| ¿Cuándo fue la última vez que te sentiste bien con tu corte? | El recuerdo del buen resultado. |
+| ¿Qué te han dicho de tu pelo o de tu barba? | Lo que le dicen otros. |
+| ¿Para qué quieres verte bien esta semana? | El evento, la razón del cambio. |
+| ¿Qué te da miedo que te hagan? | El miedo que frena. |
+| ¿Qué pediste la última vez, y qué pasó? | El mal corte anterior. |
+| ¿Cómo te gustaría verte cuando salgas de acá? | Lo que quiere, para la recomendación. |
+
+### Lo que no se pregunta
+
+Nada que se conteste con sí o no. Nada técnico: número de máquina, tipo de fade, largo en centímetros. Nada que hable de ti: "¿te gusta cómo corto?". El cliente habla de su pelo, de lo que le molesta y de lo que quiere. De lo demás hablas tú, en una frase, al final.
+
+Mis tres preguntas para este cliente:
+
+{lineas:3}
