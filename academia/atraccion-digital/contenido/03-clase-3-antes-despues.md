@@ -56,7 +56,7 @@ Proyecta el video de ejemplo dos veces. La primera, que solo lo miren. La segund
 - El resultado se aguanta. En el ejemplo, el después aparece cerca del segundo nueve de catorce. La regla que enseñamos es más dura: el resultado aparece cuando el video va en el ochenta por ciento, y se ve solo el veinte por ciento final. En un video de quince segundos, el después aparece en el segundo doce y dura tres.
 - El texto pone en contexto y le habla al cliente. "Tu imagen, tu autoestima." Está en la parte del antes y desaparece cuando se destapa el después. No dice "fade". No habla de técnica. Habla de lo que siente el que mira.
 - Misma toma. El teléfono no se mueve. El cliente en la misma posición. El barbero con la misma ropa. La capa, la cadena, la corbata: todo igual en el antes y en el después. Por eso parece el mismo instante.
-- Dura catorce segundos. Un antes y después dura entre quince y treinta. Más largo se cae.
+- Dura catorce segundos, un segundo bajo el mínimo que enseñamos. Un antes y después va entre quince y treinta. Más corto no alcanza a hacer esperar, más largo se cae.
 - El cliente tiene un cambio grande. Pelo largo y desordenado, barba sin forma. Si el cambio es chico, no hay video.
 - Al final el barbero se asoma al lado del cliente. Dos segundos. Es la firma: se ve quién lo hizo.
 

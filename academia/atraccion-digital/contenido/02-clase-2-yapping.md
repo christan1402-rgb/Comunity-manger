@@ -29,7 +29,7 @@ Pregunta quiénes trajeron el reel publicado. El que no lo tiene se sale de la c
 
 Con el grupo filtrado, cada alumno pasa a la pizarra y escribe sus tres números al lado de su nombre: vistas, visitas al perfil, toques al link. Recién después se proyecta su video, completo.
 
-Al terminar cada uno, primero hablan los compañeros con su hoja BIEN | MAL. Los puntos están en la diapositiva: se entiende en la primera frase, una sola idea, suena hablado y no leído, mira al lente, cierra con una acción. Y lo de oratoria, que no se olvida: postura, mirada, manos, tono, pausas, muletillas.
+Al terminar cada uno, primero hablan los compañeros con su hoja BIEN | MAL. Los puntos están en la diapositiva: se entiende de qué va en la primera frase, desarrolla una sola idea, suena hablado y no leído, mira al lente, tiene un ejemplo real de la silla, y cierra con una acción. Y lo de oratoria, que no se olvida: postura, mirada, manos, tono, pausas, muletillas.
 
 Después corriges tú. Sé concreto. No digas "estuvo bien". Di qué estuvo bien y qué es lo único que corregirías.
 
@@ -91,7 +91,7 @@ CIERRO CON: una conclusión y la invitación a reservar en el link del perfil.
 Habla como un barbero le habla a su cliente en la silla, en español neutro, sin tecnicismos, sin emojis y sin exagerar. No escribas un guion completo: solo la ruta.
 ```
 
-Hazlo tú en vivo con un tema del grupo y proyéctalo. Que vean que en un minuto salen veinte preguntas, y que después eligen las tres que de verdad les hacen. Con estas dos herramientas, sacar el tema de la semana toma menos que hacer un café. Los dos prompts están también en el Anexo C para imprimir.
+Hazlo tú en vivo con un tema del grupo y proyéctalo. Que vean que en un minuto salen veinte preguntas, y que después eligen las tres que de verdad les hacen. Con estas dos herramientas, sacar el tema de la semana toma menos que hacer un café. Los dos prompts están también en el Anexo C, para que los tengas a mano cuando los mandes.
 
 Cierra: la idea nunca es el problema. El problema es que no anotamos lo que nos preguntan.
 

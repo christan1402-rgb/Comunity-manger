@@ -4,7 +4,7 @@ Material para imprimir. Una copia por alumno de A, B, D, E y H. Los casos de F s
 
 ## Anexo A. Pauta SÍ | NO del perfil
 
-La marca un compañero mirando el perfil como cliente. No la marca el dueño del perfil. Se usa en la clase 1, y de nuevo en la clase 4 antes de la prueba.
+La marca un compañero mirando el perfil como cliente, no el dueño del perfil. Se pasa una sola vez, en la clase 1, cuando arman el perfil con el teléfono.
 
 Alumno: {linea} Revisó: {linea}
 
@@ -122,7 +122,7 @@ Cómo se usan en clase: el instructor corre el primero en vivo con un tema del g
 
 ## Anexo D. Hoja BIEN | MAL por formato
 
-Mira el video completo antes de marcar. Después nombra una fortaleza y una sola corrección. En todos los formatos se marca también cuerpo y voz, lo de oratoria: postura, mirada al lente, manos, tono, pausas, muletillas.
+Mira el video completo antes de marcar. Después nombra una fortaleza y una sola corrección. En el yapping y en la asesoría se marca también cuerpo y voz, lo de oratoria: postura, mirada al lente, manos, tono, pausas, muletillas. En el antes y después no, porque nadie habla ni mira al lente.
 
 Alumno: {linea} Observador: {linea}
 
@@ -257,7 +257,7 @@ Dibuja tu video antes de grabarlo, y otra vez antes de editarlo. Marca hasta dó
 
 Qué puede ir antes del ochenta por ciento: la hoja moviéndose, el cliente destapado de a poco, el texto que le habla al cliente, manos trabajando, o el cliente contando lo que le pasa. Qué no: el corte terminado, un espejo con el después, la portada con el resultado. Si al grabar no quedó así, se arregla en la edición: se alarga el antes y se corta el después.
 
-Una sola acción al cierre: reservar en el link del perfil. Se dice en el video y se repite en el caption.
+Una sola acción al cierre: reservar en el link del perfil. En la asesoría se dice en el video y se repite en el caption. En el antes y después va solo en el caption, porque ahí no habla nadie.
 
 ## Anexo F. Casos para la prueba final
 

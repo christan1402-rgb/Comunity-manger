@@ -135,7 +135,7 @@ Las instrucciones, cortas, y que las anoten:
 >
 > Una sola pregunta, de las que te hacen seguido en la silla.
 >
-> La primera frase del video es esa pregunta. Nada de "hola, chicos".
+> Lo abres y lo cierras como te salga. Esta semana nadie te dice cómo.
 >
 > Sin guion, sin editar. Subtítulos automáticos si saben ponerlos.
 >

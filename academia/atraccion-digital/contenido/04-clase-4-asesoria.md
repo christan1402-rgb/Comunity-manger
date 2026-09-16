@@ -104,7 +104,7 @@ Tú llenas la planilla del Anexo G en el momento. Alumno por alumno. Si lo dejas
 - La recomendación es una frase y trae una razón.
 - Cuerpo y voz: escucha, mirada, pausas, sin muletillas.
 
-Los compañeros marcan BIEN | MAL. Después de los tríos, cada uno pasa adelante con un caso nuevo y tú haces de cliente. Ahí va la nota definitiva. Si una parte no se entiende, repite solo esa parte.
+Los compañeros marcan los mismos seis criterios, no la hoja del Anexo D: acá no hay video terminado que medir, se mide cómo preguntó. Después de los tríos, cada uno pasa adelante con un caso nuevo y tú haces de cliente. Ahí va la nota definitiva. Si una parte no se entiende, repite solo esa parte.
 
 ## Diapositiva 7. Certificación · 15 min
 
