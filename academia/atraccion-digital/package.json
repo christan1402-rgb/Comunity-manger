@@ -1,0 +1,11 @@
+{
+  "name": "guia-atraccion-digital",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node plantilla/build.mjs"
+  },
+  "dependencies": {
+    "marked": "^15.0.0"
+  }
+}

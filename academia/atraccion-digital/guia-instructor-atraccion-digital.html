@@ -1,0 +1,1108 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Guía del instructor · Taller Atracción Digital</title>
+<style>@font-face{font-family:"Anton";font-weight:400;src:url("assets/fonts/Anton-Regular.ttf") format("truetype")}
+@font-face{font-family:"Poppins";font-weight:400;src:url("assets/fonts/Poppins-Regular.ttf") format("truetype")}
+@font-face{font-family:"Poppins";font-weight:400;font-style:italic;src:url("assets/fonts/Poppins-Italic.ttf") format("truetype")}
+@font-face{font-family:"Poppins";font-weight:500;src:url("assets/fonts/Poppins-Medium.ttf") format("truetype")}
+@font-face{font-family:"Poppins";font-weight:600;src:url("assets/fonts/Poppins-SemiBold.ttf") format("truetype")}
+@font-face{font-family:"Poppins";font-weight:700;src:url("assets/fonts/Poppins-Bold.ttf") format("truetype")}
+
+:root{
+  --ink:#0b0b0b; --ink2:#2f2f2f; --muted:#7a7a7a; --rule:#dcdcdc; --rule2:#a8a8a8;
+  --cyan:#00d8f8; --cyan-ink:#00a3bf; --gold:#d4a63a; --paper:#ffffff;
+}
+
+@page{
+  size:A4; margin:22mm 18mm 20mm 18mm;
+  @top-left{content:"TALLER ATRACCIÓN DIGITAL";font-family:Poppins;font-weight:600;font-size:6.5pt;letter-spacing:.18em;color:#00a3bf}
+  @top-right{content:"GUÍA DEL INSTRUCTOR";font-family:Poppins;font-weight:600;font-size:6.5pt;letter-spacing:.18em;color:#8a8a8a}
+  @bottom-left{content:"HERNANDEZ Academia · Somos el estándar";font-family:Poppins;font-weight:400;font-size:6.5pt;color:#8a8a8a}
+  @bottom-right{content:counter(page);font-family:Poppins;font-weight:600;font-size:7.5pt;color:#0b0b0b}
+}
+@page dark{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink2);font-family:Poppins,sans-serif;font-size:9.6pt;line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+p,li{orphans:3;widows:3}
+p{margin:0 0 2.8mm}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+
+/* páginas negras */
+section.dark{page:dark;width:210mm;height:297mm;background:#000;color:#fff;display:grid;overflow:hidden}
+.kick{font-family:Poppins;font-weight:600;font-size:7pt;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan)}
+.cover{grid-template-rows:1fr auto 1fr;padding:0 22mm}
+.cover .mid{align-self:center;text-align:center;display:grid;justify-items:center;gap:0}
+.cover img{width:158mm;display:block}
+.cover .kick{margin-top:6mm}
+.cover .meta{color:#bdbdbd;font-size:9pt;margin:2mm 0 0}
+.cover .frase{font-family:Anton;font-weight:400;font-size:25pt;line-height:1.05;color:#fff;letter-spacing:.01em;margin-top:14mm;padding-top:8mm;border-top:1px solid #2a2a2a;width:150mm;white-space:nowrap}
+.cover .foot{align-self:end;display:flex;justify-content:space-between;padding-bottom:18mm;font-family:Poppins;font-weight:600;font-size:7pt;letter-spacing:.18em;text-transform:uppercase}
+.cover .foot .g{color:var(--gold)} .cover .foot .w{color:#8a8a8a}
+
+.sep{grid-template-rows:auto 1fr auto;padding:24mm 20mm 16mm}
+.sep .num{font-family:Anton;font-weight:400;font-size:160pt;line-height:.82;color:var(--cyan);margin:2mm 0 4mm -1mm}
+.sep h1{font-family:Anton;font-weight:400;font-size:33pt;line-height:1.02;color:#fff;max-width:158mm;letter-spacing:.005em}
+.sep .hilo{font-size:12pt;line-height:1.5;color:#c9c9c9;max-width:150mm;margin-top:6mm}
+.sep .cols{display:grid;grid-template-columns:1.15fr 1fr;gap:12mm;align-self:end;margin-top:12mm}
+.sep h3{font-family:Poppins;font-weight:600;font-size:6.8pt;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:3.5mm;padding-bottom:2mm;border-bottom:1px solid #2a2a2a}
+.sep ul{list-style:none}
+.sep li{font-size:8.6pt;line-height:1.45;color:#dedede;padding-left:4.2mm;position:relative;margin-bottom:1.8mm}
+.sep li::before{content:"";position:absolute;left:0;top:.55em;width:1.7mm;height:1.7mm;background:var(--cyan);transform:rotate(45deg)}
+.sep .idx li{display:flex;justify-content:space-between;gap:5mm;padding-left:0}
+.sep .idx li::before{display:none}
+.sep .idx .m{color:var(--cyan);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sep .total{margin-top:3mm;padding-top:2.5mm;border-top:1px solid #2a2a2a;font-size:8.6pt;color:#fff;display:flex;justify-content:space-between}
+.sep .foot{margin-top:12mm;font-family:Poppins;font-weight:600;font-size:7pt;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.sep.anexos .num{font-size:60pt;line-height:1;margin:6mm 0 6mm 0}
+
+/* cuerpo */
+section.doc{}
+h1.pagetitle{font-family:Anton;font-weight:400;font-size:30pt;line-height:1.02;color:var(--ink);margin:0 0 5mm}
+section.doc>h2{font-family:Anton;font-weight:400;font-size:15pt;line-height:1.1;color:var(--ink);margin:6mm 0 2.2mm;break-after:avoid}
+h3{font-family:Poppins;font-weight:600;font-size:7.2pt;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin:4.5mm 0 2mm;break-after:avoid}
+.lead{font-size:10.4pt;color:var(--ink);margin-bottom:4mm}
+
+article.slide,article.anexo{margin:0 0 9mm}
+article.anexo{break-before:page}
+article header{break-after:avoid;break-inside:avoid;margin-bottom:3.2mm;padding-top:2.2mm;border-top:1.6px solid var(--ink)}
+article header .row{display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
+article header .k{font-family:Poppins;font-weight:600;font-size:7pt;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan-ink)}
+article header .min{font-family:Poppins;font-weight:600;font-size:6.8pt;letter-spacing:.06em;color:var(--ink);border:1px solid var(--ink);padding:.5mm 2.2mm;white-space:nowrap;font-variant-numeric:tabular-nums}
+article h2{font-family:Anton;font-weight:400;font-size:21pt;line-height:1.05;color:var(--ink);margin:1.4mm 0 0;letter-spacing:.005em}
+
+blockquote{margin:2.6mm 0 3.6mm;padding:.6mm 0 .6mm 4.6mm;border-left:2.4px solid var(--cyan);color:var(--ink);font-weight:500;break-inside:avoid}
+blockquote p{margin:0 0 1.8mm;color:var(--ink)}
+blockquote p:last-child{margin-bottom:0}
+
+ul{list-style:none;margin:0 0 3mm;break-inside:avoid}
+li{position:relative;padding-left:5mm;margin-bottom:1.5mm}
+li::before{content:"";position:absolute;left:.3mm;top:.66em;width:1.7mm;height:1.7mm;background:var(--cyan);transform:rotate(45deg)}
+ol{margin:0 0 3mm 5mm}
+
+table{width:100%;border-collapse:collapse;margin:1.5mm 0 4mm;font-size:8.4pt;line-height:1.4;break-inside:avoid}
+th{text-align:left;font-family:Poppins;font-weight:600;font-size:6.6pt;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:0 2mm 1.6mm 0;border-bottom:1.4px solid var(--ink);vertical-align:bottom}
+td{padding:1.9mm 2mm 1.9mm 0;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink2)}
+td:first-child{color:var(--ink)}
+th.c,td.c,th[style*="center"],td[style*="center"]{text-align:center;padding-left:1mm;padding-right:1mm}
+td:empty{min-width:14mm}
+
+.cb{display:inline-block;width:3.5mm;height:3.5mm;border:1px solid var(--ink);vertical-align:-.7mm;margin:0 .6mm}
+.line{display:inline-block;min-width:36mm;border-bottom:1px solid var(--rule2);height:1.1em;vertical-align:baseline;margin:0 1mm}
+.wline{height:6.5mm;border-bottom:1px solid var(--rule2);margin-bottom:1mm}
+.pb{break-after:page}
+
+pre{white-space:pre-wrap;font-family:Poppins;font-size:8.8pt;line-height:1.5;color:var(--ink);border:1px solid var(--ink);padding:5.5mm 5mm 4.5mm;margin:2mm 0 4mm;break-inside:avoid;position:relative}
+pre::before{content:"Copia y pega";position:absolute;top:-2.6mm;left:4mm;background:var(--paper);padding:0 1.5mm;font-weight:600;font-size:6.4pt;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-ink)}
+pre code{font-family:inherit}
+
+/* anexo E */
+svg.barra{width:100%;height:auto;display:block;margin:1mm 0 3mm;break-inside:avoid}
+svg.barra .t{font-family:Poppins;font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;fill:#0b0b0b}
+svg.barra .box{fill:none;stroke:#0b0b0b;stroke-width:1.2}
+svg.barra .tick{stroke:#0b0b0b;stroke-width:1}
+svg.barra .n{font-family:Poppins;font-size:9px;fill:#555}
+svg.barra .mark{stroke:#00a3bf;stroke-width:1.4;stroke-dasharray:4 3}
+svg.barra .mk{fill:#00a3bf;font-weight:600}
+
+/* anexo F */
+.casos{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:2mm 0 4mm}
+.caso{border:1px dashed var(--rule2);padding:3.6mm 4mm 3.4mm;break-inside:avoid}
+.caso .lbl{font-family:Poppins;font-weight:600;font-size:6.2pt;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-ink);margin-bottom:1mm}
+.caso .pet{font-family:Anton;font-weight:400;font-size:15pt;line-height:1.08;color:var(--ink);margin-bottom:3.2mm}
+.caso p{font-size:8.2pt;line-height:1.45;margin:0}
+
+/* anexo G */
+table.rubrica td.c,table.rubrica th.c{width:8mm}
+table.rubrica td:last-child,table.rubrica th:last-child{width:50mm}
+table.reg{font-size:7.8pt}
+table.reg th{font-size:6.2pt;padding-right:1mm}
+table.reg thead tr:first-child th{border-bottom:1px solid var(--rule)}
+table.reg tbody td{height:7.2mm;border-right:1px solid var(--rule)}
+table.reg tbody td:last-child{border-right:0}
+
+/* tablas de observación y mapa */
+table.obs td:last-child,table.obs th:last-child{width:38mm}
+table.obs td[style*="center"],table.obs th[style*="center"]{width:9mm}
+.mapa2{display:grid;grid-template-columns:1fr 1fr;gap:2mm 10mm;margin-top:1mm}
+.mapa2>div{break-inside:avoid}
+.mapa2 h3{margin-top:3mm}
+table.mapa{font-size:8.2pt;margin:0 0 2mm}
+table.mapa td{padding:1.3mm 1.5mm 1.3mm 0}
+table.mapa td.n{width:6mm;color:var(--cyan-ink);font-weight:600;font-variant-numeric:tabular-nums}
+table.mapa td.c{width:14mm;white-space:nowrap}
+table.mapa tr.tot td{border-bottom:0;font-weight:600;color:var(--ink)}
+</style></head><body><section class="dark cover"><div></div><div class="mid"><img src="assets/logo-atraccion-digital.png" alt="Taller Atracción Digital"><div class="kick">Guía del instructor</div><p class="meta">4 clases · 120 minutos por clase · 30 diapositivas</p><h1 class="frase">Te ven. Te entienden. Te reservan.</h1></div><div class="foot"><span class="g">HERNANDEZ Academia</span><span class="w">Somos el estándar</span></div></section><section class="doc"><h1 class="pagetitle">Antes de partir, lee esto una vez</h1><p>Barbería Hernández. Cuatro clases, 30 diapositivas, 120 minutos por clase. Esto es lo mismo que vas a ver en tu monitor mientras la clase corre. No es un teleprompter.</p>
+<p>Las clases 2, 3 y 4 funcionan igual. Abres con una escena. Revisas quién publicó su video y qué números hizo. Enseñas la estrategia. Los pones a grabar en la silla. Mandas el reto nuevo. Ese orden no se cambia.</p>
+<p>La clase 1 es la distinta. Todavía no hay video que revisar, y en vez de grabar arman el perfil en el teléfono. De la clase 2 en adelante, siempre igual.</p>
+<h2>La regla que sostiene todo el curso</h2><p>El que no trae su video publicado no entra a la clase siguiente. Publicado, no guardado en el teléfono. En oratoria los videos se grababan a escondidas y eran material de clase. Acá es al revés: cada reto se sube al perfil de verdad, porque la única forma de saber si un video atrae clientes es que un cliente lo vea. Si perdonas a uno, perdiste la regla para todos.</p>
+<p>Como se publica, dos cosas no se negocian. Si sale la cara de un cliente, el cliente lo sabe y dijo que sí. Y nunca aparece una pantalla con nombres, teléfonos ni reservas.</p>
+<h2>Primero lo ven, después lo aprenden</h2><p>Cada formato nuevo se pide antes de enseñarlo. Muestras un video bueno, dices &quot;necesito que hagan uno igual&quot;, y no explicas nada más. Ellos lo intentan solos durante la semana. En la clase siguiente ven los intentos de todos, y recién ahí enseñas cómo se hace. Así funcionó el yapping en la clase 1, el antes y después en la clase 2, y la asesoría en la clase 3.</p>
+<p>Por qué se hace así: el que intentó y falló escucha distinto. Cuando le muestras la regla, la reconoce en su propio video.</p>
+<h2>Los números mandan</h2><p>Todos trabajan con cuenta profesional de Instagram. Cada reel muestra tres números: vistas, visitas al perfil y toques en el link. Ese trío es el embudo completo en una pantalla. Cuánta gente te vio, a cuántos les dio curiosidad, cuántos quisieron reservar. Se anotan en la planilla del Anexo G cada semana.</p>
+<h2>Cómo se enseña acá</h2><p>Cuando estés enseñando la estrategia, párate y diles que anoten. Las notas te van a marcar dónde. No sigas hasta que vayan escribiendo. Lo que no se anota se olvida.</p>
+<p>Demuestra primero, explica después. Cuando ayude, haz la versión mala y luego la correcta. La diferencia se entiende sola.</p>
+<p>La corrección tiene siempre la misma forma. Los compañeros hablan primero con su hoja BIEN | MAL. Después tú. Una fortaleza y una sola corrección. Se repite solo la parte que falló, y el alumno dice qué cambió.</p>
+<p>Una jugada callada: en la clase 1, antes de que toquen nada, saca una captura del perfil de cada alumno como está hoy. Diles solo que es &quot;para tener registro&quot;. No cuentes para qué. En la clase 4 la vas a poner al lado del perfil terminado, y ahí se entiende sola.</p>
+<h2>Contenido para clientes, no para barberos</h2><p>Esto lo vas a repetir en las cuatro clases hasta que canse. Los videos son para el que se sienta en la silla, no para el que está detrás. Nada de técnica. Nada de &quot;el mejor fade de la ciudad&quot;. Nada de navaja en cámara lenta. El cliente quiere ver que entiendes su problema, que hay un catálogo de cortes donde está el suyo, y que reservar toma un toque.</p>
+<h2>Recorrido del curso</h2><table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Trabajo central</th>
+<th>Lo que queda publicado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>El embudo y el perfil del profesional</td>
+<td>Perfil listo y el primer yapping, sin método</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Yapping: ideas, gancho y cómo grabar</td>
+<td>Yapping corregido y el primer antes y después, sin método</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Antes y después: la hoja y la regla del 80/20</td>
+<td>Antes y después corregido y la primera asesoría, sin método</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Asesoría: las preguntas correctas, prueba final y certificación</td>
+<td>La asesoría corregida, dentro de los siete días</td>
+</tr>
+</tbody></table>
+<p>La frase del curso, la que cierra la clase 4: te ven, te entienden, te reservan.</p>
+<h2>Mapa de las 30 diapositivas</h2><p>Los títulos son los de cada diapositiva. Sirven para armar las láminas después: lo que se proyecta es el título, lo que se dice está en cada nota.</p><div class="mapa2"><div><h3>Clase 1 · El embudo: te ven, te entienden, te reservan</h3><table class="mapa"><tbody><tr><td class="n">1</td><td>Portada</td><td class="c">8 min</td></tr><tr><td class="n">2</td><td>Te pasa esto</td><td class="c">7 min</td></tr><tr><td class="n">3</td><td>El embudo</td><td class="c">15 min</td></tr><tr><td class="n">4</td><td>Tu perfil es un catálogo, no un portafolio</td><td class="c">10 min</td></tr><tr><td class="n">5</td><td>Los seis puntos del perfil</td><td class="c">15 min</td></tr><tr><td class="n">6</td><td>Manos al teléfono</td><td class="c">50 min</td></tr><tr><td class="n">7</td><td>El reto: estrena tu primer yapping</td><td class="c">10 min</td></tr><tr class="tot"><td></td><td>Total</td><td class="c">115 min</td></tr></tbody></table></div><div><h3>Clase 2 · Yapping: habla como hablas en la silla</h3><table class="mapa"><tbody><tr><td class="n">1</td><td>Portada</td><td class="c">5 min</td></tr><tr><td class="n">2</td><td>Quién estrenó</td><td class="c">25 min</td></tr><tr><td class="n">3</td><td>Un yapping es una pregunta de cliente respondida</td><td class="c">12 min</td></tr><tr><td class="n">4</td><td>Ideas en dos minutos</td><td class="c">15 min</td></tr><tr><td class="n">5</td><td>El gancho: la primera frase</td><td class="c">12 min</td></tr><tr><td class="n">6</td><td>Cómo grabar: la ruta, no el libreto</td><td class="c">10 min</td></tr><tr><td class="n">7</td><td>Práctica: graba tu yapping</td><td class="c">30 min</td></tr><tr><td class="n">8</td><td>El reto: el yapping corregido y el primer antes y después</td><td class="c">8 min</td></tr><tr class="tot"><td></td><td>Total</td><td class="c">117 min</td></tr></tbody></table></div><div><h3>Clase 3 · Antes y después: el resultado se guarda para el final</h3><table class="mapa"><tbody><tr><td class="n">1</td><td>Portada</td><td class="c">6 min</td></tr><tr><td class="n">2</td><td>Quién estrenó</td><td class="c">22 min</td></tr><tr><td class="n">3</td><td>Así se hace uno que se vuelve viral</td><td class="c">15 min</td></tr><tr><td class="n">4</td><td>La regla del 80/20 y cómo se arregla en la edición</td><td class="c">12 min</td></tr><tr><td class="n">5</td><td>La hoja en la silla</td><td class="c">10 min</td></tr><tr><td class="n">6</td><td>Práctica en la silla</td><td class="c">40 min</td></tr><tr><td class="n">7</td><td>El reto: un antes y después corregido y la primera asesoría</td><td class="c">8 min</td></tr><tr class="tot"><td></td><td>Total</td><td class="c">113 min</td></tr></tbody></table></div><div><h3>Clase 4 · Asesoría, prueba final y certificación</h3><table class="mapa"><tbody><tr><td class="n">1</td><td>Portada</td><td class="c">5 min</td></tr><tr><td class="n">2</td><td>Quién estrenó</td><td class="c">15 min</td></tr><tr><td class="n">3</td><td>Así se hace una asesoría que se vuelve viral</td><td class="c">12 min</td></tr><tr><td class="n">4</td><td>Las preguntas correctas</td><td class="c">15 min</td></tr><tr><td class="n">5</td><td>Cómo se graba y cómo se edita</td><td class="c">10 min</td></tr><tr><td class="n">6</td><td>Prueba final: las preguntas correctas en la silla</td><td class="c">40 min</td></tr><tr><td class="n">7</td><td>Certificación</td><td class="c">15 min</td></tr><tr><td class="n">8</td><td>Cierre</td><td class="c">5 min</td></tr><tr class="tot"><td></td><td>Total</td><td class="c">117 min</td></tr></tbody></table></div></div></section><section class="dark sep"><div class="top"><div class="kick">Clase</div><div class="num">1</div><h1>El embudo: te ven, te entienden, te reservan</h1><p class="hilo">El video trae gente. El perfil la convierte. Hoy dejamos el perfil listo para que el que llegue por curiosidad termine reservando.</p></div><div class="cols"><div><h3>Antes de empezar</h3>
+
+<ul>
+<li>Teléfonos cargados, con Instagram actualizado y sesión iniciada.</li>
+<li>El link de agenda de cada participante, listo para mandar por WhatsApp.</li>
+<li>Tu teléfono con dos perfiles para mostrar: uno malo y el mismo arreglado.</li>
+<li>Un yapping de ejemplo para el final: un barbero hablando a cámara cuarenta segundos.</li>
+<li>Pizarra o papelógrafo para dibujar el embudo. Libretas.</li>
+<li>Un rincón de la barbería con luz de frente para las fotos de perfil.</li>
+</ul>
+</div><div class="idx"><h3>7 diapositivas</h3><ul><li><span>1. Portada</span><span class="m">8 min</span></li><li><span>2. Te pasa esto</span><span class="m">7 min</span></li><li><span>3. El embudo</span><span class="m">15 min</span></li><li><span>4. Tu perfil es un catálogo, no un portafolio</span><span class="m">10 min</span></li><li><span>5. Los seis puntos del perfil</span><span class="m">15 min</span></li><li><span>6. Manos al teléfono</span><span class="m">50 min</span></li><li><span>7. El reto: estrena tu primer yapping</span><span class="m">10 min</span></li></ul><div class="total"><span>Total</span><span>115 de 120 min</span></div></div></div><div class="foot">HERNANDEZ Academia</div></section><section class="doc"><article class="slide"><header><div class="row"><span class="k">Diapositiva 1</span><span class="min">8 min</span></div><h2>Portada</h2></header><p>No te presentes con tu nombre. Entra contando.</p>
+<blockquote>
+<p>Un barbero del equipo sube un video. Cuarenta mil vistas en tres días. Contento, me lo manda. Le pregunto cuántos clientes nuevos le llegaron esa semana. Silencio. Cero.</p>
+<p>Entro a su perfil como si fuera un cliente. Usuario: nico, guion bajo, dos mil trescientos noventa y uno. Foto de perfil: un auto. Bio: &quot;Dios y familia&quot;, con un emoji. Ni ciudad, ni barbería, ni un link. El cliente vio el video, le gustó, entró a mirar, no entendió nada, y reservó en la barbería que le apareció en Google Maps.</p>
+</blockquote>
+<p>Remata: el video no falló. Falló lo que había detrás del video. El video trae gente. El perfil la convierte. Y eso se arregla en una tarde.</p>
+<p>Recién ahí te presentas. Corto. Tu nombre y qué van a lograr en cuatro clases: un perfil que reserva solo, y tres tipos de video que traen clientes, no barberos.</p>
+<p>Cierra con la regla, dicha fuerte: cada clase tiene un reto, el reto se publica en el perfil de verdad, y el que no lo trae publicado no entra a la siguiente.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 2</span><span class="min">7 min</span></div><h2>Te pasa esto</h2></header><p>Acá no enseñas nada todavía. Solo quieres que se reconozcan.</p>
+<p>Levanta la mano tú primero y pregunta al grupo:</p>
+<blockquote>
+<p>¿Quién tiene más de quinientos seguidores y menos de cinco reservas por Instagram al mes?</p>
+<p>¿Quién sube siempre el mismo fade, desde el mismo ángulo?</p>
+<p>¿Quién grabó un video hablando y lo borró porque &quot;se veía mal&quot;?</p>
+<p>¿Quién tiene el link de reserva... en ninguna parte?</p>
+<p>¿A quién le comentan los videos puros barberos y ningún cliente?</p>
+</blockquote>
+<p>Déjalos responder. Que se rían, que se miren entre ellos. Lo importante es que entiendan que no son los únicos, y que esto no es talento ni suerte con el algoritmo.</p>
+<p>Ahí les bajas la presión: esto es un sistema. Tiene piezas. Las piezas se ordenan. Cuando están ordenadas, la gente reserva. Hoy ordenamos la primera.</p>
+<p>No pases rápido por acá. Este es el momento que abre al grupo.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 3</span><span class="min">15 min</span></div><h2>El embudo</h2></header><p>Diles que saquen la libreta. Espera. No sigas hasta que todos estén escribiendo.</p>
+<p>Dibuja la cadena en la pizarra, de arriba hacia abajo, y explícala paso a paso.</p>
+<p>Te ven. Un video llega a gente que no te conoce. Eso es lo único que Instagram regala: mostrarte a desconocidos. Es la parte ancha del embudo.</p>
+<p>Te entienden. Al que le gustó el video le da curiosidad y toca tu nombre. Tiene tres segundos en tu perfil para entender quién eres, en qué ciudad estás y qué haces. Si no lo entiende, se va. No se va enojado. Se va aburrido.</p>
+<p>Te reservan. Si entendió, busca cómo reservar. Un toque al link, elige la hora, listo. Si tiene que escribirte y esperar respuesta, la mitad no lo hace.</p>
+<p>La silla. Ahí termina el embudo. Todo lo demás existe para llegar a esto.</p>
+<p>Ahora muéstrales dónde se rompe. Siempre se rompe en los mismos tres lugares. Un video de técnica atrae barberos, no clientes: el embudo entra torcido desde arriba. Un perfil sin ciudad y sin link pierde al cliente en el segundo paso. Un link general de la barbería, donde el cliente tiene que buscar tu nombre entre diez, lo pierde en el tercero.</p>
+<p>Y cómo se mide. Con cuenta profesional, cada reel muestra tres números: vistas, visitas al perfil y toques en el link. Que anoten esos tres. Son el embudo en una pantalla y los vamos a mirar en cada clase.</p>
+<p>Cierra: ustedes no vienen a &quot;hacer redes&quot;. Vienen a hacer que el que les vio un video termine sentado en su silla.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 4</span><span class="min">10 min</span></div><h2>Tu perfil es un catálogo, no un portafolio</h2></header><p>Cambia de lado. Ahora hablas desde el cliente, no desde el barbero.</p>
+<p>El cliente que entra a tu perfil quiere tres cosas. Ver cortes distintos, para encontrar el suyo. Ver tu cara y escuchar tu voz, para confiar en ti antes de sentarse. Y saber dónde estás y cómo reservar, sin buscar.</p>
+<p>Lo que espanta al cliente es justo lo que a nosotros nos gusta. La navaja en cámara lenta. El &quot;mejor fade de Temuco&quot;. El mismo corte treinta veces desde el mismo ángulo. Un video enseñando técnica. Eso lo ven barberos, lo comentan barberos, y no reserva ninguno.</p>
+<p>Que anoten la frase: tu perfil es un catálogo, no un portafolio. El portafolio es para que otro barbero diga &quot;qué bueno&quot;. El catálogo es para que un cliente diga &quot;quiero ese&quot;.</p>
+<p>Ejercicio de dos minutos. Cada uno abre su propia grilla y cuenta: de las últimas nueve publicaciones, ¿cuántas harían que un cliente reserve? Que digan el número en voz alta, uno por uno. Van a salir ceros y unos. No lo comentes mucho. El número habla solo.</p>
+<p>Cierra: de acá en adelante, antes de subir algo, la pregunta es una sola. ¿Esto lo ve un cliente y quiere venir?</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 5</span><span class="min">15 min</span></div><h2>Los seis puntos del perfil</h2></header><p>Libreta afuera otra vez. Esto es lo que van a hacer con el teléfono en la siguiente diapositiva, así que que lo anoten en este orden.</p>
+<p>Antes de los seis, el punto cero: cuenta profesional. Configuración, tipo de cuenta, profesional, categoría barbería. Sin eso no hay números.</p>
+<p>Uno, la foto. Tu rostro en primer plano, mirando a la cámara, con la barbería de fondo. No un logo. No un corte. No una foto de lejos. El cliente reserva con una persona. Y la misma foto en todas partes, para que te reconozca.</p>
+<p>Dos, el usuario. Fácil de decir en voz alta y de escribir sin pensar. Sin puntos, sin guiones, sin números. La prueba: si un cliente te lo pregunta en la silla, ¿lo puedes decir de una? &quot;nicobarber&quot; sí. &quot;nico_barber.2391&quot; no. Si el tuyo está tomado, agrega la ciudad: &quot;nicobarber.temuco&quot;. Ese punto es la única excepción.</p>
+<p>Tres, el nombre. Este campo Instagram lo usa para buscar. Nombre, oficio y ciudad: &quot;Nico · Barbero en Temuco&quot;. El que busca &quot;barbero Temuco&quot; te encuentra. El que puso &quot;Nico&quot; con una tijera y una llama no aparece nunca.</p>
+<p>Cuatro, la bio. Tres líneas y nada más. Primera línea, qué va a encontrar: &quot;Cortes y barba en Barbería Hernández, Temuco Centro&quot;. Segunda, un dato real de autoridad: &quot;Seis años en la silla&quot;, o &quot;Más de dos mil clientes atendidos&quot;, o &quot;Certificado Hernández Academia&quot;. Tercera, el llamado a la acción apuntando al link: &quot;Reserva tu hora aquí&quot; y la flecha hacia abajo.</p>
+<p>Cinco, el link. Uno solo, el de tu agenda. El que reciben hoy abre directo su agenda, sin buscar el nombre entre diez. Nada de link a la página general. Nada de tres links.</p>
+<p>Seis, los destacados. Cuatro, con estos nombres. Cortes, que es el catálogo. Opiniones, lo que dicen los clientes. Reservas, un paso a paso de cómo agendar. Y Yo: la barbería, el equipo, tu día. Cortes y Reservas se arman hoy. Los otros dos en la semana.</p>
+<p>Demuéstralo con tu teléfono. Muestra el perfil malo, el de la historia de la portada, y después el mismo arreglado con los seis puntos. Pregunta: &quot;¿A cuál le reservarían?&quot; No hace falta que respondan.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 6</span><span class="min">50 min</span></div><h2>Manos al teléfono</h2></header><p>Acá cambia la dinámica. Ya no anotan: hacen. Vas dictando el orden y nadie se adelanta, porque el que se adelanta se salta un punto.</p>
+<p>Antes de que toquen nada, tu jugada callada: pasa por cada uno y saca una captura de su perfil como está en este momento. Si preguntan, &quot;para tener registro&quot;. No cuentes más. Esa captura es la de la clase 4.</p>
+<p>Primero, cuenta profesional. Recorre la sala y confirma uno por uno que aparece el panel profesional.</p>
+<p>Segundo, la foto. Se la toman ahí mismo, en el rincón con luz de frente que dejaste preparado. Un compañero la toma, con el teléfono a la altura de los ojos, la barbería atrás, y el barbero mirando al lente como mira a un cliente. Tres intentos, eligen una, la suben. No se aceptan fotos viejas del carrete.</p>
+<p>Tercero, usuario y nombre. Uno por uno lo dicen en voz alta antes de guardarlo. Si al decirlo hay que deletrear, se cambia.</p>
+<p>Cuarto, la bio. Tres líneas. Recorre la sala leyendo solo la primera línea de cada uno. Tiene que decir qué hace, en qué barbería y en qué ciudad. Si dice &quot;amante de mi oficio&quot;, se corrige ahí.</p>
+<p>Quinto, el link. Mandas a cada uno su link de agenda y lo pegan. Que lo abran desde su propio perfil y comprueben que sale su agenda y no otra.</p>
+<p>Sexto, destacados. Cortes y Reservas. Para Cortes, eligen de su carrete seis o siete cortes distintos entre sí, uno por historia, y los suben con el nombre del corte. Para Reservas, graban la pantalla veinte segundos entrando al link y eligiendo una hora. Portadas simples, sin diseño: una foto del corte y una del logo bastan.</p>
+<p>Cuando terminen, la prueba de los cinco segundos. En parejas: uno le muestra su perfil al otro durante cinco segundos y lo cierra. El otro tiene que decir el nombre, la ciudad, qué hace y cómo se reserva. Si no puede decir las cuatro, se corrige y se repite. Después cambian.</p>
+<p>Terminan con la pauta SÍ | NO del perfil del Anexo A, marcada por el compañero, no por el dueño del perfil.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 7</span><span class="min">10 min</span></div><h2>El reto: estrena tu primer yapping</h2></header><p>Esta es la parte que más importa que quede clara.</p>
+<p>Primero muestra el ejemplo: un barbero hablando a la cámara, cuarenta segundos, respondiendo una pregunta que le hacen los clientes. Que lo vean completo. Después dices solo esto: eso se llama yapping, y es el formato más simple que existe, porque es lo que hacen todos los días en la silla, pero mirando un lente.</p>
+<p>Las instrucciones, cortas, y que las anoten:</p>
+<blockquote>
+<p>Treinta a sesenta segundos, vertical, el teléfono a la altura de los ojos.</p>
+<p>Una sola pregunta, de las que te hacen seguido en la silla.</p>
+<p>Lo abres y lo cierras como te salga. Esta semana nadie te dice cómo.</p>
+<p>Sin guion, sin editar. Subtítulos automáticos si saben ponerlos.</p>
+<p>Se publica como reel en el perfil que armaron hoy.</p>
+</blockquote>
+<p>A la próxima clase llegan con el reel publicado y una captura de sus tres números: vistas, visitas al perfil, toques en el link. Además, terminan los destacados Opiniones y Yo.</p>
+<p>No les enseñes más que eso. Queremos ver cómo lo hacen sin método, para que en la próxima clase la diferencia se note.</p>
+<p>Y la regla, mirándolos a los ojos: el que no trae el video publicado no entra a la próxima clase. No es amenaza. Es el trato.</p>
+<p>Confirma uno por uno qué pregunta va a responder cada uno. Si alguien dice &quot;un tip de barba&quot;, pídele la pregunta tal como se la hace el cliente.</p>
+<p>Déjalos con ganas de la próxima: vemos quién estrenó y qué números hizo, y ahí aprenden a sacar ideas en dos minutos, a abrir para que nadie se vaya en el primer segundo, y a grabar sin libreto.</p>
+</article></section><section class="dark sep"><div class="top"><div class="kick">Clase</div><div class="num">2</div><h1>Yapping: habla como hablas en la silla</h1><p class="hilo">El barbero deja de recitar y empieza a responderle a un cliente que no está. Una sola idea, la primera frase con gancho, y grabar sin libreto.</p></div><div class="cols"><div><h3>Antes de empezar</h3>
+
+<ul>
+<li>Proyector y sonido para ver los retos. Cable o AirDrop listo.</li>
+<li>Pizarra con una tabla vacía: nombre, vistas, visitas al perfil, toques al link.</li>
+<li>Tu teléfono para grabarte en vivo en la portada.</li>
+<li>Tarjetas de yapping impresas (Anexo B) y los dos prompts (Anexo C) para mandar por WhatsApp.</li>
+<li>Hojas BIEN | MAL. Trípodes, o un compañero que sostenga el teléfono.</li>
+<li>El video de ejemplo del antes y después, listo para proyectar al final: catorce segundos, sin voz, la hoja blanca, texto en pantalla.</li>
+</ul>
+</div><div class="idx"><h3>8 diapositivas</h3><ul><li><span>1. Portada</span><span class="m">5 min</span></li><li><span>2. Quién estrenó</span><span class="m">25 min</span></li><li><span>3. Un yapping es una pregunta de cliente respondida</span><span class="m">12 min</span></li><li><span>4. Ideas en dos minutos</span><span class="m">15 min</span></li><li><span>5. El gancho: la primera frase</span><span class="m">12 min</span></li><li><span>6. Cómo grabar: la ruta, no el libreto</span><span class="m">10 min</span></li><li><span>7. Práctica: graba tu yapping</span><span class="m">30 min</span></li><li><span>8. El reto: el yapping corregido y el primer antes y después</span><span class="m">8 min</span></li></ul><div class="total"><span>Total</span><span>117 de 120 min</span></div></div></div><div class="foot">HERNANDEZ Academia</div></section><section class="doc"><article class="slide"><header><div class="row"><span class="k">Diapositiva 1</span><span class="min">5 min</span></div><h2>Portada</h2></header><p>No expliques nada. Saca tu teléfono, pónselo en la mano a un alumno, dile que grabe, y hazte un yapping en vivo delante del grupo. Cuarenta segundos. Una pregunta de cliente. Usa esta o una tuya con la misma forma:</p>
+<blockquote>
+<p>¿Por qué mi barba se ve rala en las mejillas? Mira, casi nunca es que te falte pelo. Es que la barba crece a distinta velocidad en cada zona, y cuando la dejas crecer pareja, la mejilla se ve vacía al lado del bigote. La solución no es esperar más. Es darle forma con lo que hay: bajar el largo en la mandíbula para que la mejilla parezca más llena. Ese ajuste toma diez minutos en la silla. Si te pasa, reserva y lo vemos.</p>
+</blockquote>
+<p>Cortas. Y ahora el truco: pregúntales si se dieron cuenta de lo que acabas de hacer. Hablaste cuarenta segundos sin papel, no se distrajo nadie, y terminaste mandándolos a reservar. Eso es un yapping, y tiene estructura. Hoy se la enseñas.</p>
+<p>Cuenta rápido qué van a ver: de dónde salen las ideas, cómo se abre para que no se vayan, cómo se graba sin libreto, práctica, y el reto. Pero primero, lo pendiente.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 2</span><span class="min">25 min</span></div><h2>Quién estrenó</h2></header><p>Acá se aplica la regla. No la suavices.</p>
+<p>Pregunta quiénes trajeron el reel publicado. El que no lo tiene se sale de la clase. Con respeto pero sin negociar: nos vemos la próxima, el trato era claro.</p>
+<p>Con el grupo filtrado, cada alumno pasa a la pizarra y escribe sus tres números al lado de su nombre: vistas, visitas al perfil, toques al link. Recién después se proyecta su video, completo.</p>
+<p>Al terminar cada uno, primero hablan los compañeros con su hoja BIEN | MAL. Los puntos están en la diapositiva: se entiende de qué va en la primera frase, desarrolla una sola idea, suena hablado y no leído, mira al lente, tiene un ejemplo real de la silla, y cierra con una acción. Y lo de oratoria, que no se olvida: postura, mirada, manos, tono, pausas, muletillas.</p>
+<p>Después corriges tú. Sé concreto. No digas &quot;estuvo bien&quot;. Di qué estuvo bien y qué es lo único que corregirías.</p>
+<p>Cuando estén todos en la pizarra, lee los números con ellos. De vistas a visitas al perfil: si mil personas vieron y diez entraron, el video no dio curiosidad por saber quién eres. De visitas a toques al link: si entraron cincuenta y tocaron dos, el perfil no está convenciendo. Dos alumnos con las mismas vistas pueden tener embudos muy distintos. Eso es lo que importa.</p>
+<p>Remata: lo que no se publica no se mide. Lo que no se mide no se corrige.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 3</span><span class="min">12 min</span></div><h2>Un yapping es una pregunta de cliente respondida</h2></header><p>Libreta afuera. Esta es la estrategia del día.</p>
+<p>Explícalo con palabras sencillas: yapping es hablarle a la cámara de una sola cosa que conoces, como se la explicarías al cliente que tienes en la silla. Sin libreto. Sin producción. Sin actuar.</p>
+<p>Lo que no es, y que lo anoten también: no es un comercial memorizado. No es un tutorial para barberos. No es un discurso sobre &quot;la pasión por el oficio&quot;. Si el video le sirve más a un barbero que a un cliente, no es de este curso.</p>
+<p>Las cinco condiciones. Se entiende de qué va en la primera frase. Desarrolla una sola idea, no tres. Suena hablado, no leído. Tiene un ejemplo real de la silla. Y cierra con una acción: reservar, o una conclusión clara.</p>
+<p>Después, los seis tipos de yapping para barberos. Que los copien, porque con esta lista nadie se queda sin qué grabar:</p>
+<ul>
+<li>La pregunta. &quot;¿Cada cuánto me tengo que cortar?&quot;</li>
+<li>La postura. &quot;El fade no le queda a todos, y te digo a quién no.&quot;</li>
+<li>El error que ves seguido. &quot;El error que comete casi todo el mundo con la barba en la casa.&quot;</li>
+<li>La historia de silla. &quot;Ayer llegó un cliente escondido debajo de una gorra.&quot;</li>
+<li>Antes de que vengas. &quot;Cómo pedir tu corte para que te lo hagan bien en cualquier barbería.&quot;</li>
+<li>Producto y rutina. &quot;Por qué tu peinado se cae antes del mediodía.&quot;</li>
+</ul>
+<p>Los seis le hablan al cliente. Ninguno le habla a otro barbero. Pregunta al grupo cuál les sale más natural. Con dos tipos que dominen les sobra.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 4</span><span class="min">15 min</span></div><h2>Ideas en dos minutos</h2></header><p>Esta diapositiva mata la excusa de &quot;no sé de qué hablar&quot;.</p>
+<p>Las ideas no se inventan. Se recogen. Vienen de cuatro lugares, y los cuatro pasan todos los días por la silla: lo que te preguntaron esta semana; lo que ves mal cuando el cliente se sienta; lo que el cliente no sabe pedir; y lo que un cliente te contó que le pasó.</p>
+<p>Ahora, dos minutos con cronómetro. Cada uno escribe cinco preguntas que le hicieron clientes esta semana, con las palabras del cliente, no las suyas. &quot;¿Me quedará bien el pelo largo?&quot;, y no &quot;asesoría de imagen&quot;.</p>
+<p>Cuando suene el cronómetro, cosecha. Cada uno lee las suyas y tú las vas escribiendo en la pizarra. Con ocho alumnos salen entre treinta y cuarenta títulos. Que lo miren: ahí hay dos meses de videos y no hubo que inventar ninguno. Foto a la pizarra. Ese es el banco de ideas del grupo.</p>
+<p>Después, los prompts. Diles que abran ChatGPT o Claude, el que usen, y mándales por WhatsApp los dos textos que siguen. Solo cambian lo que está entre corchetes. El primero saca veinte preguntas de clientes con la primera frase de cada video:</p>
+<pre><code>Soy barbero en [CIUDAD], trabajo en Barbería Hernández, sucursal [SUCURSAL]. Mis clientes son hombres de [EDAD] que [SITUACIÓN: trabajan en oficina / son estudiantes / vienen con sus hijos / se cortan cada tres semanas].
+
+Quiero grabar videos cortos hablando a cámara para atraer clientes, no barberos. Dame 20 preguntas reales que un cliente me haría sobre [TEMA: el corte / la barba / el cuidado en casa / los productos / cómo pedir el corte], escritas con las palabras que usaría el cliente, sin términos técnicos.
+
+Para cada pregunta, escribe la primera frase con la que yo abriría un video de 40 segundos respondiéndola: hablada, directa, sin saludo y sin sonar a publicidad. Ordénalas de la más común a la menos común.
+</code></pre>
+<p>El segundo toma una de esas preguntas y arma la ruta del video, la que van a ver en la diapositiva 6:</p>
+<pre><code>Voy a grabar un yapping de 40 segundos respondiendo esta pregunta de un cliente: [PREGUNTA].
+
+Ármame la ruta en tres partes, con frases cortas que pueda recordar sin leer:
+ABRO CON: la primera frase, que sea la pregunta tal cual o un gancho directo.
+QUIERO EXPLICAR: una sola idea y un ejemplo real de la silla, en tres o cuatro apoyos.
+CIERRO CON: una conclusión y la invitación a reservar en el link del perfil.
+
+Habla como un barbero le habla a su cliente en la silla, en español neutro, sin tecnicismos, sin emojis y sin exagerar. No escribas un guion completo: solo la ruta.
+</code></pre>
+<p>Hazlo tú en vivo con un tema del grupo y proyéctalo. Que vean que en un minuto salen veinte preguntas, y que después eligen las tres que de verdad les hacen. Con estas dos herramientas, sacar el tema de la semana toma menos que hacer un café. Los dos prompts están también en el Anexo C, para que los tengas a mano cuando los mandes.</p>
+<p>Cierra: la idea nunca es el problema. El problema es que no anotamos lo que nos preguntan.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 5</span><span class="min">12 min</span></div><h2>El gancho: la primera frase</h2></header><p>Acá te detienes más que en todo lo demás. La primera frase decide si el video existe o no. El cliente decide en un segundo si se queda, y nadie se queda por un &quot;hola, chicos, hoy les voy a hablar de&quot;.</p>
+<p>Que anoten las cinco formas de abrir, con un ejemplo de cada una:</p>
+<ul>
+<li>La pregunta tal cual. &quot;¿Por qué mi corte dura una semana?&quot;</li>
+<li>El error. &quot;Si te lavas el pelo con agua hirviendo, el corte no te va a durar.&quot;</li>
+<li>La postura. &quot;El fade no le queda a todos, y te voy a decir a quién no.&quot;</li>
+<li>La historia. &quot;Ayer llegó un cliente escondido debajo de una gorra.&quot;</li>
+<li>El número. &quot;De diez clientes que me piden barba, ocho me la piden mal.&quot;</li>
+</ul>
+<p>Tres reglas para el gancho. Primero, la misma frase va escrita en pantalla desde el primer segundo, porque muchos ven sin sonido. Segundo, el gancho promete algo y la promesa se paga al final. Si abres con &quot;te voy a decir a quién no&quot; y no lo dices, la próxima vez no te ven. Tercero, la respuesta completa va al final, no en el gancho. Esa es la semilla de la próxima clase: no des todo de una.</p>
+<p>Demuéstralo. Toma una idea del banco de la pizarra y ábrela de tres formas distintas, en vivo. Pregunta al grupo con cuál seguirían viendo. Casi siempre gana la pregunta tal cual o el error. Ese es el aprendizaje sin que tengas que explicarlo.</p>
+<p>Ejercicio rápido: cada uno escribe el gancho de su pregunta de la semana. Recorre la sala y lee solo las primeras frases. Si empieza con saludo, se corta el saludo.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 6</span><span class="min">10 min</span></div><h2>Cómo grabar: la ruta, no el libreto</h2></header><p>Muestra la tarjeta de tres espacios: ABRO CON, QUIERO EXPLICAR y CIERRO CON. No se escriben párrafos. Palabras sueltas o una frase corta en cada uno.</p>
+<p>Prepara una delante del grupo, con la pregunta de la portada:</p>
+<ul>
+<li>Abro con: &quot;¿Por qué mi barba se ve rala en las mejillas?&quot;</li>
+<li>Quiero explicar: crece a distinta velocidad, la mejilla parece vacía al lado del bigote, se arregla bajando el largo en la mandíbula.</li>
+<li>Cierro con: diez minutos en la silla, reserva.</li>
+</ul>
+<p>Después, cómo se graba, y que anoten:</p>
+<ul>
+<li>Vertical, teléfono a la altura de los ojos, a distancia de conversación.</li>
+<li>Luz de frente. Nunca una ventana atrás.</li>
+<li>Fondo de barbería ordenado, sin pantallas con datos y sin clientes que no saben.</li>
+<li>Hablas al lente, no a tu cara en la pantalla.</li>
+<li>Cinco segundos de prueba de audio antes de grabar.</li>
+<li>Haz algo mientras hablas: ordena la estación, prepara la máquina, camina hacia la silla. Un barbero quieto frente a una pared aburre. Un barbero trabajando mientras habla se ve real.</li>
+<li>Treinta a sesenta segundos. Subtítulos. Nada más de edición.</li>
+</ul>
+<p>El truco que les ahorra tiempo: graba tres ganchos distintos y un solo cuerpo. Así pruebas cuál abre mejor sin grabar todo tres veces.</p>
+<p>Haz la versión mala primero: teléfono bajo, ventana atrás, leyendo de un papel con voz plana. Diez segundos. Después la correcta. Que vean la diferencia en vivo.</p>
+<p>Cierra: si se te olvida una palabra, sigue con la idea. Ese es el punto de preparar una ruta y no un libreto.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 7</span><span class="min">30 min</span></div><h2>Práctica: graba tu yapping</h2></header><p>En parejas o tríos. Cada uno elige una pregunta del banco de la pizarra, llena su tarjeta en dos minutos y graba en la barbería, de treinta a sesenta segundos, con el compañero sosteniendo el teléfono a la altura de los ojos.</p>
+<p>Antes de grabar, cada uno explica su idea sin mirar la tarjeta. Tiene que quedar claro qué promete la primera frase, qué ejemplo va a contar y con qué acción termina.</p>
+<p>Mientras uno graba, el otro trabaja: hoja con la línea al medio, BIEN de un lado, MAL del otro. Los puntos están en la diapositiva: primera frase, una idea, hablado, ejemplo, cierre, y cuerpo y voz.</p>
+<p>Cuando terminen todos, proyecta tres o cuatro. Primero hablan los compañeros, después tú. Una fortaleza y una sola corrección. Si falló la apertura, se repite solo la apertura. Si el cierre quedó abierto, se repite el cierre. Acá no se avanza por lástima. Se avanza cuando suena bien.</p>
+<p>Cada uno termina diciendo &quot;cambié esto porque...&quot;. La explicación importa tanto como la toma nueva.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 8</span><span class="min">8 min</span></div><h2>El reto: el yapping corregido y el primer antes y después</h2></header><p>Mismo trato de siempre. Dos videos publicados antes de la próxima clase.</p>
+<p>El primero es el yapping de hoy, corregido con lo que le dijeron: gancho en la primera frase y en pantalla, una sola idea, subtítulos, treinta a sesenta segundos.</p>
+<p>El segundo es un formato nuevo, y acá viene la parte importante: no lo explicas. Proyecta el video de ejemplo del antes y después, el de la hoja blanca. Que lo vean dos veces, completo, sin comentar nada. Después di solo esto:</p>
+<blockquote>
+<p>Necesito que esta semana hagan un video igual a ese, con un cliente real que tenga un cambio grande. No les voy a explicar cómo se hace. Mírenlo las veces que quieran y háganlo como puedan. Lo publican y traen sus números.</p>
+</blockquote>
+<p>Si preguntan cómo, la respuesta es &quot;como ustedes crean&quot;. La próxima clase van a ver los intentos de todos y ahí les enseñas la regla que hace que un antes y después se vuelva viral. Lo que intenten solos hoy es lo que van a corregir la próxima semana, y así se aprende.</p>
+<p>Dos condiciones para el antes y después: el cliente sabe que se graba y dijo que sí, y que guarden los clips sueltos además del video armado, porque los van a necesitar.</p>
+<p>Y la regla, mirándolos a los ojos: sin los dos videos publicados no se entra a la próxima clase.</p>
+</article></section><section class="dark sep"><div class="top"><div class="kick">Clase</div><div class="num">3</div><h1>Antes y después: el resultado se guarda para el final</h1><p class="hilo">No se habla. La hoja blanca hace esperar. El resultado aparece al ochenta por ciento del video y dura solo el veinte por ciento final. Eso es retención, y la retención es lo que hace viral un video.</p></div><div class="cols"><div><h3>Antes de empezar</h3>
+
+<ul>
+<li>Proyector y sonido. La tabla de números en la pizarra, con la columna de la semana pasada.</li>
+<li>El video de ejemplo del antes y después, para verlo dos veces y pausarlo.</li>
+<li>Una hoja blanca tamaño carta. Trípode, o un lugar fijo para el teléfono al lado de la silla.</li>
+<li>Producto para peinar, máquina y tijera para el cambio corto de la práctica.</li>
+<li>Hojas BIEN | MAL y la barra 80/20 impresa (Anexo E).</li>
+<li>Un video de ejemplo de asesoría para el reto del final: el cliente hablando de su pelo, tú recomendando en una frase, un poco de proceso y el resultado al final.</li>
+</ul>
+</div><div class="idx"><h3>7 diapositivas</h3><ul><li><span>1. Portada</span><span class="m">6 min</span></li><li><span>2. Quién estrenó</span><span class="m">22 min</span></li><li><span>3. Así se hace uno que se vuelve viral</span><span class="m">15 min</span></li><li><span>4. La regla del 80/20 y cómo se arregla en la edición</span><span class="m">12 min</span></li><li><span>5. La hoja en la silla</span><span class="m">10 min</span></li><li><span>6. Práctica en la silla</span><span class="m">40 min</span></li><li><span>7. El reto: un antes y después corregido y la primera asesoría</span><span class="m">8 min</span></li></ul><div class="total"><span>Total</span><span>113 de 120 min</span></div></div></div><div class="foot">HERNANDEZ Academia</div></section><section class="doc"><article class="slide"><header><div class="row"><span class="k">Diapositiva 1</span><span class="min">6 min</span></div><h2>Portada</h2></header><p>Entra contando una historia al revés. Sin explicar nada antes.</p>
+<blockquote>
+<p>El cliente quedó feliz. Recomendó al barbero a dos amigos y volvió a reservar la semana siguiente.</p>
+</blockquote>
+<p>Pausa. Pregunta: &quot;¿Les dieron ganas de saber qué pasó?&quot; Van a decir que no mucho. Claro. Ya escucharon el final.</p>
+<p>Vuelve a empezar:</p>
+<blockquote>
+<p>El cliente se sentó y me dijo: &quot;nadie ha podido arreglarme este corte&quot;.</p>
+</blockquote>
+<p>Espera un segundo. Ahora sí hay una pregunta en la sala: ¿qué hizo el barbero?</p>
+<p>Remata: eso es retención. Si el resultado aparece al principio, ya contestaste la pregunta y el cliente se va. Si lo aguantas hasta el final, lo ven entero. Y el video que se ve entero es el que Instagram le muestra a más gente. Hoy aprenden a aguantar.</p>
+<p>Cuenta rápido el día: quién estrenó, el video de ejemplo pausado, la regla del 80/20, la hoja en la silla, práctica y reto. Y de inmediato, lo pendiente.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 2</span><span class="min">22 min</span></div><h2>Quién estrenó</h2></header><p>Mismo filtro de siempre. El que no trajo los dos videos publicados, se sale.</p>
+<p>Números a la pizarra primero. Esta vez hay comparación: al lado de los de la semana pasada. Si subieron las visitas al perfil con las mismas vistas, el gancho funcionó. Si subieron los toques al link, el perfil está haciendo su trabajo. Dilo con nombre: &quot;a Nico le entraron el doble al perfil con el mismo alcance, eso fue la primera frase&quot;.</p>
+<p>Proyecta los yappings uno por uno. Corrige sobre lo de la clase pasada: gancho en la primera frase, una sola idea, hablado, ejemplo, cierre. Que los compañeros aporten primero.</p>
+<p>Después, los antes y después que intentaron solos. Sin explicación del autor. El grupo anota tres cosas mientras mira cada uno:</p>
+<ul>
+<li>¿En qué segundo se ve el resultado por primera vez? Ojo con la portada, los espejos y los reflejos.</li>
+<li>¿Cuánto dura el video?</li>
+<li>¿Habla alguien?</li>
+</ul>
+<p>Escribe las respuestas en la pizarra al lado de cada nombre. Va a pasar casi siempre lo mismo: el resultado aparece antes de la mitad, el video dura más de treinta segundos, y varios hablaron a cámara. No corrijas todavía. Solo deja los números a la vista.</p>
+<p>Remata: casi todos mostraron el resultado antes de la mitad. Por eso los ven, pero no los esperan. Ahora vean uno que sí se espera.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 3</span><span class="min">15 min</span></div><h2>Así se hace uno que se vuelve viral</h2></header><p>Proyecta el video de ejemplo dos veces. La primera, que solo lo miren. La segunda, libreta afuera, lo vas pausando y nombras lo que hay que ver. Que anoten cada punto.</p>
+<ul>
+<li>No habla nadie. Es música con ritmo y una hoja blanca. No hay yapping. El antes y después no se mezcla con hablar a cámara. Nunca.</li>
+<li>La hoja es una cortina, no una tapa. El barbero la sostiene delante del cliente y la mueve despacio. Primero destapa el antes de a poco. Después tapa. Al final la corre y destapa el después. Ese movimiento lento es lo que hace esperar.</li>
+<li>El resultado se aguanta. En el ejemplo, el después aparece cerca del segundo nueve de catorce. La regla que enseñamos es más dura: el resultado aparece cuando el video va en el ochenta por ciento, y se ve solo el veinte por ciento final. En un video de quince segundos, el después aparece en el segundo doce y dura tres.</li>
+<li>El texto pone en contexto y le habla al cliente. &quot;Tu imagen, tu autoestima.&quot; Está en la parte del antes y desaparece cuando se destapa el después. No dice &quot;fade&quot;. No habla de técnica. Habla de lo que siente el que mira.</li>
+<li>Misma toma. El teléfono no se mueve. El cliente en la misma posición. El barbero con la misma ropa. La capa, la cadena, la corbata: todo igual en el antes y en el después. Por eso parece el mismo instante.</li>
+<li>Dura catorce segundos, un segundo bajo el mínimo que enseñamos. Un antes y después va entre quince y treinta. Más corto no alcanza a hacer esperar, más largo se cae.</li>
+<li>El cliente tiene un cambio grande. Pelo largo y desordenado, barba sin forma. Si el cambio es chico, no hay video.</li>
+<li>Al final el barbero se asoma al lado del cliente. Dos segundos. Es la firma: se ve quién lo hizo.</li>
+</ul>
+<p>Pausa el video en el segundo en que aparece el resultado y déjalo en pantalla. Pregunta: &quot;¿Qué pasó en su cabeza mientras la hoja se movía?&quot; Que lo digan: querían ver. Eso es lo que vendemos.</p>
+<p>Que anoten la frase para clavar: lo que hace viral un video es la retención. Mostrar el resultado al principio regala la respuesta. Aguantarlo hasta el final hace que lo vean entero.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 4</span><span class="min">12 min</span></div><h2>La regla del 80/20 y cómo se arregla en la edición</h2></header><p>Dibuja una barra de quince segundos en la pizarra. Marca el segundo doce.</p>
+<p>Del cero al doce, el antes y la espera. La hoja moviéndose, el cliente que se ve de a poco, el texto en pantalla. Si quieres, un plano corto de manos trabajando. Del doce al quince, el resultado: la hoja se corre, el después quieto, el barbero asomado.</p>
+<p>Resuelve otros largos con el grupo. Veinte segundos, el resultado en el dieciséis. Treinta, en el veinticuatro. Que anoten la regla completa: el resultado aparece al ochenta por ciento y dura el veinte por ciento. Nunca más.</p>
+<p>Ahora la parte que casi nadie hace. Si al grabar no quedó así, se arregla en la edición. Tres movimientos:</p>
+<ul>
+<li>Alargar el antes. Ralentiza el movimiento de la hoja. Repite la pasada. Deja más segundos con el cliente destapado antes de tapar.</li>
+<li>Cortar el después. Aunque hayas grabado veinte segundos del resultado, dejas solo los últimos tres o cuatro.</li>
+<li>Poner el texto desde el primer fotograma y quitarlo cuando aparece el resultado.</li>
+</ul>
+<p>El texto es tan importante como el video. Le habla al cliente, no al barbero. Dice lo que el cliente siente, no lo que tú hiciste. &quot;Llevaba seis meses sin cortarse.&quot; &quot;Tu imagen, tu autoestima.&quot; &quot;No sabía que tenía esta cara.&quot; Una frase corta, grande, en la parte del antes.</p>
+<p>Y la música: con ritmo, y el destape cae con el golpe. Sin voz. Sin explicar nada.</p>
+<p>Cada alumno dibuja en el Anexo E la barra de su video del reto. Marca dónde apareció su resultado y dónde debió aparecer. Ese es el mapa para la práctica.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 5</span><span class="min">10 min</span></div><h2>La hoja en la silla</h2></header><p>No expliques todo antes de hacerlo. Sienta a un alumno en la silla y hazlo tú.</p>
+<p>Primero mal. Teléfono en la mano. La hoja tapa de golpe. El cliente se mueve. Queda un borde a la vista. Cambias la distancia. Pregunta: &quot;¿Qué delató el cambio?&quot; Deja que el grupo encuentre las fallas.</p>
+<p>Después bien, y que anoten cada punto:</p>
+<ul>
+<li>El teléfono fijo. Trípode o apoyado en la repisa. No se toca entre el antes y el después.</li>
+<li>El cliente en la misma posición: misma altura de silla, mentón igual, mirada al lente.</li>
+<li>La hoja entra por un lado y se mueve despacio. Destapa el antes de a poco. Después cubre todo el cuadro. No queda ningún borde.</li>
+<li>Corte. Se hace el trabajo. Se vuelve a grabar con la hoja tapando.</li>
+<li>La hoja sale en la misma dirección en que entró. El resultado se queda quieto tres segundos. Tú te asomas al final.</li>
+<li>Revisa los espejos. Un reflejo puede mostrar el después antes de tiempo.</li>
+</ul>
+<p>La hoja no hace magia. Funciona cuando el antes y el después parecen ocupar el mismo lugar. Mismo sitio, misma luz, misma distancia, misma pose. Si cambia una, se nota.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 6</span><span class="min">40 min</span></div><h2>Práctica en la silla</h2></header><p>Acá se graba de verdad. Tríos: uno es el cliente y se sienta en la silla, otro es el barbero, el tercero graba. Rotan hasta que los tres hayan sido barbero.</p>
+<p>El cambio tiene que ser corto para que alcancen: barba perfilada, línea de contorno, o un peinado con producto. No un corte completo. Lo que importa hoy es la hoja, el tiempo y el texto.</p>
+<p>Cada barbero graba en este orden: la hoja destapando el antes despacio, ocho a diez segundos. La hoja tapando todo. El cambio. La hoja saliendo con el después. El resultado quieto tres segundos. El barbero asomado.</p>
+<p>Después editan en el teléfono, en diez minutos como máximo: quince a veinte segundos en total, el resultado al ochenta por ciento, el texto en el antes, música con ritmo, sin voz.</p>
+<p>Los compañeros marcan con la hoja BIEN | MAL del Anexo D. Los seis puntos están en la diapositiva:</p>
+<ul>
+<li>No habla nadie.</li>
+<li>El resultado aparece al ochenta por ciento y dura el veinte.</li>
+<li>El texto le habla al cliente y está en el antes.</li>
+<li>Misma toma: teléfono fijo, cliente igual, barbero igual.</li>
+<li>Dura entre quince y treinta segundos.</li>
+<li>El cambio se ve.</li>
+</ul>
+<p>Proyecta los que alcancen. Una fortaleza y una sola corrección. Si el resultado se adelantó, se arregla en la edición, ahí mismo. Si alguien habló, se quita la voz. Se repite solo lo que falló.</p>
+<p>Esta es la práctica más larga del curso. Recorre los tríos.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 7</span><span class="min">8 min</span></div><h2>El reto: un antes y después corregido y la primera asesoría</h2></header><p>Mismo trato. Dos videos publicados antes de la próxima clase.</p>
+<p>El primero es un antes y después con un cliente real, en la jornada, hecho con la regla: sin voz, la hoja como cortina, el texto en el antes, el resultado al ochenta por ciento, quince a treinta segundos. El cliente sabe que se graba y dijo que sí. Diles qué vas a mirar: en qué segundo aparece el resultado, si alguien habla, cuánto dura, y qué dice el texto.</p>
+<p>El segundo es el formato nuevo, y otra vez no lo explicas. Proyecta el video de ejemplo de asesoría. Que lo vean dos veces, completo, sin comentarios. Después di solo esto:</p>
+<blockquote>
+<p>Necesito que hagan un video como este con un cliente real. No les voy a explicar cómo. Mírenlo las veces que quieran, háganlo como puedan, publíquenlo y traigan sus números.</p>
+</blockquote>
+<p>Si preguntan, &quot;como ustedes crean&quot;. La próxima clase ven los intentos de todos y ahí enseñas cómo se hace una asesoría que se vuelve viral.</p>
+<p>Y la regla se pone más fuerte: la próxima es la última clase y es la prueba final. El que no trae los dos videos publicados no rinde la prueba, y sin prueba no hay certificado.</p>
+</article></section><section class="dark sep"><div class="top"><div class="kick">Clase</div><div class="num">4</div><h1>Asesoría, prueba final y certificación</h1><p class="hilo">En la asesoría el cliente vende y el barbero recomienda. Todo depende de las preguntas correctas: si el cliente habla de su pelo con sus palabras, hay video. Hoy se aprende a preguntar, se rinde la prueba y se certifica.</p></div><div class="cols"><div><h3>Antes de empezar</h3>
+
+<ul>
+<li>Proyector, sonido y la tabla de números con las tres semanas.</li>
+<li>El video de ejemplo de asesoría, para verlo dos veces y pausarlo.</li>
+<li>Un pedazo crudo de una asesoría tuya, con tus preguntas, y el mismo pedazo editado sin ellas.</li>
+<li>Los casos del Anexo F impresos y recortados, uno por sobre. Las preguntas del Anexo H impresas.</li>
+<li>La rúbrica del Anexo G, una fila por alumno, para llenar en el momento.</li>
+<li>Certificados impresos con nombre. Cámara para la foto y para el testimonio.</li>
+<li>Las capturas de los perfiles del primer día, listas para proyectar al lado de los perfiles de hoy.</li>
+</ul>
+</div><div class="idx"><h3>8 diapositivas</h3><ul><li><span>1. Portada</span><span class="m">5 min</span></li><li><span>2. Quién estrenó</span><span class="m">15 min</span></li><li><span>3. Así se hace una asesoría que se vuelve viral</span><span class="m">12 min</span></li><li><span>4. Las preguntas correctas</span><span class="m">15 min</span></li><li><span>5. Cómo se graba y cómo se edita</span><span class="m">10 min</span></li><li><span>6. Prueba final: las preguntas correctas en la silla</span><span class="m">40 min</span></li><li><span>7. Certificación</span><span class="m">15 min</span></li><li><span>8. Cierre</span><span class="m">5 min</span></li></ul><div class="total"><span>Total</span><span>117 de 120 min</span></div></div></div><div class="foot">HERNANDEZ Academia</div></section><section class="doc"><article class="slide"><header><div class="row"><span class="k">Diapositiva 1</span><span class="min">5 min</span></div><h2>Portada</h2></header><p>Reconoce que llegaron. De los que empezaron, estos son los que publicaron todos los retos, y eso ya dice algo.</p>
+<p>Después, sin más introducción, di una sola frase y cállate:</p>
+<blockquote>
+<p>Me quiero rapar.</p>
+</blockquote>
+<p>Mira al grupo y espera. Aguanta el silencio. Después pregunta: &quot;¿Qué le preguntarían antes de recomendarle algo?&quot; Deja que salgan preguntas distintas. Anota dos o tres en la pizarra sin comentarlas. Van a servir en la diapositiva 4.</p>
+<p>Diles cómo va a ser el día: revisan los últimos videos, aprenden a preguntar, rinden la prueba final en la silla y certifican. Hoy no hay teoría larga. Hoy se demuestra.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 2</span><span class="min">15 min</span></div><h2>Quién estrenó</h2></header><p>Números a la pizarra, tercera semana al lado de las anteriores. Ya se ven curvas: quién subió en visitas al perfil, quién en toques al link. Léelas con ellos en dos minutos.</p>
+<p>Proyecta los antes y después corregidos. Corrige sobre lo de la clase pasada: en qué segundo aparece el resultado, si habla alguien, cuánto dura, qué dice el texto.</p>
+<p>Después, las asesorías que intentaron solos. Sin explicación del autor. El grupo anota dos cosas mientras mira cada una:</p>
+<ul>
+<li>¿Quién habla más, el cliente o el barbero?</li>
+<li>¿En qué segundo sale el resultado?</li>
+</ul>
+<p>Va a pasar casi siempre lo mismo: habla más el barbero, y el resultado sale temprano. Déjalo a la vista y no corrijas todavía.</p>
+<p>Esta es la última corrección que reciben antes de la prueba. Dile a cada uno una cosa concreta que tiene que cuidar hoy. Una, no cinco.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 3</span><span class="min">12 min</span></div><h2>Así se hace una asesoría que se vuelve viral</h2></header><p>Proyecta el video de ejemplo dos veces. La segunda vez, libreta afuera y pausas. Que anoten cada punto.</p>
+<ul>
+<li>El que habla es el cliente. Cuenta lo que le pasa con su pelo, con sus palabras. Eso vende más que cualquier cosa que digamos nosotros, porque el que mira se reconoce.</li>
+<li>Nuestras preguntas no salen. En la edición se cortan. Quedan solo las respuestas, unidas como si el cliente estuviera contando su historia de corrido.</li>
+<li>El barbero aparece una sola vez, después del relato del cliente, con la recomendación cortita. Una frase: &quot;te propongo esto, porque esto&quot;.</li>
+<li>Un poco del proceso. Dos o tres planos cortos.</li>
+<li>El resultado al final. Aparece al ochenta por ciento y dura el veinte. La misma regla del antes y después.</li>
+<li>Dura entre treinta y cuarenta y cinco segundos. Subtítulos siempre, porque hay voz.</li>
+<li>El texto del principio es la frase del cliente que más duele: &quot;Llevo un año sin encontrar un corte&quot;.</li>
+</ul>
+<p>Pausa el video justo antes de la recomendación y pregunta: &quot;¿Cuánto tiempo habló el barbero hasta acá?&quot; Cero. Ahí está la diferencia con los intentos que trajeron.</p>
+<p>Que anoten la frase: en la asesoría el cliente vende y el barbero recomienda.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 4</span><span class="min">15 min</span></div><h2>Las preguntas correctas</h2></header><p>Todo el video depende de esto. Si el cliente responde con una palabra, no hay video. La pregunta tiene que hacerlo hablar de su pelo, de lo que le molesta y de lo que quiere.</p>
+<p>Tres reglas, que las anoten:</p>
+<ul>
+<li>Abierta. No se contesta con sí o no. Empieza con qué, cómo, cuándo, por qué, o con &quot;cuéntame&quot;.</li>
+<li>Apunta a lo que vive, no a lo técnico. &quot;¿Qué es lo que más te molesta de tu pelo en la mañana?&quot; sí. &quot;¿Qué número quieres a los lados?&quot; no.</li>
+<li>La respuesta tiene que servir sola. Como la pregunta se corta en la edición, la respuesta se tiene que entender sin ella. Por eso pides &quot;cuéntame cómo amanece tu pelo&quot;, y el cliente dice &quot;mi pelo amanece...&quot;. Si contesta corto, repregunta: repite su última palabra en tono de pregunta, el mirroring de oratoria, o &quot;¿y eso por qué?&quot;, o &quot;cuéntame más&quot;.</li>
+</ul>
+<p>Ahora la fórmula para inventar preguntas. Tres pasos:</p>
+<ul>
+<li>Uno. Elige un momento del día del cliente: levantarse, peinarse, salir, una foto, una entrevista, una cita, ponerse la gorra.</li>
+<li>Dos. Elige lo que siente ahí: vergüenza, flojera, incomodidad, no saber qué pedir, miedo a que se lo dejen mal.</li>
+<li>Tres. Arma la pregunta con una de estas dos formas. &quot;Cuéntame qué pasa con tu pelo cuando [momento].&quot; O &quot;¿Qué es lo que más te [lo que siente] de tu pelo cuando [momento]?&quot;</li>
+</ul>
+<p>Ejemplos, para que vean la fórmula funcionando: &quot;Cuéntame qué pasa con tu pelo cuando te levantas.&quot; &quot;¿Qué es lo que más te da vergüenza de tu pelo cuando te sacas una foto?&quot; &quot;Cuéntame qué pasa cuando te quitas la gorra.&quot; &quot;¿Qué es lo que más te complica cuando tienes que pedir un corte?&quot;</p>
+<p>Vuelve a las preguntas de la pizarra, las de la portada. Revísalas con las tres reglas. Casi siempre una o dos son cerradas. Arréglalas en vivo con la fórmula.</p>
+<p>Ejercicio: cada uno escribe tres preguntas con la fórmula, pensando en un cliente real que atendió esta semana. Recorre la sala y lee algunas. Si una se contesta con sí o no, se reescribe ahí mismo. Las diez preguntas que más funcionan están en el Anexo H para imprimir.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 5</span><span class="min">10 min</span></div><h2>Cómo se graba y cómo se edita</h2></header><p>Grabar. El teléfono apunta al cliente, no a ti. Fijo en el trípode, o el compañero lo sostiene, a la altura de los ojos del cliente y cerca, para que el audio se escuche. Tú preguntas desde atrás o desde el costado. Da igual si sales en cuadro: te van a cortar. Haz cuatro o cinco preguntas. Deja que hable. No lo interrumpas para corregir. Después grabas tu recomendación a cámara, una frase. Dos o tres planos del proceso. Y el resultado: el cliente en la silla, quieto, tres segundos.</p>
+<p>Editar. Corta todas tus preguntas. Une las respuestas del cliente en orden: qué le pasa, desde cuándo, qué quiere. Subtítulos. Después tu recomendación. Después el proceso. El resultado al ochenta por ciento. El texto del principio con la frase del cliente que más duele. Treinta a cuarenta y cinco segundos. Una sola acción al cierre: reserva tu asesoría en el link.</p>
+<p>Demuestra el corte. Muestra el pedazo crudo con tus preguntas, y el mismo pedazo editado sin ellas. Que vean cómo el cliente pasa de contestar a contar.</p>
+<p>Cierra: el video se arma en la edición, pero solo si en la silla hiciste las preguntas correctas. Sin buenas respuestas no hay nada que unir.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 6</span><span class="min">40 min</span></div><h2>Prueba final: las preguntas correctas en la silla</h2></header><p>Es la prueba final, y se evalúa la parte que decide el video: las preguntas.</p>
+<p>Tríos: cliente, barbero y camarógrafo. Rotan hasta que los tres hayan sido barbero. El que hace de cliente saca un sobre del Anexo F y lee solo la petición. El contexto lo tiene adentro, y lo suelta solo si el barbero pregunta bien. Si la pregunta es cerrada, contesta con una palabra. Si es abierta y apunta a lo que vive, contesta con lo que dice el sobre y algo más.</p>
+<p>El barbero graba la asesoría hasta la recomendación: cuatro o cinco preguntas, la repregunta cuando la respuesta queda corta, y su recomendación en una frase con razón. Dos o tres minutos. No se corta pelo en la prueba.</p>
+<p>Tú llenas la planilla del Anexo G en el momento. Alumno por alumno. Si lo dejas para después se te olvida. Seis criterios, cada uno de uno a cinco, treinta puntos:</p>
+<ul>
+<li>Las preguntas son abiertas.</li>
+<li>Apuntan a lo que el cliente vive, no a lo técnico.</li>
+<li>Las respuestas sirven solas, sin la pregunta.</li>
+<li>Repregunta cuando la respuesta queda corta.</li>
+<li>La recomendación es una frase y trae una razón.</li>
+<li>Cuerpo y voz: escucha, mirada, pausas, sin muletillas.</li>
+</ul>
+<p>Los compañeros marcan los mismos seis criterios, no la hoja del Anexo D: acá no hay video terminado que medir, se mide cómo preguntó. Después de los tríos, cada uno pasa adelante con un caso nuevo y tú haces de cliente. Ahí va la nota definitiva. Si una parte no se entiende, repite solo esa parte.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 7</span><span class="min">15 min</span></div><h2>Certificación</h2></header><p>Se certifica con dieciocho puntos o más y ningún criterio en uno. Si un criterio quedó en uno, el alumno repite solo esa parte antes de cerrar.</p>
+<p>Primero los puntajes. Lee los resultados y reconoce a los tres mejores con nombre y apellido, diciendo por qué. &quot;Ganó porque preguntó hasta que el cliente contó lo que le pasaba&quot; vale más que un aplauso genérico.</p>
+<p>Al resto también, uno por uno, con una frase concreta de en qué mejoró desde la clase uno. Nadie se va sin escuchar algo bueno.</p>
+<p>Entrega los certificados con nombre, apretón de mano y foto. Uno por uno, sin apurar.</p>
+<p>Y graba el testimonio final de cada uno. Pregúntales con qué llegaron al curso, con qué se van, y qué le dirían a un barbero que no se atreve a grabarse. Díselos antes: ese testimonio es su último yapping. Gancho, una idea, hablado, cierre.</p>
+<p>Cuando termines, la sorpresa. Proyecta la captura que sacaste el primer día, antes de que tocaran nada, al lado del perfil de hoy: foto con su cara, nombre con ciudad, bio de tres líneas, link de su agenda, destacados, y una grilla con tres formatos de video. Ver cómo llegaron al lado de cómo terminaron vale más que cualquier cosa que les puedas decir.</p>
+</article><article class="slide"><header><div class="row"><span class="k">Diapositiva 8</span><span class="min">5 min</span></div><h2>Cierre</h2></header><p>Baja el ritmo. Habla más lento. Aplica todo lo que enseñaste.</p>
+<p>Diles que cuando empezaron, su perfil no decía ni en qué ciudad estaban. Hoy tienen un perfil que reserva solo y tres tipos de video que traen clientes. Eso no fue el algoritmo. Fue un sistema, y lo hicieron ellos.</p>
+<p>Haz la pausa. Deja que caiga.</p>
+<p>Ahí va la frase del curso: te ven, te entienden, te reservan. Un video para que te vean. Un perfil para que te entiendan. Un link para que te reserven. Ahí está el curso completo.</p>
+<p>El último reto, sin clase: la asesoría con un cliente real, grabada y editada como se enseñó hoy, publicada dentro de siete días. Te la mandan por WhatsApp con sus números y tú la revisas. Con eso los tres formatos quedan en el perfil, y el perfil queda trabajando solo.</p>
+<p>Y el cierre: terminaron, pero esto no se demuestra con el certificado. Se demuestra con el próximo cliente que llega diciendo &quot;te vi en un video&quot;.</p>
+<p>Somos el estándar. Ahora que los vean.</p>
+</article></section><section class="dark sep anexos"><div class="top"><div class="kick">Material para imprimir</div><div class="num">Anexos</div><h1>Lo que se imprime y se reparte</h1></div><div class="cols"><div><p>Material para imprimir. Una copia por alumno de A, B, D, E y H. Los casos de F se recortan y van en sobres. La rúbrica y el registro de G son tuyos.</p>
+</div><div class="idx"><h3>8 anexos</h3><ul><li><span>Pauta SÍ | NO del perfil</span><span class="m">A</span></li><li><span>Tarjeta de yapping</span><span class="m">B</span></li><li><span>Los dos prompts</span><span class="m">C</span></li><li><span>Hoja BIEN | MAL por formato</span><span class="m">D</span></li><li><span>La barra 80/20</span><span class="m">E</span></li><li><span>Casos para la prueba final</span><span class="m">F</span></li><li><span>Rúbrica de certificación y registro de números</span><span class="m">G</span></li><li><span>Preguntas para la asesoría</span><span class="m">H</span></li></ul></div></div><div class="foot">HERNANDEZ Academia</div></section><section class="doc"><article class="anexo"><header><div class="row"><span class="k">Anexo A</span></div><h2>Pauta SÍ | NO del perfil</h2></header><p>La marca un compañero mirando el perfil como cliente, no el dueño del perfil. Se pasa una sola vez, en la clase 1, cuando arman el perfil con el teléfono.</p>
+<p>Alumno: <span class="line"></span> Revisó: <span class="line"></span></p>
+<table class="obs">
+<thead>
+<tr>
+<th>Punto</th>
+<th align="center">SÍ</th>
+<th align="center">NO</th>
+<th>Qué vi</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cuenta profesional activa, con el panel profesional a la vista.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Foto: rostro en primer plano, barbería de fondo, mirando al lente.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Usuario que se dice en voz alta sin deletrear.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Nombre con oficio y ciudad.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Bio de tres líneas: qué encuentro, autoridad, acción.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Un solo link, y abre su agenda.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Destacados Cortes y Reservas armados.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Prueba de los cinco segundos</h3>
+<p>El compañero mira el perfil cinco segundos, lo cierra, y completa sin mirar:</p>
+<p>Nombre: <span class="line"></span> Ciudad: <span class="line"></span></p>
+<p>Qué hace: <span class="line"></span> Cómo reservo: <span class="line"></span></p>
+<h3>La fórmula de la marca</h3>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Fórmula</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Usuario</td>
+<td>nombre + barber. Si está tomado, punto y ciudad.</td>
+<td>nicobarber · nicobarber.temuco</td>
+</tr>
+<tr>
+<td>Nombre</td>
+<td>Nombre · Barbero en Ciudad</td>
+<td>Nico · Barbero en Temuco</td>
+</tr>
+<tr>
+<td>Bio, línea 1</td>
+<td>Qué vas a encontrar, con barbería y sucursal</td>
+<td>Cortes y barba en Barbería Hernández, Temuco Centro</td>
+</tr>
+<tr>
+<td>Bio, línea 2</td>
+<td>Un dato real de autoridad</td>
+<td>Seis años en la silla</td>
+</tr>
+<tr>
+<td>Bio, línea 3</td>
+<td>La acción, apuntando al link</td>
+<td>Reserva tu hora aquí ↓</td>
+</tr>
+<tr>
+<td>Link</td>
+<td>El link de agenda del curso, solo su agenda</td>
+<td>Lo entrega el instructor</td>
+</tr>
+<tr>
+<td>Destacados</td>
+<td>Cortes · Opiniones · Reservas · Yo</td>
+<td>Cortes y Reservas se arman en clase</td>
+</tr>
+</tbody></table>
+</article><article class="anexo"><header><div class="row"><span class="k">Anexo B</span></div><h2>Tarjeta de yapping</h2></header><p>Una tarjeta por video. Frases cortas o palabras sueltas. Si la lees mientras grabas, se nota.</p>
+<p>Nombre: <span class="line"></span> Pregunta del cliente: <span class="line"></span></p>
+<h3>Abro con</h3>
+<p>La primera frase. Es la pregunta o el gancho, y va escrita en pantalla.</p>
+<div class="wline"></div>
+<div class="wline"></div>
+
+
+<h3>Quiero explicar</h3>
+<p>Una sola idea y un ejemplo real de la silla.</p>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+
+
+<h3>Cierro con</h3>
+<p>La conclusión y la invitación a reservar.</p>
+<div class="wline"></div>
+<div class="wline"></div>
+
+
+<h3>Antes de grabar</h3>
+<p><span class="cb"></span> Vertical &nbsp; <span class="cb"></span> Lente a la altura de los ojos &nbsp; <span class="cb"></span> Luz de frente &nbsp; <span class="cb"></span> Cinco segundos de prueba de audio &nbsp; <span class="cb"></span> Una sola idea &nbsp; <span class="cb"></span> Sin saludo</p>
+<div class="pb"></div>
+
+<p>Para elegir el tema y la primera frase. Con dos tipos y dos ganchos que dominen les sobra.</p>
+<h3>Los seis tipos de yapping</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Cómo abre</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>La pregunta</td>
+<td>&quot;¿Cada cuánto me tengo que cortar?&quot;</td>
+</tr>
+<tr>
+<td>La postura</td>
+<td>&quot;El fade no le queda a todos, y te digo a quién no.&quot;</td>
+</tr>
+<tr>
+<td>El error que ves seguido</td>
+<td>&quot;El error que comete casi todo el mundo con la barba en la casa.&quot;</td>
+</tr>
+<tr>
+<td>La historia de silla</td>
+<td>&quot;Ayer llegó un cliente escondido debajo de una gorra.&quot;</td>
+</tr>
+<tr>
+<td>Antes de que vengas</td>
+<td>&quot;Cómo pedir tu corte para que te lo hagan bien en cualquier barbería.&quot;</td>
+</tr>
+<tr>
+<td>Producto y rutina</td>
+<td>&quot;Por qué tu peinado se cae antes del mediodía.&quot;</td>
+</tr>
+</tbody></table>
+<h3>Las cinco formas de abrir</h3>
+<table>
+<thead>
+<tr>
+<th>Gancho</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>La pregunta tal cual</td>
+<td>&quot;¿Por qué mi corte dura una semana?&quot;</td>
+</tr>
+<tr>
+<td>El error</td>
+<td>&quot;Si te lavas el pelo con agua hirviendo, el corte no te va a durar.&quot;</td>
+</tr>
+<tr>
+<td>La postura</td>
+<td>&quot;El fade no le queda a todos, y te voy a decir a quién no.&quot;</td>
+</tr>
+<tr>
+<td>La historia</td>
+<td>&quot;Ayer llegó un cliente escondido debajo de una gorra.&quot;</td>
+</tr>
+<tr>
+<td>El número</td>
+<td>&quot;De diez clientes que me piden barba, ocho me la piden mal.&quot;</td>
+</tr>
+</tbody></table>
+</article><article class="anexo"><header><div class="row"><span class="k">Anexo C</span></div><h2>Los dos prompts</h2></header><p>Se mandan por WhatsApp para copiar y pegar en ChatGPT o Claude. Solo se cambia lo que está entre corchetes. El primero saca ideas; el segundo arma la ruta de un video.</p>
+<h3>Prompt 1. Veinte ideas en un minuto</h3>
+<pre><code>Soy barbero en [CIUDAD], trabajo en Barbería Hernández, sucursal [SUCURSAL]. Mis clientes son hombres de [EDAD] que [SITUACIÓN: trabajan en oficina / son estudiantes / vienen con sus hijos / se cortan cada tres semanas].
+
+Quiero grabar videos cortos hablando a cámara para atraer clientes, no barberos. Dame 20 preguntas reales que un cliente me haría sobre [TEMA: el corte / la barba / el cuidado en casa / los productos / cómo pedir el corte], escritas con las palabras que usaría el cliente, sin términos técnicos.
+
+Para cada pregunta, escribe la primera frase con la que yo abriría un video de 40 segundos respondiéndola: hablada, directa, sin saludo y sin sonar a publicidad. Ordénalas de la más común a la menos común.
+</code></pre>
+<h3>Prompt 2. De la pregunta a la ruta</h3>
+<pre><code>Voy a grabar un yapping de 40 segundos respondiendo esta pregunta de un cliente: [PREGUNTA].
+
+Ármame la ruta en tres partes, con frases cortas que pueda recordar sin leer:
+ABRO CON: la primera frase, que sea la pregunta tal cual o un gancho directo.
+QUIERO EXPLICAR: una sola idea y un ejemplo real de la silla, en tres o cuatro apoyos.
+CIERRO CON: una conclusión y la invitación a reservar en el link del perfil.
+
+Habla como un barbero le habla a su cliente en la silla, en español neutro, sin tecnicismos, sin emojis y sin exagerar. No escribas un guion completo: solo la ruta.
+</code></pre>
+<p>Cómo se usan en clase: el instructor corre el primero en vivo con un tema del grupo y proyecta las veinte preguntas. Cada alumno elige las tres que de verdad le preguntan. Después corre el segundo con una de ellas y compara la ruta con su propia tarjeta. La herramienta ordena; la voz la pone el barbero.</p>
+</article><article class="anexo"><header><div class="row"><span class="k">Anexo D</span></div><h2>Hoja BIEN | MAL por formato</h2></header><p>Mira el video completo antes de marcar. Después nombra una fortaleza y una sola corrección. En el yapping y en la asesoría se marca también cuerpo y voz, lo de oratoria: postura, mirada al lente, manos, tono, pausas, muletillas. En el antes y después no, porque nadie habla ni mira al lente.</p>
+<p>Alumno: <span class="line"></span> Observador: <span class="line"></span></p>
+<h3>Yapping</h3>
+<table class="obs">
+<thead>
+<tr>
+<th>Criterio</th>
+<th align="center">SÍ</th>
+<th align="center">NO</th>
+<th>Qué vi o escuché</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Se entiende de qué va en la primera frase, y va en pantalla.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Desarrolla una sola idea.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Suena hablado, no leído. Mira al lente.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Hay un ejemplo real de la silla.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Cierra con una acción: reservar, o una conclusión clara.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Antes y después</h3>
+<table class="obs">
+<thead>
+<tr>
+<th>Criterio</th>
+<th align="center">SÍ</th>
+<th align="center">NO</th>
+<th>Qué vi o escuché</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No habla nadie. Música y hoja, sin yapping.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>El resultado aparece al ochenta por ciento y dura el veinte.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>El texto le habla al cliente y está en el antes.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Misma toma: teléfono fijo, cliente igual, barbero igual.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Dura entre quince y treinta segundos.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>El cambio se ve.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Asesoría</h3>
+<table class="obs">
+<thead>
+<tr>
+<th>Criterio</th>
+<th align="center">SÍ</th>
+<th align="center">NO</th>
+<th>Qué vi o escuché</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>El que habla es el cliente, con sus palabras.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Las preguntas del barbero no salen; las respuestas se entienden solas.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>La recomendación es una frase y trae una razón.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>El resultado aparece al ochenta por ciento y dura el veinte.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Dura entre treinta y cuarenta y cinco segundos, con subtítulos.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Cierra con una sola acción: reservar en el link.</td>
+<td align="center"><span class="cb"></span></td>
+<td align="center"><span class="cb"></span></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Fortaleza concreta: <span class="line"></span></p>
+<p>Una corrección: <span class="line"></span></p>
+<p>La parte que se repite: <span class="line"></span></p>
+</article><article class="anexo"><header><div class="row"><span class="k">Anexo E</span></div><h2>La barra 80/20</h2></header><p>Dibuja tu video antes de grabarlo, y otra vez antes de editarlo. Marca hasta dónde llega el antes y en qué segundo aparece el resultado. La regla: el resultado aparece cuando el video va en el ochenta por ciento y dura solo el veinte por ciento final. Un antes y después dura entre quince y treinta segundos. Una asesoría, entre treinta y cuarenta y cinco.</p>
+<svg class="barra" viewBox="0 0 600 78" xmlns="http://www.w3.org/2000/svg">
+<text x="24" y="12" class="t">15 segundos</text>
+<rect x="24" y="22" width="552" height="30" class="box"/>
+<line x1="24.0" y1="52" x2="24.0" y2="57" class="tick"/>
+<text x="24.0" y="68" class="n" text-anchor="middle">0</text>
+<line x1="60.8" y1="52" x2="60.8" y2="57" class="tick"/>
+<text x="60.8" y="68" class="n" text-anchor="middle">1</text>
+<line x1="97.6" y1="52" x2="97.6" y2="57" class="tick"/>
+<text x="97.6" y="68" class="n" text-anchor="middle">2</text>
+<line x1="134.4" y1="52" x2="134.4" y2="57" class="tick"/>
+<text x="134.4" y="68" class="n" text-anchor="middle">3</text>
+<line x1="171.2" y1="52" x2="171.2" y2="57" class="tick"/>
+<text x="171.2" y="68" class="n" text-anchor="middle">4</text>
+<line x1="208.0" y1="52" x2="208.0" y2="57" class="tick"/>
+<text x="208.0" y="68" class="n" text-anchor="middle">5</text>
+<line x1="244.8" y1="52" x2="244.8" y2="57" class="tick"/>
+<text x="244.8" y="68" class="n" text-anchor="middle">6</text>
+<line x1="281.6" y1="52" x2="281.6" y2="57" class="tick"/>
+<text x="281.6" y="68" class="n" text-anchor="middle">7</text>
+<line x1="318.4" y1="52" x2="318.4" y2="57" class="tick"/>
+<text x="318.4" y="68" class="n" text-anchor="middle">8</text>
+<line x1="355.2" y1="52" x2="355.2" y2="57" class="tick"/>
+<text x="355.2" y="68" class="n" text-anchor="middle">9</text>
+<line x1="392.0" y1="52" x2="392.0" y2="57" class="tick"/>
+<text x="392.0" y="68" class="n" text-anchor="middle">10</text>
+<line x1="428.8" y1="52" x2="428.8" y2="57" class="tick"/>
+<text x="428.8" y="68" class="n" text-anchor="middle">11</text>
+<line x1="465.6" y1="52" x2="465.6" y2="57" class="tick"/>
+<text x="465.6" y="68" class="n" text-anchor="middle">12</text>
+<line x1="502.4" y1="52" x2="502.4" y2="57" class="tick"/>
+<text x="502.4" y="68" class="n" text-anchor="middle">13</text>
+<line x1="539.2" y1="52" x2="539.2" y2="57" class="tick"/>
+<text x="539.2" y="68" class="n" text-anchor="middle">14</text>
+<line x1="576.0" y1="52" x2="576.0" y2="57" class="tick"/>
+<text x="576.0" y="68" class="n" text-anchor="middle">15</text>
+<line x1="465.6" y1="16" x2="465.6" y2="52" class="mark"/>
+<text x="465.6" y="12" class="n mk" text-anchor="middle">resultado · 80 %</text>
+</svg>
+
+<svg class="barra" viewBox="0 0 600 78" xmlns="http://www.w3.org/2000/svg">
+<text x="24" y="12" class="t">30 segundos</text>
+<rect x="24" y="22" width="552" height="30" class="box"/>
+<line x1="24.0" y1="52" x2="24.0" y2="57" class="tick"/>
+<text x="24.0" y="68" class="n" text-anchor="middle">0</text>
+<line x1="116.0" y1="52" x2="116.0" y2="57" class="tick"/>
+<text x="116.0" y="68" class="n" text-anchor="middle">5</text>
+<line x1="208.0" y1="52" x2="208.0" y2="57" class="tick"/>
+<text x="208.0" y="68" class="n" text-anchor="middle">10</text>
+<line x1="300.0" y1="52" x2="300.0" y2="57" class="tick"/>
+<text x="300.0" y="68" class="n" text-anchor="middle">15</text>
+<line x1="392.0" y1="52" x2="392.0" y2="57" class="tick"/>
+<text x="392.0" y="68" class="n" text-anchor="middle">20</text>
+<line x1="484.0" y1="52" x2="484.0" y2="57" class="tick"/>
+<text x="484.0" y="68" class="n" text-anchor="middle">25</text>
+<line x1="576.0" y1="52" x2="576.0" y2="57" class="tick"/>
+<text x="576.0" y="68" class="n" text-anchor="middle">30</text>
+<line x1="465.6" y1="16" x2="465.6" y2="52" class="mark"/>
+<text x="465.6" y="12" class="n mk" text-anchor="middle">resultado · 80 %</text>
+</svg>
+
+<svg class="barra" viewBox="0 0 600 78" xmlns="http://www.w3.org/2000/svg">
+<text x="24" y="12" class="t">45 segundos</text>
+<rect x="24" y="22" width="552" height="30" class="box"/>
+<line x1="24.0" y1="52" x2="24.0" y2="57" class="tick"/>
+<text x="24.0" y="68" class="n" text-anchor="middle">0</text>
+<line x1="85.3" y1="52" x2="85.3" y2="57" class="tick"/>
+<text x="85.3" y="68" class="n" text-anchor="middle">5</text>
+<line x1="146.7" y1="52" x2="146.7" y2="57" class="tick"/>
+<text x="146.7" y="68" class="n" text-anchor="middle">10</text>
+<line x1="208.0" y1="52" x2="208.0" y2="57" class="tick"/>
+<text x="208.0" y="68" class="n" text-anchor="middle">15</text>
+<line x1="269.3" y1="52" x2="269.3" y2="57" class="tick"/>
+<text x="269.3" y="68" class="n" text-anchor="middle">20</text>
+<line x1="330.7" y1="52" x2="330.7" y2="57" class="tick"/>
+<text x="330.7" y="68" class="n" text-anchor="middle">25</text>
+<line x1="392.0" y1="52" x2="392.0" y2="57" class="tick"/>
+<text x="392.0" y="68" class="n" text-anchor="middle">30</text>
+<line x1="453.3" y1="52" x2="453.3" y2="57" class="tick"/>
+<text x="453.3" y="68" class="n" text-anchor="middle">35</text>
+<line x1="514.7" y1="52" x2="514.7" y2="57" class="tick"/>
+<text x="514.7" y="68" class="n" text-anchor="middle">40</text>
+<line x1="576.0" y1="52" x2="576.0" y2="57" class="tick"/>
+<text x="576.0" y="68" class="n" text-anchor="middle">45</text>
+<line x1="465.6" y1="16" x2="465.6" y2="52" class="mark"/>
+<text x="465.6" y="12" class="n mk" text-anchor="middle">resultado · 80 %</text>
+</svg>
+
+<p>Qué puede ir antes del ochenta por ciento: la hoja moviéndose, el cliente destapado de a poco, el texto que le habla al cliente, manos trabajando, o el cliente contando lo que le pasa. Qué no: el corte terminado, un espejo con el después, la portada con el resultado. Si al grabar no quedó así, se arregla en la edición: se alarga el antes y se corta el después.</p>
+<p>Una sola acción al cierre: reservar en el link del perfil. En la asesoría se dice en el video y se repite en el caption. En el antes y después va solo en el caption, porque ahí no habla nadie.</p>
+</article><article class="anexo"><header><div class="row"><span class="k">Anexo F</span></div><h2>Casos para la prueba final</h2></header><p>Recorta cada caso. La petición queda afuera del sobre y el contexto adentro. El que hace de cliente lee solo la petición. Si el barbero hace una pregunta cerrada, contesta con una palabra. Si hace una pregunta abierta que apunta a lo que vive, contesta con lo que dice el sobre y algo más.</p>
+<div class="casos">
+<div class="caso"><div class="lbl">Caso 1 · Afuera del sobre</div><div class="pet">Me quiero rapar</div><div class="lbl">Adentro del sobre</div><p>Está cansado de peinarse. Tiene un remolino marcado y un evento en dos semanas. Quiere algo fácil de mantener, pero no sabe si raparse lo favorece.</p></div>
+<div class="caso"><div class="lbl">Caso 2 · Afuera del sobre</div><div class="pet">Mi corte pierde forma muy rápido</div><div class="lbl">Adentro del sobre</div><p>Vuelve cada cinco semanas, usa gorra casi todos los días y el volumen de los lados le crece antes que el de arriba. Quiere que el corte se vea ordenado por más tiempo.</p></div>
+<div class="caso"><div class="lbl">Caso 3 · Afuera del sobre</div><div class="pet">Quiero algo distinto, pero no sé qué</div><div class="lbl">Adentro del sobre</div><p>Trabaja en un ambiente formal. Le gusta la textura y acepta un cambio visible, aunque no quiere un corte extremo ni demasiado corto.</p></div>
+<div class="caso"><div class="lbl">Caso 4 · Afuera del sobre</div><div class="pet">Quiero que mi barba se vea más pareja</div><div class="lbl">Adentro del sobre</div><p>Tiene menos densidad en las mejillas, rostro redondo y poco tiempo para arreglarla cada mañana. Quiere una forma limpia que pueda mantener en casa.</p></div>
+<div class="caso"><div class="lbl">Caso 5 · Afuera del sobre</div><div class="pet">El corte no me dura</div><div class="lbl">Adentro del sobre</div><p>Se lava el pelo con agua muy caliente, no usa producto y deja demasiado largo arriba. Busca una rutina simple, además de un corte mejor pensado.</p></div>
+<div class="caso"><div class="lbl">Caso 6 · Afuera del sobre</div><div class="pet">Tengo un evento en cuatro días</div><div class="lbl">Adentro del sobre</div><p>Es su primera visita. Quiere verse bien en fotos, conserva largo arriba y no quiere que el cambio lo haga sentirse irreconocible.</p></div>
+</div>
+</article><article class="anexo"><header><div class="row"><span class="k">Anexo G</span></div><h2>Rúbrica de certificación y registro de números</h2></header><p>La prueba final evalúa las preguntas de la asesoría en la silla. Llena la rúbrica en el momento, alumno por alumno, mientras trabajan en tríos y otra vez cuando pasan adelante contigo de cliente. Cada criterio de uno a cinco. Se certifica con 18 puntos o más y ningún criterio en uno. Si un criterio queda en uno, el alumno repite solo esa parte y se vuelve a puntuar.</p>
+<p>Alumno: <span class="line"></span> Fecha: <span class="line"></span></p>
+<table class="rubrica">
+<thead><tr><th>Criterio</th><th class="c">1</th><th class="c">2</th><th class="c">3</th><th class="c">4</th><th class="c">5</th><th>Evidencia o corrección</th></tr></thead>
+<tbody>
+<tr><td>Las preguntas son abiertas: no se contestan con sí o no.</td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td></tr>
+<tr><td>Apuntan a lo que el cliente vive, no a lo técnico.</td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td></tr>
+<tr><td>Las respuestas del cliente sirven solas, sin la pregunta.</td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td></tr>
+<tr><td>Repregunta cuando la respuesta queda corta.</td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td></tr>
+<tr><td>La recomendación es una frase y trae una razón.</td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td></tr>
+<tr><td>Cuerpo y voz: escucha, mirada, pausas, sin muletillas.</td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td></tr>
+</tbody>
+</table>
+
+<p>Total: <span class="line"></span> / 30 &nbsp;&nbsp; <span class="cb"></span> Certificado &nbsp;&nbsp; <span class="cb"></span> Pendiente: repite <span class="line"></span></p>
+<h3>Registro de números</h3>
+<p>Los tres números de cada reto, copiados de las estadísticas del reel. La última columna es la que importa: reservas que llegaron por el link en la semana.</p>
+<table class="reg">
+<thead>
+<tr><th rowspan="2">Alumno</th><th colspan="3" class="c">Semana 1 · Yapping</th><th colspan="3" class="c">Semana 2 · Yapping y antes y después</th><th colspan="3" class="c">Semana 3 · Antes y después y asesoría</th><th rowspan="2" class="c">Reservas</th></tr>
+<tr><th class="c">Vistas</th><th class="c">Perfil</th><th class="c">Link</th><th class="c">Vistas</th><th class="c">Perfil</th><th class="c">Link</th><th class="c">Vistas</th><th class="c">Perfil</th><th class="c">Link</th></tr>
+</thead>
+<tbody>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<p>Cómo leerlos: de vistas a perfil dice si el video dio curiosidad. De perfil a link dice si el perfil convence. Dos alumnos con las mismas vistas pueden tener embudos completamente distintos.</p>
+</article><article class="anexo"><header><div class="row"><span class="k">Anexo H</span></div><h2>Preguntas para la asesoría</h2></header><p>La asesoría se decide en la silla, con las preguntas. Una pregunta sirve cuando es abierta, apunta a lo que el cliente vive y su respuesta se entiende sola, porque en la edición la pregunta se corta. Si el cliente contesta corto, repregunta: repite su última palabra en tono de pregunta, o &quot;¿y eso por qué?&quot;, o &quot;cuéntame más&quot;.</p>
+<h3>La fórmula en tres pasos</h3>
+<table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Elige</th>
+<th>Ejemplos</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Uno</td>
+<td>Un momento del día del cliente</td>
+<td>Levantarse, peinarse, salir, una foto, una entrevista, una cita, ponerse la gorra</td>
+</tr>
+<tr>
+<td>Dos</td>
+<td>Lo que siente ahí</td>
+<td>Vergüenza, flojera, incomodidad, no saber qué pedir, miedo a que se lo dejen mal</td>
+</tr>
+<tr>
+<td>Tres</td>
+<td>Una de las dos formas</td>
+<td>&quot;Cuéntame qué pasa con tu pelo cuando [momento]&quot; · &quot;¿Qué es lo que más te [lo que siente] de tu pelo cuando [momento]?&quot;</td>
+</tr>
+</tbody></table>
+<h3>Las diez que más funcionan</h3>
+<table>
+<thead>
+<tr>
+<th>Pregunta</th>
+<th>Qué saca</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cuéntame qué pasa con tu pelo cuando te levantas.</td>
+<td>El problema diario, en sus palabras.</td>
+</tr>
+<tr>
+<td>¿Cuánto tiempo llevas sin cortarte, y por qué?</td>
+<td>La historia del abandono.</td>
+</tr>
+<tr>
+<td>¿Qué es lo que más te molesta de tu pelo ahora mismo?</td>
+<td>El dolor principal.</td>
+</tr>
+<tr>
+<td>¿Qué haces cada mañana para que se vea bien?</td>
+<td>La rutina que no funciona.</td>
+</tr>
+<tr>
+<td>¿Cuándo fue la última vez que te sentiste bien con tu corte?</td>
+<td>El recuerdo del buen resultado.</td>
+</tr>
+<tr>
+<td>¿Qué te han dicho de tu pelo o de tu barba?</td>
+<td>Lo que le dicen otros.</td>
+</tr>
+<tr>
+<td>¿Para qué quieres verte bien esta semana?</td>
+<td>El evento, la razón del cambio.</td>
+</tr>
+<tr>
+<td>¿Qué te da miedo que te hagan?</td>
+<td>El miedo que frena.</td>
+</tr>
+<tr>
+<td>¿Qué pediste la última vez, y qué pasó?</td>
+<td>El mal corte anterior.</td>
+</tr>
+<tr>
+<td>¿Cómo te gustaría verte cuando salgas de acá?</td>
+<td>Lo que quiere, para la recomendación.</td>
+</tr>
+</tbody></table>
+<h3>Lo que no se pregunta</h3>
+<p>Nada que se conteste con sí o no. Nada técnico: número de máquina, tipo de fade, largo en centímetros. Nada que hable de ti: &quot;¿te gusta cómo corto?&quot;. El cliente habla de su pelo, de lo que le molesta y de lo que quiere. De lo demás hablas tú, en una frase, al final.</p>
+<p>Mis tres preguntas para este cliente:</p>
+<div class="wline"></div>
+<div class="wline"></div>
+<div class="wline"></div>
+
+</article></section></body></html>
