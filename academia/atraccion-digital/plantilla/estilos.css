@@ -62,7 +62,6 @@ h3{font-family:Poppins;font-weight:600;font-size:7.2pt;letter-spacing:.16em;text
 .lead{font-size:10.4pt;color:var(--ink);margin-bottom:4mm}
 
 article.slide,article.anexo{margin:0 0 9mm}
-article.slide:last-child{break-inside:avoid}
 article.anexo{break-before:page}
 article header{break-after:avoid;break-inside:avoid;margin-bottom:3.2mm;padding-top:2.2mm;border-top:1.6px solid var(--ink)}
 article header .row{display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
@@ -124,6 +123,7 @@ table.reg tbody td:last-child{border-right:0}
 table.obs td:last-child,table.obs th:last-child{width:38mm}
 table.obs td[style*="center"],table.obs th[style*="center"]{width:9mm}
 .mapa2{display:grid;grid-template-columns:1fr 1fr;gap:2mm 10mm;margin-top:1mm}
+.mapa2>div{break-inside:avoid}
 .mapa2 h3{margin-top:3mm}
 table.mapa{font-size:8.2pt;margin:0 0 2mm}
 table.mapa td{padding:1.3mm 1.5mm 1.3mm 0}

@@ -10,7 +10,7 @@ Antes de empezar
 - Los casos del Anexo F impresos y recortados, uno por sobre. Las preguntas del Anexo H impresas.
 - La rúbrica del Anexo G, una fila por alumno, para llenar en el momento.
 - Certificados impresos con nombre. Cámara para la foto y para el testimonio.
-- Las capturas de los perfiles del día uno, listas para proyectar al lado de los perfiles de hoy.
+- Las capturas de los perfiles del primer día, listas para proyectar al lado de los perfiles de hoy.
 
 ## Diapositiva 1. Portada · 5 min
 
@@ -118,7 +118,7 @@ Entrega los certificados con nombre, apretón de mano y foto. Uno por uno, sin a
 
 Y graba el testimonio final de cada uno. Pregúntales con qué llegaron al curso, con qué se van, y qué le dirían a un barbero que no se atreve a grabarse. Díselos antes: ese testimonio es su último yapping. Gancho, una idea, hablado, cierre.
 
-Cuando termines, la sorpresa. Proyecta la captura del perfil de cada uno del primer día, la que sacaste "para tener registro", al lado de su perfil de hoy: foto, nombre con ciudad, bio de tres líneas, link, destacados, y una grilla con tres formatos de video. Ver cómo llegaron al lado de cómo terminaron vale más que cualquier cosa que les puedas decir.
+Cuando termines, la sorpresa. Proyecta la captura que sacaste el primer día, antes de que tocaran nada, al lado del perfil de hoy: foto con su cara, nombre con ciudad, bio de tres líneas, link de su agenda, destacados, y una grilla con tres formatos de video. Ver cómo llegaron al lado de cómo terminaron vale más que cualquier cosa que les puedas decir.
 
 ## Diapositiva 8. Cierre · 5 min
 

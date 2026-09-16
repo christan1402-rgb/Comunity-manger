@@ -2,7 +2,9 @@
 
 Barbería Hernández. Cuatro clases, 30 diapositivas, 120 minutos por clase. Esto es lo mismo que vas a ver en tu monitor mientras la clase corre. No es un teleprompter.
 
-Las cuatro clases funcionan igual. Abres con una escena. Revisas quién publicó su video y qué números hizo. Enseñas la estrategia. Los pones a grabar en la silla. Mandas el reto nuevo. Ese orden no se cambia.
+Las clases 2, 3 y 4 funcionan igual. Abres con una escena. Revisas quién publicó su video y qué números hizo. Enseñas la estrategia. Los pones a grabar en la silla. Mandas el reto nuevo. Ese orden no se cambia.
+
+La clase 1 es la distinta. Todavía no hay video que revisar, y en vez de grabar arman el perfil en el teléfono. De la clase 2 en adelante, siempre igual.
 
 ## La regla que sostiene todo el curso
 
@@ -28,7 +30,7 @@ Demuestra primero, explica después. Cuando ayude, haz la versión mala y luego 
 
 La corrección tiene siempre la misma forma. Los compañeros hablan primero con su hoja BIEN | MAL. Después tú. Una fortaleza y una sola corrección. Se repite solo la parte que falló, y el alumno dice qué cambió.
 
-Una jugada callada: en la clase 1, mientras configuran el perfil, saca una captura del perfil de cada alumno "para tener registro". No cuentes para qué. En la clase 4 la vas a poner al lado del perfil terminado.
+Una jugada callada: en la clase 1, antes de que toquen nada, saca una captura del perfil de cada alumno como está hoy. Diles solo que es "para tener registro". No cuentes para qué. En la clase 4 la vas a poner al lado del perfil terminado, y ahí se entiende sola.
 
 ## Contenido para clientes, no para barberos
 

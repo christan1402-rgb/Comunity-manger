@@ -105,6 +105,8 @@ Demuéstralo con tu teléfono. Muestra el perfil malo, el de la historia de la p
 
 Acá cambia la dinámica. Ya no anotan: hacen. Vas dictando el orden y nadie se adelanta, porque el que se adelanta se salta un punto.
 
+Antes de que toquen nada, tu jugada callada: pasa por cada uno y saca una captura de su perfil como está en este momento. Si preguntan, "para tener registro". No cuentes más. Esa captura es la de la clase 4.
+
 Primero, cuenta profesional. Recorre la sala y confirma uno por uno que aparece el panel profesional.
 
 Segundo, la foto. Se la toman ahí mismo, en el rincón con luz de frente que dejaste preparado. Un compañero la toma, con el teléfono a la altura de los ojos, la barbería atrás, y el barbero mirando al lente como mira a un cliente. Tres intentos, eligen una, la suben. No se aceptan fotos viejas del carrete.
@@ -120,8 +122,6 @@ Sexto, destacados. Cortes y Reservas. Para Cortes, eligen de su carrete seis o s
 Cuando terminen, la prueba de los cinco segundos. En parejas: uno le muestra su perfil al otro durante cinco segundos y lo cierra. El otro tiene que decir el nombre, la ciudad, qué hace y cómo se reserva. Si no puede decir las cuatro, se corrige y se repite. Después cambian.
 
 Terminan con la pauta SÍ | NO del perfil del Anexo A, marcada por el compañero, no por el dueño del perfil.
-
-Y antes de cerrar, tu jugada callada: sacas la captura del perfil de cada uno "para tener registro de cómo quedó hoy". No cuentes más.
 
 ## Diapositiva 7. El reto: estrena tu primer yapping · 10 min
 
